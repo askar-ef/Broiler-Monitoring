@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:src="@drawable/logo_BroMo"
+        android:src="@drawable/logo_bromo"
         android:layout_centerInParent="true"/>
 
     <TextView
