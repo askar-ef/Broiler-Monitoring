@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Broiler Monitoring</string>
+    <string name="app_welcome1">Selamat Datang !</string>
+    <string name="app_welcome2">Mohon pilih job dibawah</string>
 </resources>
