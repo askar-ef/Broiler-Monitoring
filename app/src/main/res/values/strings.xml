@@ -2,4 +2,6 @@
     <string name="app_name">Broiler Monitoring</string>
     <string name="app_welcome1">Selamat Datang !</string>
     <string name="app_welcome2">Mohon pilih job dibawah</string>
+    <string name="job_button1">PETERNAK</string>
+    <string name="job_button2">PEMILIK</string>
 </resources>

@@ -22,7 +22,8 @@
         android:layout_above="@id/logo"
         android:text="@string/app_name"
         android:textSize="24sp"
-        android:textColor="@color/title_green"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textColor="@color/mainGreen"
         android:textStyle="bold"
         />
 
@@ -46,77 +47,56 @@
         android:text="@string/app_welcome2"
         />
 
-<!--    <LinearLayout-->
-<!--        android:id="@+id/job_button"-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="49dp"-->
-<!--        android:layout_below="@id/welcome2"-->
-<!--        android:layout_marginTop="15dp"-->
-<!--        android:layout_centerHorizontal="true">-->
-<!--        <Button-->
-<!--            android:id="@+id/job_peternak1"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_weight="1"-->
-<!--            android:text="peternak"/>-->
-
-<!--        <Button-->
-<!--            android:id="@+id/job_peternak2"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_weight="1"-->
-<!--            android:text="pemilik"/>-->
-<!--    </LinearLayout>-->
+    <RadioGroup
+        android:checkedButton="@+id/peternak_button"
+        android:id="@+id/toggle"
+        android:layout_below="@id/welcome2"
+        android:layout_width="297dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/control_switch_background_border"
+        android:orientation="horizontal">
+        <RadioButton
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="3dp"
+            android:id="@+id/peternak_button"
+            android:background="@drawable/control_switch_background_selector"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/job_button1"
+            android:fontFamily="@font/inter_regular"
+            android:textColor="@drawable/control_switch_color_selector"/>
+        <RadioButton
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginRight="3dp"
+            android:id="@+id/pemilik_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/control_switch_background_selector"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/job_button2"
+            android:fontFamily="@font/inter_regular"
+            android:textColor="@drawable/control_switch_color_selector"/>
+    </RadioGroup>
 
     <Button
         android:id="@+id/next_button"
         android:layout_width="300dp"
         android:layout_height="49dp"
         android:layout_marginTop="15dp"
-        android:layout_below="@id/toggle_button"
+        android:layout_below="@id/toggle"
         android:layout_centerHorizontal="true"
-        android:layout_weight="1"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/white"
+        android:fontFamily="@font/inter_regular"
         android:text="lanjut"/>
-
-    <RadioGroup
-        android:checkedButton="@+id/select_job"
-        android:id="@+id/toggle_button"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/toggle_outline"
-        android:orientation="horizontal"
-        android:layout_below="@+id/welcome2">
-
-        <RadioButton
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="1dp"
-            android:layout_marginLeft="1dp"
-            android:id="@+id/search"
-            android:background="@drawable/toggle_widget_background"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@null"
-            android:gravity="center"
-            android:text="PETERNAK"
-            android:textColor="@color/white" />
-
-        <RadioButton
-            android:layout_marginRight="1dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="1dp"
-            android:id="@+id/offer"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/toggle_widget_background"
-            android:button="@null"
-            android:gravity="center"
-            android:text="PETERNAK"
-            android:textColor="@color/white" />
-    </RadioGroup>
-
 
 </RelativeLayout>

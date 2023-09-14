@@ -2,7 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="title_green">#16A44A</color>
-    <color name="darkgrey">#5E5B5B</color>
-    <color name="transparent">#80000000</color>
+    <color name="mainGreen">#16A44A</color>
+    <color name="lighterGreen">#93DC49</color>
+    <color name="darkGrey">#5E5B5B</color>
+    <color name="transparent">#00000000</color>
+    <color name="controlBackground">#ffffffff</color>
 </resources>
