@@ -9,21 +9,114 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:src="@drawable/logo_bromo"
-        android:layout_centerInParent="true"/>
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/logo_bromo" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="45dp"
+        android:layout_marginBottom="25dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/logo"
+        android:layout_above="@id/logo"
         android:text="@string/app_name"
         android:textSize="24sp"
         android:textColor="@color/title_green"
         android:textStyle="bold"
         />
+
+    <TextView
+        android:id="@+id/welcome1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:textSize="24sp"
+        android:text="@string/app_welcome1"
+        />
+
+    <TextView
+        android:id="@+id/welcome2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcome1"
+        android:layout_centerHorizontal="true"
+        android:textSize="24sp"
+        android:text="@string/app_welcome2"
+        />
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/job_button"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="49dp"-->
+<!--        android:layout_below="@id/welcome2"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:layout_centerHorizontal="true">-->
+<!--        <Button-->
+<!--            android:id="@+id/job_peternak1"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="peternak"/>-->
+
+<!--        <Button-->
+<!--            android:id="@+id/job_peternak2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="pemilik"/>-->
+<!--    </LinearLayout>-->
+
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="300dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/toggle_button"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="1"
+        android:text="lanjut"/>
+
+    <RadioGroup
+        android:checkedButton="@+id/select_job"
+        android:id="@+id/toggle_button"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/toggle_outline"
+        android:orientation="horizontal"
+        android:layout_below="@+id/welcome2">
+
+        <RadioButton
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_marginLeft="1dp"
+            android:id="@+id/search"
+            android:background="@drawable/toggle_widget_background"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="PETERNAK"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:id="@+id/offer"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/toggle_widget_background"
+            android:button="@null"
+            android:gravity="center"
+            android:text="PETERNAK"
+            android:textColor="@color/white" />
+    </RadioGroup>
+
 
 </RelativeLayout>
