@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">Broiler Monitoring</string>
     <string name="app_welcome1">Selamat Datang !</string>
-    <string name="app_welcome2">Mohon pilih job dibawah</string>
-    <string name="job_button1">PETERNAK</string>
-    <string name="job_button2">PEMILIK</string>
+    <string name="app_welcome2">Tekan untuk berganti role</string>
+    <string name="job_button1">Peternak</string>
+    <string name="job_button2">Pemilik</string>
+    <string name="reg_page">Lengkapi Data!</string>
+    <string name="login_success1">Login Berhasil!</string>
+    <string name="login_success2">Data anda telah diverifikasi.</string>
+    <string name="reg_success1">Pendaftaran Berhasil!</string>
+    <string name="reg_success2">Data anda telah diverifikasi.</string>
+    <string name="reg_fail1">Pendaftaran Gagal!</string>
+    <string name="reg_fail2">Mohon periksa ulang data anda.</string>
+    <string name="login_fail1">Login Gagal!</string>
 </resources>

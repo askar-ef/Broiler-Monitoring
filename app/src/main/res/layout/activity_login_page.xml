@@ -1,9 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginPage">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/logo_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:paddingHorizontal="73dp"
+        android:paddingTop="51dp"
+        android:src="@drawable/logo_text" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo_text"
+        android:layout_marginTop="19dp"
+        android:src="@drawable/logo_without_text"
+        />
+
+    <TextView
+        android:id="@+id/welcome1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/inter_regular"
+        android:textStyle="bold"
+        android:text="@string/app_welcome1"
+        />
+    
+    <LinearLayout
+        android:id="@+id/inputSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/welcome1"
+        android:layout_marginTop="19dp"
+        android:paddingHorizontal="42dp">
+
+
+        <EditText
+            android:id="@+id/uname_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/uname_logo"
+            android:drawablePadding="15dp"
+            android:hint="Username"
+            android:fontFamily="@font/inter_regular"
+            android:layout_centerHorizontal="true"
+            android:textSize="15sp"
+            />
+
+        <EditText
+            android:id="@+id/password_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/password_logo"
+            android:drawableEnd="@drawable/password_eyeoff"
+            android:layout_marginTop="23dp"
+            android:drawablePadding="15dp"
+            android:hint="Password"
+            android:fontFamily="@font/inter_regular"
+            android:layout_centerHorizontal="true"
+            android:textSize="15sp"
+            />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/inputSection2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:paddingHorizontal="49dp"
+        android:layout_below="@id/inputSection">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ingat Akun"
+            android:textSize="15sp"
+            android:fontFamily="@font/inter_regular"
+            android:alpha="0.7"
+            android:layout_centerVertical="true"
+            />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lupa Password"
+            android:textSize="15sp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="277dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/inputSection2"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/white"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textSize="16sp"
+        android:text="LOGIN"/>
+
+    <RelativeLayout
+        android:id="@+id/toRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp">
+
+        <TextView
+            android:id="@+id/not_have_acc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Belum punya akun?"
+            android:fontFamily="@font/inter_regular"
+            android:textSize="14sp"
+            android:layout_marginEnd="4dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daftar disini!"
+            android:fontFamily="@font/inter_regular"
+            android:textSize="14sp"
+            android:layout_toEndOf="@+id/not_have_acc"
+            android:textColor="@color/blue"
+            />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

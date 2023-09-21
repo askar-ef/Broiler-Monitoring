@@ -7,4 +7,7 @@
     <color name="darkGrey">#5E5B5B</color>
     <color name="transparent">#00000000</color>
     <color name="controlBackground">#ffffffff</color>
+    <color name="blue">#0A89D0</color>
+    <color name="failPage">#E35547</color>
+    <color name="failPageButton">#A3372D</color>
 </resources>
