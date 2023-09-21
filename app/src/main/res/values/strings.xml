@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Broiler Monitoring</string>
+    <string name="login_name">Login</string>
+    <string-array name="kandang">
+        <item>Kandang 1</item>
+        <item>Kandang 2</item>
+        <item>Kandang 3</item>
+        <item>Kandang 4</item>
+    </string-array>
 </resources>

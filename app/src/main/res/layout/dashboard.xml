@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dashboard"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"/>
+
+    <ProgressBar
+        android:id="@+id/progress_suhu"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:indeterminate="false"
+        android:layout_marginTop="130dp"
+        android:layout_marginLeft="30dp"
+        android:max="100"
+        android:progress="0"
+        android:secondaryProgress="50"/>
+
+    <TextView
+        android:id="@+id/suhu"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="155dp"
+        android:layout_marginLeft="55dp"
+        android:text="0%"
+        android:textSize="20dp"
+        android:gravity="center"/>
+
+    <ProgressBar
+        android:id="@+id/progress_kelembapan"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:indeterminate="false"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="180dp"
+        android:max="100"
+        android:progress="0"
+        android:secondaryProgress="50"/>
+
+    <TextView
+        android:id="@+id/kelembapan"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="225dp"
+        android:layout_marginLeft="210dp"
+        android:text="0%"
+        android:textSize="20dp"
+        android:gravity="center"/>
+
+</RelativeLayout>

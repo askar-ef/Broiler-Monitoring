@@ -16,7 +16,19 @@
             android:name=".LoginPage"
             android:exported="false" />
         <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterSuksesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginSuksesActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomePageActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
