@@ -11,8 +11,8 @@
         android:id="@+id/logo"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:src="@drawable/logo_bromo"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:src="@drawable/logo_tanpa_nama" />
 
     <TextView
         android:layout_width="wrap_content"
