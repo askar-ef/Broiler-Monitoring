@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/failPage"
+    tools:context=".RegisterFail">
+
+    <TextView
+        android:id="@+id/RegFail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="99dp"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/inter_regular"
+        android:textStyle="bold"
+        android:text="@string/reg_fail1"
+        />
+
+    <TextView
+        android:id="@+id/RegFail2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/RegFail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="9dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/inter_regular"
+        android:text="@string/reg_fail2"
+        />
+
+    <RelativeLayout
+        android:id="@+id/success_logo"
+        android:layout_width="match_parent"
+        android:layout_height="199dp"
+        android:layout_below="@id/RegFail2"
+        android:layout_marginTop="107dp"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/success_circle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/failed_logo"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="277dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="107dp"
+        android:layout_below="@id/success_logo"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_fail_shape"
+        android:textColor="@color/white"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textSize="16sp"
+        android:text="Coba lagi"/>
+
+</RelativeLayout>

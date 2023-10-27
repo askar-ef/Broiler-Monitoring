@@ -13,16 +13,62 @@
         android:theme="@style/Theme.BroilerMonitoring"
         tools:targetApi="31">
         <activity
-            android:name=".LoginPage"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/TextField">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginFail"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterFail"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterSuccess"
+            android:exported="false" />
+        <activity
+            android:name=".LoginSuccess"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterPage"
+            android:exported="true">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".StartingPage"
+            android:exported="true" />
+        <activity
+            android:name=".LoginPage"
+            android:exported="true">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".JobSelect"
+            android:exported="true">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
     </application>
 

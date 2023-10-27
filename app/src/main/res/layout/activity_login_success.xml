@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginSuccess">
+
+    <TextView
+        android:id="@+id/LoginSuccess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="99dp"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/inter_regular"
+        android:textStyle="bold"
+        android:text="@string/login_success1"
+        />
+
+    <TextView
+        android:id="@+id/LoginSuccess2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/LoginSuccess"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="9dp"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/inter_regular"
+        android:text="@string/login_success2"
+        />
+
+    <RelativeLayout
+        android:id="@+id/success_logo"
+        android:layout_width="match_parent"
+        android:layout_height="199dp"
+        android:layout_below="@id/LoginSuccess2"
+        android:layout_marginTop="107dp"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/success_circle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/success"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="277dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="107dp"
+        android:layout_below="@id/success_logo"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/white"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textSize="16sp"
+        android:text="Lanjut"/>
+
+</RelativeLayout>
