@@ -10,4 +10,12 @@
     <color name="blue">#0A89D0</color>
     <color name="failPage">#E35547</color>
     <color name="failPageButton">#A3372D</color>
+    <color name="navigation">#78FBCE</color>
+    <color name="background">#DEF8EF</color>
+    <color name="line">#DADADA</color>
+    <color name="light_green">#78FBCE</color>
+
+    <color name="aman">#30B23D</color>
+    <color name="waspada">#B8C72B</color>
+    <color name="bahaya">#FF1F1F</color>
 </resources>
