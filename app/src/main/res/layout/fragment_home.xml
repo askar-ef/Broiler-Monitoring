@@ -65,7 +65,7 @@
                     android:fontFamily="@font/montserrat_semibold"/>
             </LinearLayout>
         </LinearLayout>
-        
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -186,7 +186,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="Suhu"
+                                    android:text="Amonia"
                                     android:textSize="15dp"
                                     android:textColor="@color/black"
                                     android:textStyle="bold"
@@ -218,7 +218,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="Suhu"
+                                    android:text="Kelembaban"
                                     android:textSize="15dp"
                                     android:textStyle="bold"
                                     android:textColor="@color/black"
@@ -290,7 +290,7 @@
                         android:background="@drawable/notif"
                         android:elevation="5dp"/>
                 </LinearLayout>
-                
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_marginTop="24dp"
@@ -306,7 +306,7 @@
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
-                
+
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
