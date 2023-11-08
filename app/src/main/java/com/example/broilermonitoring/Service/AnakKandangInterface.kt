@@ -9,4 +9,5 @@ import retrofit2.http.POST
 interface AnakKandangInterface {
     @POST("api/register-anak-kandang")
     fun registerOwner(@Body request: AnakKandangRequest): Call<AnakKandangResponse>
+    //
 }
