@@ -22,9 +22,14 @@ class RegisterPage : AppCompatActivity() {
 
         with(binding){
             loginButton.setOnClickListener {
-                val request = AnakKandangRequest(nameInput.text.toString(), unameInput.text.toString(), emailInput.text.toString(), passwordInput.text.toString(), statusInput.text.toString(),(phoneNumInput.text.toString()))
+                val namaLenkap = nameInput.text.toString()
+                val username = unameInput.text.toString()
+                val email = emailInput.text.toString()
+                val password = passwordInput.text.toString()
+                val statusUser = statusInput.text.toString()
+                val noHp = phoneNumInput.text.toString()
                 val RegisterAnakKandang= ApiService().getInstance().create(AnakKandangInterface::class.java)
-                RegisterAnakKandang.registerOwner(request).enqueue(object :
+                RegisterAnakKandang.registerOwner(namaLenkap,username,email,password,statusUser,noHp).enqueue(object :
                     Callback<AnakKandangResponse> {
                     override fun onResponse(call: Call<AnakKandangResponse>, response: Response<AnakKandangResponse>) {
                         if (response.isSuccessful) {
