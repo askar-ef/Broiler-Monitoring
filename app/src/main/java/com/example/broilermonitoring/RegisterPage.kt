@@ -3,6 +3,7 @@ package com.example.broilermonitoring
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.broilermonitoring.Model.AnakKandangRequest
 import com.example.broilermonitoring.Model.AnakKandangResponse
@@ -23,7 +24,7 @@ class RegisterPage : AppCompatActivity() {
 
         with(binding){
             loginButton.setOnClickListener {
-                val request = AnakKandangRequest(nameInput.text.toString(), unameInput.text.toString(), emailInput.text.toString(), passwordInput.text.toString(), statusInput.text.toString(),phoneNumInput.text.toString().toInt())
+                val request = AnakKandangRequest(nameInput.text.toString(), unameInput.text.toString(), emailInput.text.toString(), passwordInput.text.toString(), statusInput.text.toString(),(phoneNumInput.text.toString()))
                 val RegisterAnakKandang= ApiService().getInstance().create(AnakKandangInterface::class.java)
                 RegisterAnakKandang.registerOwner(request).enqueue(object :
                     Callback<AnakKandangResponse> {
@@ -40,12 +41,16 @@ class RegisterPage : AppCompatActivity() {
 //                                startActivity(inten)
 //                            }
                         } else {
-                            // Handle error response here
+                            Log.e("RegisterPage", "Gagal menerima respons: ${response.code()}")
+                            Toast.makeText(this@RegisterPage, "Terjadi kesalahan dalam proses pendaftaran", Toast.LENGTH_SHORT).show()
                         }
                     }
 
                     override fun onFailure(call: Call<AnakKandangResponse>, t: Throwable) {
-                        // Handle network error here
+                        Toast.makeText(this@RegisterPage, "Terjadi kesalahan jaringan: ${t.message}", Toast.LENGTH_SHORT).show()
+                        Log.e("RegisterPage", "Terjadi kesalahan: ${t.message}")
+
+
 
                     }
                 })

@@ -6,7 +6,7 @@ data class AnakKandangRequest(
     val email: String,
     val password: String,
     val status:String,
-    val no_telpon:Int
+    val no_telpon:String
 )
 data class AnakKandangResponse(
     val username: String,
