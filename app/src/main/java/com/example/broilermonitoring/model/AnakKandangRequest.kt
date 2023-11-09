@@ -1,12 +1,12 @@
-package com.example.broilermonitoring.Model
+package com.example.broilermonitoring.model
 
 data class AnakKandangRequest(
-    val nama_lengkap:String,
+    val namaLengkap:String,
     val username: String,
     val email: String,
     val password: String,
     val status:String,
-    val no_telpon:String
+    val noTelpon:String
 )
 data class AnakKandangResponse(
     val username: String,

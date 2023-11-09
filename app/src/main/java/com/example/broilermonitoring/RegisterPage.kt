@@ -1,19 +1,17 @@
 package com.example.broilermonitoring
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.example.broilermonitoring.Model.AnakKandangRequest
-import com.example.broilermonitoring.Model.AnakKandangResponse
-import com.example.broilermonitoring.Service.AnakKandangInterface
-import com.example.broilermonitoring.Service.ApiService
+import com.example.broilermonitoring.model.AnakKandangRequest
+import com.example.broilermonitoring.model.AnakKandangResponse
+import com.example.broilermonitoring.service.AnakKandangInterface
+import com.example.broilermonitoring.service.ApiService
 import com.example.broilermonitoring.databinding.ActivityRegisterPageBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.create
 
 class RegisterPage : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterPageBinding
