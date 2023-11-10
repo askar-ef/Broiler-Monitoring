@@ -1,9 +1,9 @@
-package com.example.broilermonitoring
+package com.example.broilermonitoring.model
 
 import android.content.Context
 import android.content.SharedPreferences
 
-class Token(context: Context) {
+class Helper(context: Context) {
     private val sharedPreferences: SharedPreferences =
         context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
@@ -12,14 +12,24 @@ class Token(context: Context) {
         editor.putString("token", token)
         editor.apply()
     }
+    fun saveId(Id:String){
+        val editor = sharedPreferences.edit()
+        editor.putString("Id",Id)
+        editor.apply()
+    }
 
     fun getToken(): String? {
         return sharedPreferences.getString("token", null)
     }
 
-    fun clearToken() {
+    fun getId():String?{
+        return sharedPreferences.getString("Id",null)
+    }
+
+    fun clearAll() {
         val editor = sharedPreferences.edit()
         editor.remove("token")
+        editor.remove("Id")
         editor.apply()
     }
 }

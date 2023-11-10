@@ -6,9 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.broilermonitoring.databinding.ActivityLoginPageBinding
-import com.example.broilermonitoring.model.AnakKandangResponse
 import com.example.broilermonitoring.model.LoginResponse
-import com.example.broilermonitoring.service.AnakKandangInterface
+import com.example.broilermonitoring.model.Helper
 import com.example.broilermonitoring.service.ApiService
 import com.example.broilermonitoring.service.LoginInterface
 import retrofit2.Call
@@ -23,7 +22,7 @@ class LoginPage : AppCompatActivity() {
         setContentView(binding.root)
 
         with(binding){
-            val Bearer= Token(this@LoginPage)
+            val Penyimpan= Helper(this@LoginPage)
 
             loginButton.setOnClickListener {
                 val username = unameInput.text.toString()
@@ -36,9 +35,12 @@ class LoginPage : AppCompatActivity() {
                         if (response.isSuccessful) {
                             val registrationResponse = response.body()
                             val token=registrationResponse?.token
+                            val id= registrationResponse?.id
 //                            Toast.makeText(this@LoginPage, token.toString(), Toast.LENGTH_SHORT).show()
-                            Bearer.saveToken(token.toString())
+                            Penyimpan.saveToken(token.toString())
+                            Penyimpan.saveId(id.toString())
                             val intent=Intent(this@LoginPage,LoginSuccess::class.java)
+
                             startActivity(intent)
                         } else {
                             Log.e("RegisterPage", "Gagal menerima respons: ${response.code()}")
