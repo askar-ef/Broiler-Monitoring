@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_manu"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.broilermonitoring.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/home_page" >
+        <action
+            android:id="@+id/action_firstFragment_to_secondFragment"
+            app:destination="@id/navigation_dashboard" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.broilermonitoring.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/dashboard" >
+        <action
+            android:id="@+id/action_secondFragment_to_thirdFragment"
+            app:destination="@id/navigation_laporan" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_laporan"
+        android:name="com.example.broilermonitoring.LaporanFragment"
+        android:label="Laporan"
+        tools:layout="@layout/laporan" >
+        <action
+            android:id="@+id/action_thirdFragment_to_fourthFragment"
+            app:destination="@id/navigation_setting" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_setting"
+        android:name="com.example.broilermonitoring.SettingFragment"
+        android:label="Setting"
+        tools:layout="@layout/setting" />
+</navigation>

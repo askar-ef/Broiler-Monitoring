@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".LoginSuksesActivity"
     android:orientation="vertical">
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +14,6 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_marginTop="80dp"/>
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,18 +21,16 @@
         android:textSize="20dp"
         android:gravity="center"
         android:layout_marginTop="5dp"/>
-
     <View
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_gravity="center"
-        android:layout_marginLeft="55dp"
-        android:layout_marginRight="55dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="220dp"
+        android:layout_marginHorizontal="55dp"
+        android:layout_marginVertical="80dp"
         android:background="@drawable/group_2"/>
-
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/lanjut_button"
+        android:clickable="true"
         android:background="@drawable/button"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -42,8 +38,6 @@
         android:textSize="20dp"
         android:textStyle="bold"
         android:textColor="@color/white"
-        android:layout_marginTop="-120dp"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"/>
-
 </LinearLayout>

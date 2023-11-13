@@ -13,6 +13,27 @@
         android:theme="@style/Theme.BroilerMonitoring"
         tools:targetApi="31">
         <activity
+            android:name=".RegisterPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PanduanAplikasiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LaporanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NotifikasiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ForecastingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HistoryPanenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".KlasifikasiActivity"
+            android:exported="false" />
+        <activity
             android:name=".PasswordActivity"
             android:exported="false" />
         <activity
@@ -35,22 +56,22 @@
             android:name=".LoginGagalActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginPage"
-            android:exported="false" />
-        <activity
-            android:name=".DashboardActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterSuksesActivity"
+            android:name=".HomePageActivity"
             android:exported="false" />
         <activity
             android:name=".LoginSuksesActivity"
             android:exported="false" />
         <activity
+            android:name=".RegisterSuksesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".HomePageActivity"
+            android:name=".LoginPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
