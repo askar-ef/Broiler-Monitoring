@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter
 import com.example.broilermonitoring.databinding.FragmentHomeBinding
 import com.example.broilermonitoring.model.DataItem
 import com.example.broilermonitoring.model.Helper
-import com.example.broilermonitoring.model.Response
+import com.example.broilermonitoring.model.ResponseKandang
 import com.example.broilermonitoring.service.ApiService
 import com.example.broilermonitoring.service.KandangInterface
 import retrofit2.Call
@@ -50,11 +50,30 @@ class Home : Fragment() {
     ): View? {
         binding= FragmentHomeBinding.inflate(inflater,container,false)
         val view=binding.root
-        DataList= arrayListOf<DataItem>()
-        KandangList = arrayListOf<String>()
 
-        getKandang()
+//        getKandang()
+        val Token="Bearer "+Helper(requireContext()).getToken().toString()
+//        val IdAnak="1"
+        val Kandang= ApiService().getInstance()
+        val KandangApi=Kandang.create(KandangInterface::class.java)
+        val call= KandangApi.getKandangPerAnak(Token)
 
+        call.enqueue(object :Callback<ResponseKandang>{
+            override fun onResponse(call: Call<ResponseKandang>, response: retrofit2.Response<ResponseKandang>) {
+                val ResponseData = response.body()
+                val Datas = ResponseData?.data
+                if (Datas != null) {
+                    for (data in Datas) {
+                        DataList.add(data)
+                        KandangList.add(data?.namaKandang.toString())
+                    }
+                }
+                Log.e("Response", "Response body is null")
+            }
+            override fun onFailure(call: Call<ResponseKandang>, t: Throwable) {
+                Log.e("API Call", "Failure: ${t.message}")
+            }
+        })
         with(binding){
             val kandangAdapter = ArrayAdapter<String>(requireContext(),android.R.layout.simple_expandable_list_item_1,KandangList)
             kandangAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -65,27 +84,7 @@ class Home : Fragment() {
     }
 
     private fun getKandang() {
-//        val IdAnak=Helper(requireContext()).getId().toString()
-        val IdAnak=1
-        val Kandang= ApiService().getInstance()
-        val KandangApi=Kandang.create(KandangInterface::class.java)
 
-        KandangApi.getKandangPerAnak(IdAnak).enqueue(object :Callback<Response>{
-            override fun onResponse(call: Call<Response>, response: retrofit2.Response<Response>) {
-                val ResponseData = response.body()
-                val Datas = ResponseData?.data ?: emptyList()
-                if (Datas.isNotEmpty()) {
-                    for (data in Datas) {
-                        DataList.add(data)
-                        KandangList.add(data?.namaKandang.toString())
-                    }
-                }
-                Log.e("Response", response.toString())
-            }
-            override fun onFailure(call: Call<Response>, t: Throwable) {
-                Log.e("API Call", "Failure: ${t.message}")
-            }
-        })
     }
 
     companion object {

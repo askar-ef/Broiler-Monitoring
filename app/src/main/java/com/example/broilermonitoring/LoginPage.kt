@@ -40,7 +40,7 @@ class LoginPage : AppCompatActivity() {
                             Penyimpan.saveToken(token.toString())
                             Penyimpan.saveId(id.toString())
                             val intent=Intent(this@LoginPage,LoginSuccess::class.java)
-
+                            Toast.makeText(this@LoginPage,Penyimpan.getToken().toString(),Toast.LENGTH_LONG).show()
                             startActivity(intent)
                         } else {
                             Log.e("RegisterPage", "Gagal menerima respons: ${response.code()}")

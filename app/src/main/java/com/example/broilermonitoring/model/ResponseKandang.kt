@@ -2,7 +2,7 @@ package com.example.broilermonitoring.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Response(
+data class ResponseKandang(
 
 	@field:SerializedName("data")
 	val data: List<DataItem>? = null
