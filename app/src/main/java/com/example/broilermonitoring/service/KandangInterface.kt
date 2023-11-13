@@ -7,6 +7,6 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface KandangInterface {
-    @GET("/kandang/anak-kandang/{id}")
-    fun getKandangPerAnak(@Path("id") id: String): Call<Response>
+    @GET("api/kandang/anak-kandang/{id}")
+    fun getKandangPerAnak(@Path("id") id: Int): Call<Response>
 }

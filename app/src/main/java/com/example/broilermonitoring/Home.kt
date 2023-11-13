@@ -50,6 +50,8 @@ class Home : Fragment() {
     ): View? {
         binding= FragmentHomeBinding.inflate(inflater,container,false)
         val view=binding.root
+        DataList= arrayListOf<DataItem>()
+        KandangList = arrayListOf<String>()
 
         getKandang()
 
@@ -64,21 +66,21 @@ class Home : Fragment() {
 
     private fun getKandang() {
 //        val IdAnak=Helper(requireContext()).getId().toString()
-        val IdAnak="1"
+        val IdAnak=1
         val Kandang= ApiService().getInstance()
         val KandangApi=Kandang.create(KandangInterface::class.java)
 
         KandangApi.getKandangPerAnak(IdAnak).enqueue(object :Callback<Response>{
             override fun onResponse(call: Call<Response>, response: retrofit2.Response<Response>) {
                 val ResponseData = response.body()
-                val Datas = ResponseData?.data
-                if (Datas != null) {
+                val Datas = ResponseData?.data ?: emptyList()
+                if (Datas.isNotEmpty()) {
                     for (data in Datas) {
                         DataList.add(data)
                         KandangList.add(data?.namaKandang.toString())
                     }
                 }
-                Log.e("Response", "Response body is null")
+                Log.e("Response", response.toString())
             }
             override fun onFailure(call: Call<Response>, t: Throwable) {
                 Log.e("API Call", "Failure: ${t.message}")
