@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.broilermonitoring.HomeFragment"
+        android:name="com.example.broilermonitoring.Home"
         android:label="Home"
         tools:layout="@layout/home_page" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.broilermonitoring.DashboardFragment"
+        android:name="com.example.broilermonitoring.Dashboard"
         android:label="Dashboard"
         tools:layout="@layout/dashboard" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_laporan"
-        android:name="com.example.broilermonitoring.LaporanFragment"
+        android:name="com.example.broilermonitoring.Laporan"
         android:label="Laporan"
         tools:layout="@layout/laporan" >
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_setting"
-        android:name="com.example.broilermonitoring.SettingFragment"
+        android:name="com.example.broilermonitoring.Setting"
         android:label="Setting"
         tools:layout="@layout/setting" />
 </navigation>

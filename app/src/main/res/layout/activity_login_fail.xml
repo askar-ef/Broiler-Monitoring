@@ -4,40 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginSuksesActivity"
-    android:orientation="vertical">
+    tools:context=".LoginSuccessActivity"
+    android:orientation="vertical"
+    android:background="#E35547">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login Berhasil"
+        android:text="Login Gagal"
         android:textSize="30dp"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:gravity="center"
         android:layout_marginTop="80dp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Data anda telah diverifikasi."
+        android:text="Mohon periksa ulang data anda"
         android:textSize="20dp"
+        android:textColor="@color/white"
         android:gravity="center"
         android:layout_marginTop="5dp"/>
     <View
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginHorizontal="55dp"
-        android:layout_marginVertical="80dp"
-        android:background="@drawable/group_2"/>
+        android:layout_marginLeft="55dp"
+        android:layout_marginRight="55dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="220dp"
+        android:background="@drawable/group_1"/>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/lanjut_button"
         android:clickable="true"
-        android:background="@drawable/button"
+        android:background="@drawable/button1"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="Lanjut"
+        android:text="Coba Lagi"
         android:textSize="20dp"
         android:textStyle="bold"
         android:textColor="@color/white"
+        android:layout_marginTop="-120dp"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"/>
 </LinearLayout>

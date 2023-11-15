@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.broilermonitoring.databinding.PasswordBinding
 
-class PasswordActivity : AppCompatActivity() {
+class Password : AppCompatActivity() {
     private lateinit var binding: PasswordBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,7 +14,7 @@ class PasswordActivity : AppCompatActivity() {
         with(binding){
             button.setOnClickListener {
                 val intentPasswordBinding =
-                    Intent(this@PasswordActivity, AkunActivity::class.java)
+                    Intent(this@Password, Akun::class.java)
                 startActivity(intentPasswordBinding)
                 }
         }

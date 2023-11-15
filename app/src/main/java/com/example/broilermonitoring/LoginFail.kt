@@ -2,18 +2,18 @@ package com.example.broilermonitoring
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.broilermonitoring.databinding.LoginGagalBinding
+import com.example.broilermonitoring.databinding.ActivityLoginFailBinding
 
-class LoginGagalActivity : AppCompatActivity() {
-    private lateinit var binding: LoginGagalBinding
+class LoginFail : AppCompatActivity() {
+    private lateinit var binding: ActivityLoginFailBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = LoginGagalBinding.inflate(layoutInflater)
+        binding = ActivityLoginFailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         with(binding){
             lanjutButton.setOnClickListener {
                 val intentLoginGagalBinding =
-                    intent.setClass(this@LoginGagalActivity, LoginPage::class.java)
+                    intent.setClass(this@LoginFail, LoginPage::class.java)
                 startActivity(intentLoginGagalBinding)
             }
         }

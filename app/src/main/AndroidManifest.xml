@@ -13,62 +13,62 @@
         android:theme="@style/Theme.BroilerMonitoring"
         tools:targetApi="31">
         <activity
-            android:name=".RegisterPageActivity"
+            android:name=".RegisterPage"
             android:exported="false" />
         <activity
-            android:name=".PanduanAplikasiActivity"
+            android:name=".PanduanAplikasi"
             android:exported="false" />
         <activity
             android:name=".LaporanActivity"
             android:exported="false" />
         <activity
-            android:name=".NotifikasiActivity"
+            android:name=".Notifikasi"
             android:exported="false" />
         <activity
-            android:name=".ForecastingActivity"
+            android:name=".Forecasting"
             android:exported="false" />
         <activity
-            android:name=".HistoryPanenActivity"
+            android:name=".HistoryPanen"
             android:exported="false" />
         <activity
-            android:name=".KlasifikasiActivity"
+            android:name=".Klasifikasi"
             android:exported="false" />
         <activity
-            android:name=".PasswordActivity"
+            android:name=".Password"
             android:exported="false" />
         <activity
-            android:name=".AkunActivity"
+            android:name=".Akun"
             android:exported="false" />
         <activity
             android:name=".SettingActivity"
             android:exported="false" />
         <activity
-            android:name=".DaftarPeternakActivity"
+            android:name=".DaftarPeternak"
             android:exported="false" />
         <activity
-            android:name=".RegisterGagalActivity"
+            android:name=".RegisterFail"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".MainActivity"
             android:exported="false"
             android:label="@string/title_activity_main2" />
         <activity
-            android:name=".LoginGagalActivity"
+            android:name=".LoginFail"
             android:exported="false" />
         <activity
             android:name=".HomePageActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginSuksesActivity"
+            android:name=".LoginSuccessActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterSuksesActivity"
+            android:name=".RegisterSuccess"
             android:exported="false" />
         <activity
             android:name=".DashboardActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".StartingPage"
             android:exported="false" />
         <activity
             android:name=".LoginPage"

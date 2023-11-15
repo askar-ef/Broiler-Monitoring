@@ -2,17 +2,17 @@ package com.example.broilermonitoring
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.broilermonitoring.RegisterPageActivity.Companion.EXTRA_EMAIL
-import com.example.broilermonitoring.RegisterPageActivity.Companion.EXTRA_PASS1
-import com.example.broilermonitoring.RegisterPageActivity.Companion.EXTRA_PHONE
-import com.example.broilermonitoring.RegisterPageActivity.Companion.EXTRA_USERNAME
-import com.example.broilermonitoring.databinding.RegisterSuksesBinding
+import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_EMAIL
+import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_PASS1
+import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_PHONE
+import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_USERNAME
+import com.example.broilermonitoring.databinding.ActivityRegisterSuccessBinding
 
-class RegisterSuksesActivity : AppCompatActivity() {
-    private lateinit var binding: RegisterSuksesBinding
+class RegisterSuccess : AppCompatActivity() {
+    private lateinit var binding: ActivityRegisterSuccessBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = RegisterSuksesBinding.inflate(layoutInflater)
+        binding = ActivityRegisterSuccessBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val username = intent.getStringExtra(EXTRA_USERNAME)
         val password = intent.getStringExtra(EXTRA_PASS1)
@@ -22,7 +22,7 @@ class RegisterSuksesActivity : AppCompatActivity() {
         with(binding){
             lanjutButton.setOnClickListener {
                 val intentRegisterSuksesBinding =
-                    intent.setClass(this@RegisterSuksesActivity, HomePageActivity::class.java)
+                    intent.setClass(this@RegisterSuccess, Home::class.java)
                 intentRegisterSuksesBinding.putExtra(EXTRA_USERNAME, username)
                 intentRegisterSuksesBinding.putExtra(EXTRA_PASS1, password)
                 intentRegisterSuksesBinding.putExtra(EXTRA_EMAIL, email)

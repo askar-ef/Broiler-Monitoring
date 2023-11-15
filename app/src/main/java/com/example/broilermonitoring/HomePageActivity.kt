@@ -1,24 +1,17 @@
 package com.example.broilermonitoring
 
-import android.content.ClipData.Item
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.broilermonitoring.LoginPage.Companion.EXTRA_NAME
 import com.example.broilermonitoring.LoginPage.Companion.EXTRA_PASS
-import com.example.broilermonitoring.RegisterPageActivity.Companion.EXTRA_EMAIL
-import com.example.broilermonitoring.RegisterPageActivity.Companion.EXTRA_PASS1
-import com.example.broilermonitoring.RegisterPageActivity.Companion.EXTRA_PHONE
-import com.example.broilermonitoring.RegisterPageActivity.Companion.EXTRA_USERNAME
+import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_EMAIL
+import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_PASS1
+import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_PHONE
+import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_USERNAME
 import com.example.broilermonitoring.databinding.HomePageBinding
-import me.ibrahimsn.lib.SmoothBottomBar
 
 class HomePageActivity : AppCompatActivity() {
     private lateinit var binding: HomePageBinding
@@ -50,7 +43,7 @@ class HomePageActivity : AppCompatActivity() {
             usernameUser.text = "$name"
             daftarPeternak.setOnClickListener {
                 val intentHomePageActivity =
-                    Intent(this@HomePageActivity, DaftarPeternakActivity::class.java)
+                    Intent(this@HomePageActivity, DaftarPeternak::class.java)
                 intentHomePageActivity.putExtra(EXTRA_NAME, name)
                 intentHomePageActivity.putExtra(EXTRA_PASS, passwordlog)
                 intentHomePageActivity.putExtra(EXTRA_USERNAME, username.toString())
@@ -61,7 +54,7 @@ class HomePageActivity : AppCompatActivity() {
             }
             klasifikasi.setOnClickListener {
                 val intentHomePageActivity =
-                    Intent(this@HomePageActivity, KlasifikasiActivity::class.java)
+                    Intent(this@HomePageActivity, Klasifikasi::class.java)
                 intentHomePageActivity.putExtra(EXTRA_NAME, name)
                 intentHomePageActivity.putExtra(EXTRA_PASS, passwordlog)
                 intentHomePageActivity.putExtra(EXTRA_USERNAME, username.toString())
@@ -72,7 +65,7 @@ class HomePageActivity : AppCompatActivity() {
             }
             forcasting.setOnClickListener {
                 val intentHomePageActivity =
-                    Intent(this@HomePageActivity, ForecastingActivity::class.java)
+                    Intent(this@HomePageActivity, Forecasting::class.java)
                 intentHomePageActivity.putExtra(EXTRA_NAME, name)
                 intentHomePageActivity.putExtra(EXTRA_PASS, passwordlog)
                 intentHomePageActivity.putExtra(EXTRA_USERNAME, username.toString())
@@ -83,7 +76,7 @@ class HomePageActivity : AppCompatActivity() {
             }
             history.setOnClickListener {
                 val intentHomePageActivity =
-                    Intent(this@HomePageActivity, HistoryPanenActivity::class.java)
+                    Intent(this@HomePageActivity, HistoryPanen::class.java)
                 intentHomePageActivity.putExtra(EXTRA_NAME, name)
                 intentHomePageActivity.putExtra(EXTRA_PASS, passwordlog)
                 intentHomePageActivity.putExtra(EXTRA_USERNAME, username.toString())
@@ -94,7 +87,7 @@ class HomePageActivity : AppCompatActivity() {
             }
             notifikasi.setOnClickListener {
                 val intentHomePageActivity =
-                    Intent(this@HomePageActivity, NotifikasiActivity::class.java)
+                    Intent(this@HomePageActivity, Notifikasi::class.java)
                 intentHomePageActivity.putExtra(EXTRA_NAME, name)
                 intentHomePageActivity.putExtra(EXTRA_PASS, passwordlog)
                 intentHomePageActivity.putExtra(EXTRA_USERNAME, username.toString())
@@ -119,7 +112,7 @@ class HomePageActivity : AppCompatActivity() {
 
                     1 -> {
                         val intentHomePageActivity =
-                            Intent(this@HomePageActivity, DashboardActivity::class.java)
+                            Intent(this@HomePageActivity, Dashboard::class.java)
                         intentHomePageActivity.putExtra(EXTRA_NAME, name)
                         intentHomePageActivity.putExtra(EXTRA_PASS, passwordlog)
                         intentHomePageActivity.putExtra(EXTRA_USERNAME, username.toString())
@@ -131,7 +124,7 @@ class HomePageActivity : AppCompatActivity() {
 
                     2 -> {
                         val intentHomePageActivity =
-                            Intent(this@HomePageActivity, LaporanActivity::class.java)
+                            Intent(this@HomePageActivity, Laporan::class.java)
                         intentHomePageActivity.putExtra(EXTRA_NAME, name)
                         intentHomePageActivity.putExtra(EXTRA_PASS, passwordlog)
                         intentHomePageActivity.putExtra(EXTRA_USERNAME, username.toString())
@@ -143,7 +136,7 @@ class HomePageActivity : AppCompatActivity() {
 
                     3 -> {
                         val intentHomePageActivity =
-                            Intent(this@HomePageActivity, SettingActivity::class.java)
+                            Intent(this@HomePageActivity, Setting::class.java)
                         intentHomePageActivity.putExtra(EXTRA_NAME, name)
                         intentHomePageActivity.putExtra(EXTRA_PASS, passwordlog)
                         intentHomePageActivity.putExtra(EXTRA_USERNAME, username.toString())

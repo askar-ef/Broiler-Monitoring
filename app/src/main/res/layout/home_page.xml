@@ -361,4 +361,5 @@
         app:iconSize="22dp"
         android:padding="10dp"
         app:menu="@menu/bottom_nav_menu"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
