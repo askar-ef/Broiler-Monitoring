@@ -51,6 +51,9 @@ class Home : Fragment() {
         binding= FragmentHomeBinding.inflate(inflater,container,false)
         val view=binding.root
 
+        DataList = arrayListOf<DataItem>()
+        KandangList = arrayListOf<String>()
+
 //        getKandang()
         val Token="Bearer "+Helper(requireContext()).getToken().toString()
 //        val IdAnak="1"
