@@ -57,7 +57,7 @@ class InputHarian : Fragment() {
 
                 val api=ApiService().getInstance()
                 val apiInput=api.create(DataKandangInterface::class.java)
-                val token=Helper(requireContext()).getToken().toString()
+                val token="Bearer " + Helper(requireContext()).getToken().toString()
                 val inputHarian=apiInput.postData(token,pakan,id_kandang,minum,bobot)
                 inputHarian.enqueue(object :Callback<DataKandangResponse>{
                     override fun onResponse(
@@ -70,7 +70,8 @@ class InputHarian : Fragment() {
                             Log.e("response",responseData.toString())
                         }
                         else{
-                            Log.e("response",response.message())
+                            Log.e("response",response.raw().message)
+                            Log.e("token", token)
                         }
 
                     }

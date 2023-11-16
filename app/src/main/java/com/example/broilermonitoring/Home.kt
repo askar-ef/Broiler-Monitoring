@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.example.broilermonitoring.databinding.FragmentHomeBinding
 import com.example.broilermonitoring.model.DataItem
 import com.example.broilermonitoring.model.Helper
@@ -83,6 +85,19 @@ class Home : Fragment() {
             kandang.adapter=kandangAdapter
 
         }
+        binding.kandang.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                // Di sini Anda dapat melakukan sesuatu ketika item dipilih.
+                val selectedItem = KandangList[position]
+                Toast.makeText(requireContext(), "Selected: $selectedItem", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Implementasi ini akan dipanggil jika tidak ada item yang dipilih.
+            }
+        }
+
+
         return view
     }
 
