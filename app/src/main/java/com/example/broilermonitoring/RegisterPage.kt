@@ -5,8 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.example.broilermonitoring.model.AnakKandangRequest
-import com.example.broilermonitoring.model.AnakKandangResponse
+import com.example.broilermonitoring.model.Post.AnakKandangResponse
 import com.example.broilermonitoring.service.AnakKandangInterface
 import com.example.broilermonitoring.service.ApiService
 import com.example.broilermonitoring.databinding.ActivityRegisterPageBinding

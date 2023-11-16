@@ -68,7 +68,7 @@ class Home : Fragment() {
                         KandangList.add(data?.namaKandang.toString())
                     }
                 }
-                Log.e("Response", "Response body is null")
+                Log.e("Response", ResponseData.toString())
             }
             override fun onFailure(call: Call<ResponseKandang>, t: Throwable) {
                 Log.e("API Call", "Failure: ${t.message}")

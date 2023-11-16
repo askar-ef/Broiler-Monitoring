@@ -77,6 +77,7 @@
             android:paddingHorizontal="10dp"
             android:background="@drawable/txt_input_shape"
             android:hint="Pakan"
+            android:id="@+id/input_pakan"
             />
 
         <androidx.appcompat.widget.AppCompatEditText
@@ -86,6 +87,7 @@
             android:paddingHorizontal="10dp"
             android:background="@drawable/txt_input_shape"
             android:hint="Minum"
+            android:id="@+id/input_minum"
             />
 
         <androidx.appcompat.widget.AppCompatEditText
@@ -95,10 +97,11 @@
             android:paddingHorizontal="10dp"
             android:background="@drawable/txt_input_shape"
             android:hint="Bobot"
+            android:id="@+id/input_bobot"
             />
 
         <Button
-            android:id="@+id/loginButton"
+            android:id="@+id/btn_lapor"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="25dp"

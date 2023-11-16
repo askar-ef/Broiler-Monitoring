@@ -1,4 +1,4 @@
-package com.example.broilermonitoring.model
+package com.example.broilermonitoring.model.Post
 
 data class AnakKandangRequest(
     val namaLengkap:String,
