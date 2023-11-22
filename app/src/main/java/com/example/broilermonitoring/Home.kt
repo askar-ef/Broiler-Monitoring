@@ -80,7 +80,7 @@ class Home : Fragment() {
             }
         })
         with(binding){
-            val kandangAdapter = ArrayAdapter<String>(requireContext(),android.R.layout.simple_expandable_list_item_1,KandangList)
+            val kandangAdapter = ArrayAdapter(requireContext(),android.R.layout.simple_spinner_dropdown_item,KandangList)
             kandangAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             kandang.adapter=kandangAdapter
 
@@ -91,13 +91,10 @@ class Home : Fragment() {
                 val selectedItem = KandangList[position]
                 Toast.makeText(requireContext(), "Selected: $selectedItem", Toast.LENGTH_SHORT).show()
             }
-
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 // Implementasi ini akan dipanggil jika tidak ada item yang dipilih.
             }
         }
-
-
         return view
     }
 

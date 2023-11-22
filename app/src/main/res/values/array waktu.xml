@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="jam">
+        <item>00.00-01.00 WIB</item>
+        <item>01.00-02.00 WIB</item>
+        <item>02.00-03.00 WIB</item>
+        <item>03.00-04.00 WIB</item>
+        <item>04.00-05.00 WIB</item>
+        <item>05.00-06.00 WIB</item>
+        <item>06.00-07.00 WIB</item>
+        <item>07.00-08.00 WIB</item>
+        <item>08.00-09.00 WIB</item>
+        <item>09.00-10.00 WIB</item>
+        <item>10.00-11.00 WIB</item>
+        <item>11.00-12.00 WIB</item>
+        <item>12.00-13.00 WIB</item>
+        <item>13.00-14.00 WIB</item>
+        <item>14.00-15.00 WIB</item>
+        <item>15.00-16.00 WIB</item>
+        <item>16.00-17.00 WIB</item>
+        <item>17.00-18.00 WIB</item>
+        <item>18.00-19.00 WIB</item>
+        <item>19.00-20.00 WIB</item>
+        <item>20.00-21.00 WIB</item>
+        <item>21.00-22.00 WIB</item>
+        <item>22.00-23.00 WIB</item>
+        <item>23.00-00.00 WIB</item>
+    </array>
+</resources>

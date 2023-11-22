@@ -6,14 +6,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import androidx.core.view.get
 import com.example.broilermonitoring.databinding.FragmentInputHarianBinding
 import com.example.broilermonitoring.model.Helper
 import com.example.broilermonitoring.model.Post.DataKandangResponse
+import com.example.broilermonitoring.model.Post.DataKematianResponse
 import com.example.broilermonitoring.service.ApiService
 import com.example.broilermonitoring.service.DataKandangInterface
+import com.example.broilermonitoring.service.DataKematianInterface
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,6 +36,7 @@ class InputHarian : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var binding: FragmentInputHarianBinding
+    private var jamKematian =0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,9 +89,71 @@ class InputHarian : Fragment() {
                 })
 
             }
+            inputJumlahKematian.setText(0)
+            val waktu=resources.getStringArray(R.array.jam)
+            val waktuAdapter=ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item,waktu)
+            waktuAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinnerWaktu.adapter=waktuAdapter
         }
-
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        with(binding){
+            btnTambahKematian.setOnClickListener {
+                inputJumlahKematian.setText(inputJumlahKematian.text.toString().toInt()+1)
+            }
+            btnKurangiKematian.setOnClickListener {
+                if (inputJumlahKematian.text.toString().toInt()>0){
+                    inputJumlahKematian.setText(inputJumlahKematian.text.toString().toInt()-1)
+                }
+            }
+
+            spinnerWaktu.onItemSelectedListener=object :AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    val selectedItem=spinnerWaktu[position].toString()
+                    val extractedChars = selectedItem.substring(0, 2).toInt()
+                    jamKematian=extractedChars
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    jamKematian=999
+                }
+            }
+
+            val token="Bearer "+Helper(requireContext()).getToken().toString()
+
+            val api=ApiService().getInstance()
+            val apiKematian=api.create(DataKematianInterface::class.java)
+
+            btnLaporkanKematian.setOnClickListener {
+                if (jamKematian <=24 && jamKematian>=0){
+                    apiKematian.postDataKematian(token,jamKematian,1,inputJumlahKematian.text.toString().toInt())
+                        .enqueue(object :Callback<DataKematianResponse>{
+                            override fun onResponse(
+                                call: Call<DataKematianResponse>,
+                                response: Response<DataKematianResponse>
+                            ) {
+                                if (response.isSuccessful){
+                                    val responseData=response.body()
+                                    Log.e("response",responseData?.message.toString())
+                                }else{
+                                    Log.e("response",response.message())
+                                }
+                            }
+                            override fun onFailure(call: Call<DataKematianResponse>, t: Throwable) {
+                                Log.e("Failure",t.message.toString())
+                            }
+                        })
+                }
+            }
+        }
     }
 
     companion object {

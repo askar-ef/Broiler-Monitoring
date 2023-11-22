@@ -5,13 +5,13 @@ import com.google.gson.annotations.SerializedName
 data class DataKandangResponse(
 
 	@field:SerializedName("data")
-	val data: Data? = null,
+	val data: DataKandang? = null,
 
 	@field:SerializedName("message")
 	val message: String? = null
 )
 
-data class Data(
+data class DataKandang(
 
 	@field:SerializedName("pakan")
 	val pakan: Int? = null,
