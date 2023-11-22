@@ -1,9 +1,7 @@
 package com.example.broilermonitoring
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import com.example.broilermonitoring.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        replaceFragment(HomeAdmin())
 
         val name = intent.getStringExtra(LoginPage.EXTRA_NAME)
         val passwordlog = intent.getStringExtra(LoginPage.EXTRA_PASS)
@@ -26,21 +25,13 @@ class MainActivity : AppCompatActivity() {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
 
         binding.bottomMenu.setOnItemSelectedListener {
-            when (it) {
-                R.id.navigation_home -> {
-                    fragmentTransaction.replace(R.id.nav_host_frag, Home())
-                }
-                R.id.navigation_dashboard -> {
-                    fragmentTransaction.replace(R.id.nav_host_frag, Dashboard())
-                }
-                R.id.navigation_laporan -> {
-                    fragmentTransaction.replace(R.id.nav_host_frag, Laporan())
-                }
-                R.id.navigation_setting -> {
-                    fragmentTransaction.replace(R.id.nav_host_frag, Setting())
-                }
+            when(it){
+                0 -> replaceFragment(HomeAdmin())
+                1 -> replaceFragment(Dashboard())
+                2 -> replaceFragment(Laporan())
+                3 -> replaceFragment(Setting())
             }
-            fragmentTransaction.commit()
+            true
         }
 
 //        val navController = findNavController(R.id.nav_host_fragment_activity_main2)
@@ -53,5 +44,10 @@ class MainActivity : AppCompatActivity() {
 //        )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
 //        navView.setupWithNavController(navController)
+    }
+    private fun replaceFragment(fragment: androidx.fragment.app.Fragment){
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.nav_host_frag, fragment)
+        transaction.commit()
     }
 }

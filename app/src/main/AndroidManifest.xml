@@ -19,7 +19,7 @@
             android:name=".PanduanAplikasi"
             android:exported="false" />
         <activity
-            android:name=".LaporanActivity"
+            android:name=".Laporan"
             android:exported="false" />
         <activity
             android:name=".Notifikasi"
@@ -40,7 +40,7 @@
             android:name=".Akun"
             android:exported="false" />
         <activity
-            android:name=".SettingActivity"
+            android:name=".Setting"
             android:exported="false" />
         <activity
             android:name=".DaftarPeternak"
@@ -50,8 +50,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"
-            android:label="@string/title_activity_main2" />
+            android:exported="false"/>
         <activity
             android:name=".LoginFail"
             android:exported="false" />
@@ -59,19 +58,19 @@
             android:name=".HomePageActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginSuccessActivity"
+            android:name=".LoginSuccess"
             android:exported="false" />
         <activity
             android:name=".RegisterSuccess"
             android:exported="false" />
         <activity
-            android:name=".DashboardActivity"
-            android:exported="false" />
-        <activity
-            android:name=".StartingPage"
+            android:name=".Dashboard"
             android:exported="false" />
         <activity
             android:name=".LoginPage"
+            android:exported="false" />
+        <activity
+            android:name=".StartingPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

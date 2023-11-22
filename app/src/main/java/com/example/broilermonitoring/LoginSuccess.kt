@@ -6,7 +6,7 @@ import com.example.broilermonitoring.LoginPage.Companion.EXTRA_NAME
 import com.example.broilermonitoring.LoginPage.Companion.EXTRA_PASS
 import com.example.broilermonitoring.databinding.ActivityLoginSuccessBinding
 
-class LoginSuccessActivity : AppCompatActivity() {
+class LoginSuccess : AppCompatActivity() {
     private lateinit var binding: ActivityLoginSuccessBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +18,7 @@ class LoginSuccessActivity : AppCompatActivity() {
         with(binding){
             lanjutButton.setOnClickListener {
                 val intentLoginSuksesBinding =
-                    intent.setClass(this@LoginSuccessActivity, Home::class.java)
+                    intent.setClass(this@LoginSuccess, MainActivity::class.java)
                 intentLoginSuksesBinding.putExtra(EXTRA_NAME, name)
                 intentLoginSuksesBinding.putExtra(EXTRA_PASS, passwordlog)
                 startActivity(intentLoginSuksesBinding)

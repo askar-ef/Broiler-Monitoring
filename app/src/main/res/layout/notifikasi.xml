@@ -6,42 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".Notifikasi"
     android:orientation="vertical">
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:background="#DEF8EF">
         <View
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginRight="320dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="130dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/notifikasi"
             android:backgroundTint="@color/black"
-            android:background="@drawable/notifikasi" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/text_notifikasi"/>
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/text_notifikasi"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Notifikasi"
+            android:text="Password"
             android:textSize="23dp"
             android:fontFamily="@font/montserrat"
             android:textColor="@color/black"
-            android:layout_marginTop="60dp"
-            android:gravity="center"/>
+            android:layout_marginBottom="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
         <View
-            android:layout_width="match_parent"
+            android:layout_width="260dp"
             android:layout_height="8dp"
-            android:layout_marginTop="95dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="100dp"
-            android:background="@drawable/underline1"/>
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/underline1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
         <View
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@drawable/logo_tanpa_nama"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="310dp"/>
-    </RelativeLayout>
+            android:layout_marginLeft="50dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/text_notifikasi"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="600dp"

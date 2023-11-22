@@ -22,7 +22,7 @@ class RegisterSuccess : AppCompatActivity() {
         with(binding){
             lanjutButton.setOnClickListener {
                 val intentRegisterSuksesBinding =
-                    intent.setClass(this@RegisterSuccess, Home::class.java)
+                    intent.setClass(this@RegisterSuccess, MainActivity::class.java)
                 intentRegisterSuksesBinding.putExtra(EXTRA_USERNAME, username)
                 intentRegisterSuksesBinding.putExtra(EXTRA_PASS1, password)
                 intentRegisterSuksesBinding.putExtra(EXTRA_EMAIL, email)

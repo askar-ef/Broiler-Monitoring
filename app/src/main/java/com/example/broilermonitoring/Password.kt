@@ -14,7 +14,7 @@ class Password : AppCompatActivity() {
         with(binding){
             button.setOnClickListener {
                 val intentPasswordBinding =
-                    Intent(this@Password, Akun::class.java)
+                    Intent(this@Password, Setting::class.java)
                 startActivity(intentPasswordBinding)
                 }
         }

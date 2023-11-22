@@ -30,7 +30,7 @@ class LoginPage : AppCompatActivity() {
         with(binding){
             loginButton.setOnClickListener{
                 val intentActivityLoginPageBinding =
-                    Intent(this@LoginPage, LoginSuccessActivity::class.java)
+                    Intent(this@LoginPage, LoginSuccess::class.java)
                 intentActivityLoginPageBinding.putExtra(EXTRA_NAME, usernameInput.text.toString())
                 intentActivityLoginPageBinding.putExtra(EXTRA_PASS, passwordInput.text.toString())
                 startActivity(intentActivityLoginPageBinding)
