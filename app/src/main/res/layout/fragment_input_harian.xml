@@ -107,6 +107,9 @@
             android:layout_marginTop="25dp"
             android:layout_below="@id/inputSection2"
             android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground"
             android:background="@drawable/button_shape"
             android:textColor="@color/white"
             android:fontFamily="@font/montserrat_semibold"
@@ -180,6 +183,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?selectableItemBackground"
                     android:src="@drawable/inputharian_plusbutton"/>
 
                 <EditText
@@ -195,6 +201,9 @@
                     android:id="@+id/btn_kurangiKematian"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?selectableItemBackground"
                     android:src="@drawable/inputharian_minusbutton"/>
 
             </LinearLayout>
@@ -208,6 +217,9 @@
             android:layout_marginTop="17dp"
             android:layout_below="@id/inputSection2"
             android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground"
             android:background="@drawable/button_shape"
             android:textColor="@color/white"
             android:fontFamily="@font/montserrat_semibold"
