@@ -98,10 +98,6 @@ class Home : Fragment() {
         return view
     }
 
-    private fun getKandang() {
-
-    }
-
     companion object {
         /**
          * Use this factory method to create a new instance of
