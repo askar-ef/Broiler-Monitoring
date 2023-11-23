@@ -105,6 +105,7 @@
                     android:backgroundTint="@color/white"
                     android:background="@drawable/background_icon"/>
                 <TextView
+                    android:id="@+id/kelembapan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -141,6 +142,7 @@
                     android:backgroundTint="@color/white"
                     android:background="@drawable/background_icon"/>
                 <TextView
+                    android:id="@+id/amonia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -177,6 +179,7 @@
                     android:backgroundTint="@color/white"
                     android:background="@drawable/background_icon"/>
                 <TextView
+                    android:id="@+id/suhu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -213,6 +216,7 @@
                     android:backgroundTint="@color/white"
                     android:background="@drawable/background_icon"/>
                 <TextView
+                    android:id="@+id/pakan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -249,6 +253,7 @@
                     android:backgroundTint="@color/white"
                     android:background="@drawable/background_icon"/>
                 <TextView
+                    android:id="@+id/minum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -285,6 +290,7 @@
                     android:backgroundTint="@color/white"
                     android:background="@drawable/background_icon"/>
                 <TextView
+                    android:id="@+id/bobot"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -321,6 +327,7 @@
                     android:backgroundTint="@color/white"
                     android:background="@drawable/background_icon"/>
                 <TextView
+                    android:id="@+id/populasi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -357,6 +364,7 @@
                     android:backgroundTint="@color/white"
                     android:background="@drawable/background_icon"/>
                 <TextView
+                    android:id="@+id/luas_kandang"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
