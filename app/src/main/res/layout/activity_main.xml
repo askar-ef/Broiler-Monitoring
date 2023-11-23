@@ -15,21 +15,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottom_menu"/>
-    <me.ibrahimsn.lib.SmoothBottomBar
-        android:id="@+id/bottom_menu"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav_view"/>
+
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
+        android:id="@+id/bottom_nav_view"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
+        android:background="@color/light_green"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:cornerRadius="15dp"
-        app:iconTint="@color/black"
-        app:backgroundColor="@color/navigation"
-        app:indicatorColor="@color/background"
-        app:iconTintActive="@color/black"
-        app:textColor="@color/black"
-        app:iconSize="22dp"
-        android:padding="10dp"
-        app:menu="@menu/bottom_nav_menu"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:cnb_unselectedColor="@color/black"
+        app:cnb_radius="20dp"
+        app:cnb_menuResource="@menu/nav_menu"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

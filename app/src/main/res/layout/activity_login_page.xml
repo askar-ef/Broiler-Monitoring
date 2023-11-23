@@ -1,105 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <View
-        android:layout_width="229dp"
-        android:layout_height="73dp"
-        android:background="@drawable/bromo"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"/>
-    <View
+    tools:context=".LoginPage">
+
+    <ImageView
+        android:id="@+id/logo_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:paddingHorizontal="73dp"
+        android:paddingTop="51dp"
+        android:src="@drawable/logo_text" />
+
+    <ImageView
         android:id="@+id/logo"
-        android:layout_width="212dp"
-        android:layout_height="210dp"
-        android:background="@drawable/logo_tanpa_nama"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo_text"
+        android:layout_marginTop="19dp"
+        android:src="@drawable/logo_without_text"
+        />
+
     <TextView
-        android:id="@+id/text1"
-        android:layout_width="match_parent"
+        android:id="@+id/welcome1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Selamat Datang !"
-        android:textSize="22dp"
-        android:textStyle="bold"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:textSize="24sp"
         android:textColor="@color/black"
-        android:gravity="center"
-        android:layout_marginTop="20dp"/>
-    <com.google.android.material.textfield.TextInputLayout
+        android:fontFamily="@font/inter_regular"
+        android:textStyle="bold"
+        android:text="@string/app_welcome1"
+        />
+    
+    <LinearLayout
+        android:id="@+id/inputSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        app:boxBackgroundColor="@android:color/transparent"
-        app:startIconDrawable="@drawable/user"
-        app:endIconCheckable="true"
-        android:hint="Username">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username_input"
+        android:orientation="vertical"
+        android:layout_below="@id/welcome1"
+        android:layout_marginTop="19dp"
+        android:paddingHorizontal="42dp">
+
+
+        <EditText
+            android:id="@+id/uname_input"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="30dp"
-        app:boxBackgroundColor="@android:color/transparent"
-        app:startIconDrawable="@drawable/lock"
-        app:endIconMode="password_toggle"
-        android:hint="Password">
-        <com.google.android.material.textfield.TextInputEditText
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/uname_logo"
+            android:drawablePadding="15dp"
+            android:hint="Username"
+            android:fontFamily="@font/inter_regular"
+            android:layout_centerHorizontal="true"
+            android:textSize="15sp"
+            />
+
+        <EditText
             android:id="@+id/password_input"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/password_logo"
+            android:drawableEnd="@drawable/password_eyeoff"
+            android:layout_marginTop="23dp"
+            android:drawablePadding="15dp"
+            android:hint="Password"
+            android:fontFamily="@font/inter_regular"
+            android:layout_centerHorizontal="true"
+            android:textSize="15sp"
+            />
+
+    </LinearLayout>
+
     <RelativeLayout
+        android:id="@+id/inputSection2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp">
+        android:layout_marginTop="28dp"
+        android:paddingHorizontal="49dp"
+        android:layout_below="@id/inputSection">
+
         <CheckBox
-            android:id="@+id/remember_me"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ingat Aku"/>
+            android:text="Ingat Akun"
+            android:textSize="15sp"
+            android:fontFamily="@font/inter_regular"
+            android:alpha="0.7"
+            android:layout_centerVertical="true"
+            />
+        
         <TextView
-            android:id="@+id/forgot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lupa Password ?"
-            android:textColor="#0A89D0"
-            android:textSize="15dp"
+            android:text="Lupa Password"
+            android:textSize="15sp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"/>
+
     </RelativeLayout>
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/login_button"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="@string/login_name"
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="277dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/inputSection2"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_shape"
         android:textColor="@color/white"
-        android:background="@drawable/button"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="80dp"/>
+        android:fontFamily="@font/montserrat_semibold"
+        android:textSize="16sp"
+        android:text="LOGIN"/>
+
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:id="@+id/toRegister"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="90dp"
-        android:layout_marginTop="5dp">
+        android:layout_below="@id/loginButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp">
+
         <TextView
+            android:id="@+id/not_have_acc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Belum punya akun ?"
-            android:textSize="14dp"
-            android:layout_centerVertical="true"/>
+            android:text="Belum punya akun?"
+            android:fontFamily="@font/inter_regular"
+            android:textSize="14sp"
+            android:layout_marginEnd="4dp"
+            />
         <TextView
-            android:id="@+id/sign_in"
+            android:id="@+id/btn_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Daftar disini !"
-            android:textColor="#0A89D0"
-            android:textSize="16dp"
-            android:layout_alignParentEnd="true"/>
+            android:text="Daftar disini!"
+            android:fontFamily="@font/inter_regular"
+            android:textSize="14sp"
+            android:layout_toEndOf="@+id/not_have_acc"
+            android:textColor="@color/blue"
+            />
     </RelativeLayout>
-</LinearLayout>
+
+
+
+</RelativeLayout>

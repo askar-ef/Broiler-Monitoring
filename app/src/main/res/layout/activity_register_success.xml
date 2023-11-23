@@ -1,46 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterSuccess"
-    android:orientation="vertical">
+    tools:context=".RegisterSuccess">
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Pendaftaran Berhasil"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginTop="80dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Akun anda berhasil dibuat."
-        android:textSize="20dp"
-        android:gravity="center"
-        android:layout_marginTop="5dp"/>
-    <View
+        android:id="@+id/RegSuccess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="55dp"
-        android:layout_marginRight="55dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="220dp"
-        android:background="@drawable/group_2"/>
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/lanjut_button"
-        android:clickable="true"
-        android:background="@drawable/button"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Lanjut"
-        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="99dp"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/inter_regular"
         android:textStyle="bold"
+        android:text="@string/reg_success1"
+        />
+
+    <TextView
+        android:id="@+id/RegSuccess2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/RegSuccess"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="9dp"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/inter_regular"
+        android:text="@string/reg_success2"
+        />
+
+    <RelativeLayout
+        android:id="@+id/success_logo"
+        android:layout_width="match_parent"
+        android:layout_height="199dp"
+        android:layout_below="@id/RegSuccess2"
+        android:layout_marginTop="107dp"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/success_circle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/success"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="277dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="107dp"
+        android:layout_below="@id/success_logo"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_shape"
         android:textColor="@color/white"
-        android:layout_marginTop="-120dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="60dp"/>
-</LinearLayout>
+        android:fontFamily="@font/montserrat_semibold"
+        android:textSize="16sp"
+        android:text="Lanjut"/>
+
+</RelativeLayout>

@@ -1,49 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginSuccess"
-    android:orientation="vertical"
-    android:background="#E35547">
+    android:background="@color/failPage"
+    tools:context=".LoginFail">
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login Gagal"
-        android:textSize="30dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginTop="80dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mohon periksa ulang data anda"
-        android:textSize="20dp"
-        android:textColor="@color/white"
-        android:gravity="center"
-        android:layout_marginTop="5dp"/>
-    <View
+        android:id="@+id/RegSuccess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="55dp"
-        android:layout_marginRight="55dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="220dp"
-        android:background="@drawable/group_1"/>
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/lanjut_button"
-        android:clickable="true"
-        android:background="@drawable/button1"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Coba Lagi"
-        android:textSize="20dp"
-        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="99dp"
+        android:textSize="24sp"
         android:textColor="@color/white"
-        android:layout_marginTop="-120dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="60dp"/>
-</LinearLayout>
+        android:fontFamily="@font/inter_regular"
+        android:textStyle="bold"
+        android:text="@string/login_fail1"
+        />
+
+    <TextView
+        android:id="@+id/RegSuccess2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/RegSuccess"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="9dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/inter_regular"
+        android:text="@string/reg_fail2"
+        />
+
+    <RelativeLayout
+        android:id="@+id/success_logo"
+        android:layout_width="match_parent"
+        android:layout_height="199dp"
+        android:layout_below="@id/RegSuccess2"
+        android:layout_marginTop="107dp"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/success_circle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/failed_logo"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="277dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="107dp"
+        android:layout_below="@id/success_logo"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_fail_shape"
+        android:textColor="@color/white"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textSize="16sp"
+        android:text="Coba lagi"/>
+
+
+</RelativeLayout>

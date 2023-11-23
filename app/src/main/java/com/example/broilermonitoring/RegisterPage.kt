@@ -3,38 +3,62 @@ package com.example.broilermonitoring
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
+import com.example.broilermonitoring.model.Post.AnakKandangResponse
+import com.example.broilermonitoring.service.AnakKandangInterface
+import com.example.broilermonitoring.service.ApiService
 import com.example.broilermonitoring.databinding.ActivityRegisterPageBinding
-import com.google.android.material.textfield.TextInputEditText
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RegisterPage : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterPageBinding
-    companion object{
-        const val EXTRA_NAME = "extra_name"
-        const val EXTRA_EMAIL = "extra_email"
-        const val EXTRA_USERNAME = "extra_username"
-        const val EXTRA_PASS1 = "extra_pass"
-        const val EXTRA_PHONE = "extra_phone"
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRegisterPageBinding.inflate(layoutInflater)
+        binding= ActivityRegisterPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val namaLengkapInput = findViewById<TextInputEditText>(R.id.nama_lengkap_input)
-        val usernameInput = findViewById<TextInputEditText>(R.id.username_input)
-        val passwordInput = findViewById<TextInputEditText>(R.id.password_input)
-        val emailInput = findViewById<TextInputEditText>(R.id.email_input)
-        val handphoneInput = findViewById<TextInputEditText>(R.id.handphone_input)
 
         with(binding){
-            button.setOnClickListener {
-                val intentTologinPageActivity =
-                    Intent(this@RegisterPage, RegisterSuccess::class.java)
-                intentTologinPageActivity.putExtra(EXTRA_NAME, namaLengkapInput.text.toString())
-                intentTologinPageActivity.putExtra(EXTRA_USERNAME, usernameInput.text.toString())
-                intentTologinPageActivity.putExtra(EXTRA_PASS1, passwordInput.text.toString())
-                intentTologinPageActivity.putExtra(EXTRA_EMAIL, emailInput.text.toString())
-                intentTologinPageActivity.putExtra(EXTRA_PHONE, handphoneInput.text.toString())
-                startActivity(intentTologinPageActivity)
+            loginButton.setOnClickListener {
+                val namaLenkap = nameInput.text.toString()
+                val username = unameInput.text.toString()
+                val email = emailInput.text.toString()
+                val password = passwordInput.text.toString()
+                val statusUser = statusInput.text.toString()
+                val noHp = phoneNumInput.text.toString()
+                val RegisterAnakKandang= ApiService().getInstance().create(AnakKandangInterface::class.java)
+                RegisterAnakKandang.registerOwner(namaLenkap,username,email,password,statusUser,noHp).enqueue(object :
+                    Callback<AnakKandangResponse> {
+                    override fun onResponse(call: Call<AnakKandangResponse>, response: Response<AnakKandangResponse>) {
+                        if (response.isSuccessful) {
+                            val registrationResponse = response.body()
+                            val status=registrationResponse?.status
+//                            Toast.makeText(this@RegisterPage, status.toString(), Toast.LENGTH_SHORT).show()
+                            if (status.equals("Success")){
+                                val inten= Intent(this@RegisterPage,RegisterSuccess::class.java)
+                                startActivity(inten)
+                            }else{
+                                val inten=Intent(this@RegisterPage,RegisterFail::class.java)
+                                startActivity(inten)
+                            }
+                        } else {
+                            Log.e("RegisterPage", "Gagal menerima respons: ${response.code()}")
+                            Toast.makeText(this@RegisterPage, "Terjadi kesalahan dalam proses pendaftaran", Toast.LENGTH_SHORT).show()
+                            val inten=Intent(this@RegisterPage,RegisterFail::class.java)
+                            startActivity(inten)
+                        }
+                    }
+
+                    override fun onFailure(call: Call<AnakKandangResponse>, t: Throwable) {
+                        Toast.makeText(this@RegisterPage, "Terjadi kesalahan jaringan: ${t.message}", Toast.LENGTH_SHORT).show()
+                        Log.e("RegisterPage", "Terjadi kesalahan: ${t.message}")
+                        val inten=Intent(this@RegisterPage,RegisterFail::class.java)
+                        startActivity(inten)
+                    }
+                })
+
             }
         }
     }

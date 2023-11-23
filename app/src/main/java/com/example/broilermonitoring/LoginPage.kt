@@ -3,48 +3,81 @@ package com.example.broilermonitoring
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import com.example.broilermonitoring.databinding.ActivityLoginPageBinding
-import com.google.android.material.textfield.TextInputEditText
+import com.example.broilermonitoring.model.LoginResponse
+import com.example.broilermonitoring.model.Helper
+import com.example.broilermonitoring.service.ApiService
+import com.example.broilermonitoring.service.LoginInterface
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LoginPage : AppCompatActivity() {
     private lateinit var binding: ActivityLoginPageBinding
-    companion object{
-        const val EXTRA_NAME = "extra_name"
-        const val EXTRA_PASS = "extra_pass"
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginPageBinding.inflate(layoutInflater)
+        binding= ActivityLoginPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val usernameInput = findViewById<TextInputEditText>(R.id.username_input)
-        val passwordInput = findViewById<TextInputEditText>(R.id.password_input)
-//        val user = arrayOf()
-//        val pass = mapOf(
-//            "admin" to "admin",
-//            "user" to "user")
-//        fun isLoginValid(username: String, password: String): Boolean {
-//            val storedPassword = pass[username]
-//            return storedPassword != null && storedPassword == password
-//        }
 
         with(binding){
-            loginButton.setOnClickListener{
-                val intentActivityLoginPageBinding =
-                    Intent(this@LoginPage, LoginSuccess::class.java)
-                intentActivityLoginPageBinding.putExtra(EXTRA_NAME, usernameInput.text.toString())
-                intentActivityLoginPageBinding.putExtra(EXTRA_PASS, passwordInput.text.toString())
-                startActivity(intentActivityLoginPageBinding)
+            val Penyimpan= Helper(this@LoginPage)
+
+            loginButton.setOnClickListener {
+                val username = unameInput.text.toString()
+                val password = passwordInput.text.toString()
+
+                val Login = ApiService().getInstance().create(LoginInterface::class.java)
+                Login.login(username, password).enqueue(object :
+                    Callback<LoginResponse> {
+                    override fun onResponse(
+                        call: Call<LoginResponse>,
+                        response: Response<LoginResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            val registrationResponse = response.body()
+                            val token = registrationResponse?.token
+                            val id = registrationResponse?.id
+//                            Toast.makeText(this@LoginPage, token.toString(), Toast.LENGTH_SHORT).show()
+                            Penyimpan.saveToken(token.toString())
+                            Penyimpan.saveId(id.toString())
+                            val intent = Intent(this@LoginPage, LoginSuccess::class.java)
+//                            Toast.makeText(this@LoginPage,Penyimpan.getToken().toString(),Toast.LENGTH_LONG).show()
+                            startActivity(intent)
+                        } else {
+                            Log.e("RegisterPage", "Gagal menerima respons: ${response.code()}")
+                            Toast.makeText(
+                                this@LoginPage,
+                                "Terjadi kesalahan dalam proses pendaftaran",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            val intent = Intent(this@LoginPage, LoginFail::class.java)
+                            startActivity(intent)
+                        }
+                    }
+
+                    override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                        Toast.makeText(
+                            this@LoginPage,
+                            "Terjadi kesalahan jaringan: ${t.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        Log.e("RegisterPage", "Terjadi kesalahan: ${t.message}")
+
+                    }
+                })
+
+
             }
-            forgot.setOnClickListener {
-                val intentActivityLoginPageBinding =
-                    Intent(this@LoginPage, Password::class.java)
-                startActivity(intentActivityLoginPageBinding)
-            }
-            signIn.setOnClickListener{
-                val intentActivityLoginPageBinding =
-                    Intent(this@LoginPage, RegisterPage::class.java)
-                startActivity(intentActivityLoginPageBinding)
+
+            btnRegister.setOnClickListener{
+                val intent = Intent(this@LoginPage, RegisterPage::class.java)
+                startActivity(intent)
+
             }
         }
     }
+
+
 }
