@@ -59,6 +59,11 @@ class HomeAdmin : Fragment() {
         customAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = customAdapter
 
+        binding.tambahKandang.setOnClickListener{
+            val intent = Intent(requireContext(), TambahKandang::class.java)
+            startActivity(intent)
+        }
+
         binding.daftarPeternak.setOnClickListener {
             val intent = Intent(requireContext(), DaftarPeternak::class.java)
             startActivity(intent)
