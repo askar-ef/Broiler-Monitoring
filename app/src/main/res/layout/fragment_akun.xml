@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/background"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".Akun">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:src="@drawable/background"/>
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -64,27 +69,119 @@
 
     </LinearLayout>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:cardCornerRadius="30dp"
-        android:layout_marginBottom="-30dp"
-        android:layout_marginTop="130dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/akun_profilepicSection"
+        android:layout_width="178dp"
+        android:layout_height="178dp"
+        android:layout_marginTop="180dp"
+        android:layout_centerHorizontal="true">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="178dp"
-                android:layout_height="178dp"
-                android:elevation="1dp"
-                android:src="@drawable/profile_pic"
-                />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="2dp"
+            android:layout_marginRight="9dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/akun_changeprofilepic"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="178dp"
+            android:layout_height="178dp"
+            android:elevation="1dp"
+            android:src="@drawable/profile_pic"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:paddingHorizontal="55dp"
+        android:layout_marginTop="6dp"
+        android:layout_below="@+id/akun_profilepicSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rifa Indra Setiawan"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:fontFamily="@font/inter_semi_bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rifa"
+            android:textAlignment="center"
+            android:fontFamily="@font/inter_semi_bold"/>
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_marginTop="52dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/akun_emailicon"/>
+
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="rifaindrasetiawan@mail.ugm.ac.id"
+                android:textColor="@color/black"
+                android:fontFamily="@font/inter_semi_bold"/>
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
 
-</LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/akun_teleponicon"/>
+
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0877 5231 9234"
+                android:textColor="@color/black"
+                android:fontFamily="@font/inter_semi_bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/akun_roleicon"/>
+
+            <TextView
+                android:layout_marginLeft="17dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Anak Kandang / Peternak"
+                android:textColor="@color/black"
+                android:fontFamily="@font/inter_semi_bold"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
