@@ -37,6 +37,7 @@ class InputHarian : Fragment() {
     private var param2: String? = null
     private lateinit var binding: FragmentInputHarianBinding
     private var jamKematian =0
+    private var jumlahKematian = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +53,10 @@ class InputHarian : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding= FragmentInputHarianBinding.inflate(layoutInflater,container,false)
+//        binding = FragmentInputHarianBinding.inflate(inflater, container, false)
         val view=binding.root
+        return view
+
 
         with(binding){
             btnLapor.setOnClickListener {
@@ -61,7 +65,6 @@ class InputHarian : Fragment() {
                 val bobot=inputBobot.text.toString().toInt()
 //masih percobaan
                 val id_kandang=1
-
                 val api=ApiService().getInstance()
                 val apiInput=api.create(DataKandangInterface::class.java)
                 val token="Bearer " + Helper(requireContext()).getToken().toString()
@@ -102,11 +105,13 @@ class InputHarian : Fragment() {
         super.onResume()
         with(binding){
             btnTambahKematian.setOnClickListener {
-                inputJumlahKematian.setText(inputJumlahKematian.text.toString().toInt()+1)
+                jumlahKematian += 1
+                inputJumlahKematian.setText(jumlahKematian.toString())
             }
             btnKurangiKematian.setOnClickListener {
-                if (inputJumlahKematian.text.toString().toInt()>0){
-                    inputJumlahKematian.setText(inputJumlahKematian.text.toString().toInt()-1)
+                if (jumlahKematian != 0){
+                    jumlahKematian -= 1
+                    inputJumlahKematian.setText(jumlahKematian.toString())
                 }
             }
 
@@ -117,9 +122,9 @@ class InputHarian : Fragment() {
                     position: Int,
                     id: Long
                 ) {
-                    val selectedItem=spinnerWaktu[position].toString()
-                    val extractedChars = selectedItem.substring(0, 2).toInt()
-                    jamKematian=extractedChars
+//                    val selectedItem=spinnerWaktu[position].toString()
+//                    val extractedChars = selectedItem.substring(0, 2).toInt()
+//                    jamKematian=extractedChars
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -133,8 +138,19 @@ class InputHarian : Fragment() {
             val apiKematian=api.create(DataKematianInterface::class.java)
 
             btnLaporkanKematian.setOnClickListener {
+                var jamKematianData = binding.spinnerWaktu.selectedItem.toString()
+                jamKematianData = jamKematianData.substring(0, 2)
+
+                jumlahKematian = inputJumlahKematian.text.toString().toInt()
+                if(jamKematianData[0] == '0') {
+                    jamKematianData = jamKematianData[1].toString()
+                    jamKematian = Integer.parseInt(jamKematianData)
+                } else{
+                    jamKematian = Integer.parseInt(jamKematianData)
+                }
+
                 if (jamKematian <=23 && jamKematian>=0){
-                    apiKematian.postDataKematian(token,jamKematian,1,inputJumlahKematian.text.toString().toInt())
+                    apiKematian.postDataKematian(token,jamKematian,1, jumlahKematian)
                         .enqueue(object :Callback<DataKematianResponse>{
                             override fun onResponse(
                                 call: Call<DataKematianResponse>,

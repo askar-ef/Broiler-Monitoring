@@ -28,38 +28,56 @@ class LoginPage : AppCompatActivity() {
                 val username = unameInput.text.toString()
                 val password = passwordInput.text.toString()
 
-                val Login= ApiService().getInstance().create(LoginInterface::class.java)
-                Login.login(username,password).enqueue(object :
+                val Login = ApiService().getInstance().create(LoginInterface::class.java)
+                Login.login(username, password).enqueue(object :
                     Callback<LoginResponse> {
-                    override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                    override fun onResponse(
+                        call: Call<LoginResponse>,
+                        response: Response<LoginResponse>
+                    ) {
                         if (response.isSuccessful) {
                             val registrationResponse = response.body()
-                            val token=registrationResponse?.token
-                            val id= registrationResponse?.id
+                            val token = registrationResponse?.token
+                            val id = registrationResponse?.id
 //                            Toast.makeText(this@LoginPage, token.toString(), Toast.LENGTH_SHORT).show()
                             Penyimpan.saveToken(token.toString())
                             Penyimpan.saveId(id.toString())
-                            val intent=Intent(this@LoginPage,LoginSuccess::class.java)
+                            val intent = Intent(this@LoginPage, LoginSuccess::class.java)
 //                            Toast.makeText(this@LoginPage,Penyimpan.getToken().toString(),Toast.LENGTH_LONG).show()
                             startActivity(intent)
                         } else {
                             Log.e("RegisterPage", "Gagal menerima respons: ${response.code()}")
-                            Toast.makeText(this@LoginPage, "Terjadi kesalahan dalam proses pendaftaran", Toast.LENGTH_SHORT).show()
-                            val intent=Intent(this@LoginPage,LoginFail::class.java)
+                            Toast.makeText(
+                                this@LoginPage,
+                                "Terjadi kesalahan dalam proses pendaftaran",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            val intent = Intent(this@LoginPage, LoginFail::class.java)
                             startActivity(intent)
                         }
                     }
 
                     override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                        Toast.makeText(this@LoginPage, "Terjadi kesalahan jaringan: ${t.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@LoginPage,
+                            "Terjadi kesalahan jaringan: ${t.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         Log.e("RegisterPage", "Terjadi kesalahan: ${t.message}")
-
-
 
                     }
                 })
 
+
+            }
+
+            btnRegister.setOnClickListener{
+                val intent = Intent(this@LoginPage, RegisterPage::class.java)
+                startActivity(intent)
+
             }
         }
     }
+
+
 }
