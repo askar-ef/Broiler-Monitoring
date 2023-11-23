@@ -133,7 +133,7 @@ class InputHarian : Fragment() {
             val apiKematian=api.create(DataKematianInterface::class.java)
 
             btnLaporkanKematian.setOnClickListener {
-                if (jamKematian <=24 && jamKematian>=0){
+                if (jamKematian <=23 && jamKematian>=0){
                     apiKematian.postDataKematian(token,jamKematian,1,inputJumlahKematian.text.toString().toInt())
                         .enqueue(object :Callback<DataKematianResponse>{
                             override fun onResponse(
