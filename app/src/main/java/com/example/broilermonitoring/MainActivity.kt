@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        replaceFragment(HomeAdmin())
+        replaceFragment(HomePemilik())
 
         val name = intent.getStringExtra(LoginPage.EXTRA_NAME)
         val passwordlog = intent.getStringExtra(LoginPage.EXTRA_PASS)
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomMenu.setOnItemSelectedListener {
             when(it){
-                0 -> replaceFragment(HomeAdmin())
+                0 -> replaceFragment(HomePemilik())
                 1 -> replaceFragment(Dashboard())
                 2 -> replaceFragment(Laporan())
                 3 -> replaceFragment(Setting())

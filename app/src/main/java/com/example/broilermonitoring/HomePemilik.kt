@@ -14,7 +14,7 @@ import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_PASS1
 import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_PHONE
 import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_USERNAME
 import android.content.Intent
-import com.example.broilermonitoring.databinding.FragmentHomeAdminBinding
+import com.example.broilermonitoring.databinding.FragmentHomePemilikBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 // TODO: Rename parameter arguments, choose names that match
@@ -28,11 +28,11 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 
-class HomeAdmin : Fragment() {
+class HomePemilik : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var binding: FragmentHomeAdminBinding
+    private lateinit var binding: FragmentHomePemilikBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -40,7 +40,7 @@ class HomeAdmin : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
 
-        binding = FragmentHomeAdminBinding.inflate(layoutInflater)
+        binding = FragmentHomePemilikBinding.inflate(layoutInflater)
         val view = binding.root
 
         val name = arguments?.getString(EXTRA_NAME)

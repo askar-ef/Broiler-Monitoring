@@ -45,7 +45,7 @@ class TambahKandang : AppCompatActivity() {
         }
 
         binding.button.setOnClickListener{
-            val intent = Intent(this, HomeAdmin::class.java)
+            val intent = Intent(this, HomePemilik::class.java)
             intent.putExtra(EXTRA_NAME, namaKandang.text.toString())
             intent.putExtra(EXTRA_ADDRESS, alamatKandang.text.toString())
             intent.putExtra(EXTRA_LUAS, luasKandang.text.toString())
