@@ -155,7 +155,7 @@ class InputHarian : Fragment() {
                             ) {
                                 if (response.isSuccessful){
                                     val responseData=response.body()
-                                    Log.e("response",responseData?.message.toString())
+                                    Log.i("response",responseData?.message.toString())
                                 }else{
                                     Log.e("response",response.message())
                                 }
