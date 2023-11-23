@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.broilermonitoring.databinding.FragmentPengaturanBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +21,7 @@ class Pengaturan : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var binding: FragmentPengaturanBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +36,37 @@ class Pengaturan : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pengaturan, container, false)
+        binding = FragmentPengaturanBinding.inflate(inflater, container, false)
+        val view = binding.root
+
+        with(binding){
+            akun.setOnClickListener {
+                // Handle the fragment transaction to change to InputPanen
+                val akunFragment = Akun()  // Replace with the actual fragment class
+                val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+                fragmentTransaction.replace(R.id.nav_host_frag, akunFragment)
+                fragmentTransaction.addToBackStack(null)
+                fragmentTransaction.commit()
+            }
+            password.setOnClickListener {
+                // Handle the fragment transaction to change to InputPanen
+                val passwordFragment = Password()  // Replace with the actual fragment class
+                val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+                fragmentTransaction.replace(R.id.nav_host_frag, passwordFragment)
+                fragmentTransaction.addToBackStack(null)
+                fragmentTransaction.commit()
+            }
+            panduan.setOnClickListener {
+                // Handle the fragment transaction to change to InputPanen
+                val panduanFragment = PanduanAplikasi()  // Replace with the actual fragment class
+                val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+                fragmentTransaction.replace(R.id.nav_host_frag, panduanFragment)
+                fragmentTransaction.addToBackStack(null)
+                fragmentTransaction.commit()
+            }
+
+        }
+        return view
     }
 
     companion object {

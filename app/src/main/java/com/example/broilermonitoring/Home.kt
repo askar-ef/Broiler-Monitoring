@@ -84,6 +84,43 @@ class Home : Fragment() {
             kandangAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             kandang.adapter=kandangAdapter
 
+            // Add click listener to the "btnInputPanen" button
+            btnInputPanen.setOnClickListener {
+                // Handle the fragment transaction to change to InputPanen
+                val inputPanenFragment = InputPanen()  // Replace with the actual fragment class
+                val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+                fragmentTransaction.replace(R.id.nav_host_frag, inputPanenFragment)
+                fragmentTransaction.addToBackStack(null)
+                fragmentTransaction.commit()
+            }
+
+            btnKlasifikasi.setOnClickListener {
+                // Handle the fragment transaction to change to InputPanen
+                val klasifikasiFragment = Klasifikasi()  // Replace with the actual fragment class
+                val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+                fragmentTransaction.replace(R.id.nav_host_frag, klasifikasiFragment)
+                fragmentTransaction.addToBackStack(null)
+                fragmentTransaction.commit()
+            }
+
+            btnInputHarian.setOnClickListener {
+                // Handle the fragment transaction to change to InputPanen
+                val inputHarianFragment = InputHarian()  // Replace with the actual fragment class
+                val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+                fragmentTransaction.replace(R.id.nav_host_frag, inputHarianFragment)
+                fragmentTransaction.addToBackStack(null)
+                fragmentTransaction.commit()
+            }
+
+            btnNotif.setOnClickListener {
+                // Handle the fragment transaction to change to InputPanen
+                val notifikasiFragment = Notifikasi()  // Replace with the actual fragment class
+                val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+                fragmentTransaction.replace(R.id.nav_host_frag, notifikasiFragment)
+                fragmentTransaction.addToBackStack(null)
+                fragmentTransaction.commit()
+            }
+
         }
         binding.kandang.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {

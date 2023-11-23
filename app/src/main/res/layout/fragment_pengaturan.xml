@@ -71,6 +71,10 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/akun"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="10dp"
@@ -111,6 +115,10 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/password"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="15dp"
@@ -150,6 +158,10 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/panduan"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="15dp"
@@ -189,6 +201,10 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/keluar"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="15dp"

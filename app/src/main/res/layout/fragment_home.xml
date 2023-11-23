@@ -267,24 +267,28 @@
                     android:gravity="center"
                     android:layout_marginTop="24dp">
                     <ImageButton
+                        android:id="@+id/btn_inputPanen"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
                         android:background="@drawable/history"
                         android:elevation="5dp"/>
                     <ImageButton
+                        android:id="@+id/btn_klasifikasi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/klasifikasi"
                         android:layout_marginRight="5dp"
                         android:elevation="5dp"/>
                     <ImageButton
+                        android:id="@+id/btn_inputHarian"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/laporan"
                         android:layout_marginRight="5dp"
                         android:elevation="5dp"/>
                     <ImageButton
+                        android:id="@+id/btn_notif"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/notif"
