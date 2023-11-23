@@ -122,9 +122,6 @@ class InputHarian : Fragment() {
                     position: Int,
                     id: Long
                 ) {
-//                    val selectedItem=spinnerWaktu[position].toString()
-//                    val extractedChars = selectedItem.substring(0, 2).toInt()
-//                    jamKematian=extractedChars
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
