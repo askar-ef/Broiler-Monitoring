@@ -15,21 +15,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         replaceFragment(HomePemilik())
 
-        val name = intent.getStringExtra(LoginPage.EXTRA_NAME)
-        val passwordlog = intent.getStringExtra(LoginPage.EXTRA_PASS)
-        val username = intent.getStringExtra(RegisterPage.EXTRA_USERNAME)
-        val password = intent.getStringExtra(RegisterPage.EXTRA_PASS1)
-        val email = intent.getStringExtra(RegisterPage.EXTRA_EMAIL)
-        val handphone = intent.getStringExtra(RegisterPage.EXTRA_PHONE)
+//        val name = intent.getStringExtra(LoginPage.EXTRA_NAME)
+//        val passwordlog = intent.getStringExtra(LoginPage.EXTRA_PASS)
+//        val username = intent.getStringExtra(RegisterPage.EXTRA_USERNAME)
+//        val password = intent.getStringExtra(RegisterPage.EXTRA_PASS1)
+//        val email = intent.getStringExtra(RegisterPage.EXTRA_EMAIL)
+//        val handphone = intent.getStringExtra(RegisterPage.EXTRA_PHONE)
 
         val fragmentTransaction = supportFragmentManager.beginTransaction()
 
-        binding.bottomMenu.setOnItemSelectedListener {
+        binding.bottomNavView.setOnItemSelectedListener {
             when(it){
                 0 -> replaceFragment(HomePemilik())
                 1 -> replaceFragment(Dashboard())
                 2 -> replaceFragment(Laporan())
-                3 -> replaceFragment(Setting())
+                3 -> replaceFragment(Pengaturan())
             }
             true
         }

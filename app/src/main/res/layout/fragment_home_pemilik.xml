@@ -151,14 +151,15 @@
                                 android:background="@drawable/line" />
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="100dp"
-                                android:layout_marginTop="10dp"
-                                android:gravity="center"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="8dp"
                                 android:orientation="horizontal">
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginRight="235dp">
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
@@ -170,8 +171,8 @@
                                     <View
                                         android:layout_width="37.5dp"
                                         android:layout_height="35dp"
-                                        android:layout_marginTop="30dp"
-                                        android:layout_centerHorizontal="true"
+                                        android:layout_marginVertical="10dp"
+                                        android:layout_gravity="center"
                                         android:background="@drawable/icon_suhu"/>
                                     <TextView
                                         android:id="@+id/suhu"
@@ -183,12 +184,13 @@
                                         android:textSize="25dp"
                                         android:gravity="center"
                                         android:layout_alignParentBottom="true"/>
-                                </RelativeLayout>
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="100dp"
-                                    android:layout_marginLeft="-235dp"
-                                    android:layout_marginRight="120dp">
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
@@ -200,8 +202,8 @@
                                     <View
                                         android:layout_width="26.7dp"
                                         android:layout_height="37.5dp"
-                                        android:layout_marginTop="30dp"
-                                        android:layout_centerHorizontal="true"
+                                        android:layout_marginVertical="10dp"
+                                        android:layout_gravity="center"
                                         android:background="@drawable/icon_amonia"/>
                                     <TextView
                                         android:id="@+id/amoniak"
@@ -213,11 +215,13 @@
                                         android:textSize="25dp"
                                         android:gravity="center"
                                         android:layout_alignParentBottom="true"/>
-                                </RelativeLayout>
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="100dp"
-                                    android:layout_marginLeft="-120dp">
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
@@ -229,8 +233,8 @@
                                     <View
                                         android:layout_width="29dp"
                                         android:layout_height="35dp"
-                                        android:layout_marginTop="30dp"
-                                        android:layout_centerHorizontal="true"
+                                        android:layout_gravity="center"
+                                        android:layout_marginVertical="10dp"
                                         android:background="@drawable/icon_kelembaban"/>
                                     <TextView
                                         android:id="@+id/kelembapan"
@@ -242,7 +246,7 @@
                                         android:textSize="25dp"
                                         android:gravity="center"
                                         android:layout_alignParentBottom="true"/>
-                                </RelativeLayout>
+                                </LinearLayout>
                             </LinearLayout>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>

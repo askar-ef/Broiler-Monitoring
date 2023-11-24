@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import com.example.broilermonitoring.LoginPage.Companion.EXTRA_NAME
-import com.example.broilermonitoring.LoginPage.Companion.EXTRA_PASS
-import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_EMAIL
-import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_PASS1
-import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_PHONE
-import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_USERNAME
+//import com.example.broilermonitoring.LoginPage.Companion.EXTRA_NAME
+//import com.example.broilermonitoring.LoginPage.Companion.EXTRA_PASS
+//import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_EMAIL
+//import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_PASS1
+//import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_PHONE
+//import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_USERNAME
 import android.content.Intent
 import com.example.broilermonitoring.databinding.FragmentHomePemilikBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -43,17 +43,16 @@ class HomePemilik : Fragment() {
         binding = FragmentHomePemilikBinding.inflate(layoutInflater)
         val view = binding.root
 
-        val name = arguments?.getString(EXTRA_NAME)
-        val passwordlog = arguments?.getString(EXTRA_PASS)
-        val username = arguments?.getString(EXTRA_USERNAME)
-        val password = arguments?.getString(EXTRA_PASS1)
-        val email = arguments?.getString(EXTRA_EMAIL)
-        val handphone = arguments?.getString(EXTRA_PHONE)
-        val bottomNav = view.findViewById<BottomNavigationView>(R.id.bottom_menu)
+//        val name = arguments?.getString(EXTRA_NAME)
+//        val passwordlog = arguments?.getString(EXTRA_PASS)
+//        val username = arguments?.getString(EXTRA_USERNAME)
+//        val password = arguments?.getString(EXTRA_PASS1)
+//        val email = arguments?.getString(EXTRA_EMAIL)
+//        val handphone = arguments?.getString(EXTRA_PHONE)
+//        val bottomNav = view.findViewById<BottomNavigationView>(R.id.bottom_menu)
         val spinner = view.findViewById<Spinner>(R.id.kandang)
         val customAdapter = ArrayAdapter.createFromResource(requireContext(),
-            R.array.kandang,
-            R.layout.spinner_item
+            R.array.kandang, android.R.layout.simple_spinner_item
         )
 
         customAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -106,7 +105,7 @@ class HomePemilik : Fragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Setting().apply {
+            HomePemilik().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

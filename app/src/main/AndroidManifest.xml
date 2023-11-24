@@ -18,11 +18,11 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".LoginFail"
@@ -58,7 +58,7 @@
             android:name=".Akun"
             android:exported="false" />
         <activity
-            android:name=".Setting"
+            android:name=".Pengaturan"
             android:exported="false" />
         <activity
             android:name=".DaftarPeternak"
@@ -73,7 +73,7 @@
             android:name=".LoginSuccess"
             android:exported="false" />
         <activity
-            android:name=".JobSelect"
+            android:name=".StartingPage"
             android:exported="false" />
         <activity
             android:name=".Dashboard"
@@ -82,13 +82,13 @@
             android:name=".LoginPage"
             android:exported="false" />
         <activity
-            android:name=".StartingPage"
+            android:name=".JobSelect"
             android:exported="true">
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
+<!--             <intent-filter>-->
+<!--                 <action android:name="android.intent.action.MAIN" />-->
 
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
+<!--                 <category android:name="android.intent.category.LAUNCHER" />-->
+<!--             </intent-filter>-->
         </activity>
 
         <meta-data
