@@ -123,13 +123,12 @@ class Home : Fragment() {
 
         }
         binding.kandang.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                // Di sini Anda dapat melakukan sesuatu ketika item dipilih.
-                val selectedItem = KandangList[position]
-                Toast.makeText(requireContext(), "Selected: $selectedItem", Toast.LENGTH_SHORT).show()
+            override fun onItemSelected(
+                parent: AdapterView<*>?, view: View?, position: Int, id: Long
+            ) {
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                // Implementasi ini akan dipanggil jika tidak ada item yang dipilih.
+                binding.kandang.setSelection(0)
             }
         }
         return view
