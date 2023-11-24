@@ -15,6 +15,7 @@ class RegisterFail : AppCompatActivity() {
             nextButton.setOnClickListener {
                 val intent= Intent(this@RegisterFail, LoginPage::class.java)
                 startActivity(intent)
+                finish()
             }
         }
     }
