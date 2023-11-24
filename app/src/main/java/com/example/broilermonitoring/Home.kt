@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import com.example.broilermonitoring.databinding.FragmentHomeBinding
+import com.example.broilermonitoring.databinding.FragmentHomePeternakBinding
 import com.example.broilermonitoring.model.DataItem
 import com.example.broilermonitoring.model.Helper
 import com.example.broilermonitoring.model.ResponseKandang
@@ -33,7 +33,7 @@ class Home : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var binding: FragmentHomeBinding
+    private lateinit var binding: FragmentHomePeternakBinding
     private lateinit var DataList:ArrayList<DataItem>
     private lateinit var KandangList:ArrayList<String>
 
@@ -50,7 +50,7 @@ class Home : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding= FragmentHomeBinding.inflate(inflater,container,false)
+        binding= FragmentHomePeternakBinding.inflate(inflater,container,false)
         val view=binding.root
 
         DataList = arrayListOf<DataItem>()
