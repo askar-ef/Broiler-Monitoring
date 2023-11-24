@@ -166,6 +166,7 @@
                                     android:layout_gravity="center"
                                     android:background="@drawable/icon_suhu"/>
                                 <TextView
+                                    android:id="@+id/stat_suhu"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="05%"
@@ -198,6 +199,7 @@
                                     android:layout_gravity="center"
                                     android:background="@drawable/icon_amonia"/>
                                 <TextView
+                                    android:id="@+id/stat_amonia"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="25%"
@@ -230,6 +232,7 @@
                                     android:layout_gravity="center"
                                     android:background="@drawable/icon_kelembaban"/>
                                 <TextView
+                                    android:id="@+id/stat_kelembaban"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="40%"

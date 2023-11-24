@@ -36,6 +36,7 @@ class Home : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var DataList:ArrayList<DataItem>
     private lateinit var KandangList:ArrayList<String>
+    private lateinit var FetchData:FetchDataCoroutine
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -126,6 +127,7 @@ class Home : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 // Di sini Anda dapat melakukan sesuatu ketika item dipilih.
                 val selectedItem = KandangList[position]
+                val idKandang=Helper(requireContext()).saveIdKandang(DataList[position].id!!.toInt())
                 Toast.makeText(requireContext(), "Selected: $selectedItem", Toast.LENGTH_SHORT).show()
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -133,6 +135,29 @@ class Home : Fragment() {
             }
         }
         return view
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val token="Bearer "+Helper(requireContext()).getToken()
+        val id_kandang=Helper(requireContext()).getIdKandang()
+
+        FetchData=FetchDataCoroutine(token,id_kandang)
+        FetchData.startFetching()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        with(binding){
+            statAmonia.setText(FetchData.getAmoniak())
+            statKelembaban.setText(FetchData.getKelembaban())
+            statSuhu.setText(FetchData.getSuhu())
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        FetchData.stop()
     }
 
     companion object {

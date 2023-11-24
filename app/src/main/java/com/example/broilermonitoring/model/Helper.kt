@@ -17,19 +17,29 @@ class Helper(context: Context) {
         editor.putString("Id",Id)
         editor.apply()
     }
+    fun saveIdKandang(IdKandang:Int){
+        val editor=sharedPreferences.edit()
+        editor.putInt("IdKandang",IdKandang)
+        editor.apply ()
+    }
 
     fun getToken(): String? {
         return sharedPreferences.getString("token", null)
     }
 
+
     fun getId():String?{
         return sharedPreferences.getString("Id",null)
+    }
+    fun getIdKandang():Int{
+        return sharedPreferences.getInt("IdKandang", 0)
     }
 
     fun clearAll() {
         val editor = sharedPreferences.edit()
         editor.remove("token")
         editor.remove("Id")
+        editor.remove("IdKandang")
         editor.apply()
     }
 }
