@@ -65,7 +65,7 @@
                     android:fontFamily="@font/montserrat_semibold"/>
             </LinearLayout>
         </LinearLayout>
-        
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -186,7 +186,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="Suhu"
+                                    android:text="Amonia"
                                     android:textSize="15dp"
                                     android:textColor="@color/black"
                                     android:textStyle="bold"
@@ -218,7 +218,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="Suhu"
+                                    android:text="Kelembaban"
                                     android:textSize="15dp"
                                     android:textStyle="bold"
                                     android:textColor="@color/black"
@@ -267,30 +267,34 @@
                     android:gravity="center"
                     android:layout_marginTop="24dp">
                     <ImageButton
+                        android:id="@+id/btn_inputPanen"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
                         android:background="@drawable/history"
                         android:elevation="5dp"/>
                     <ImageButton
+                        android:id="@+id/btn_klasifikasi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/klasifikasi"
                         android:layout_marginRight="5dp"
                         android:elevation="5dp"/>
                     <ImageButton
+                        android:id="@+id/btn_inputHarian"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/laporan"
                         android:layout_marginRight="5dp"
                         android:elevation="5dp"/>
                     <ImageButton
+                        android:id="@+id/btn_notif"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/notif"
                         android:elevation="5dp"/>
                 </LinearLayout>
-                
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_marginTop="24dp"
@@ -306,7 +310,7 @@
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
-                
+
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

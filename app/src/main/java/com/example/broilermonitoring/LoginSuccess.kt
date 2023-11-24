@@ -1,11 +1,22 @@
 package com.example.broilermonitoring
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.broilermonitoring.databinding.ActivityLoginSuccessBinding
 
 class LoginSuccess : AppCompatActivity() {
+    private lateinit var binding: ActivityLoginSuccessBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login_success)
+        binding= ActivityLoginSuccessBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        with(binding){
+            loginButton.setOnClickListener {
+                val intent=Intent(this@LoginSuccess,MainActivity::class.java)
+                startActivity(intent)
+            }
+        }
     }
 }

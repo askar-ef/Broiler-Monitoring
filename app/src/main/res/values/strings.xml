@@ -1,5 +1,39 @@
 <resources>
     <string name="app_name">Broiler Monitoring</string>
+    <string name="login_name">Login</string>
+    <string-array name="kandang">
+        <item>Kandang 1</item>
+        <item>Kandang 2</item>
+        <item>Kandang 3</item>
+        <item>Kandang 4</item>
+    </string-array>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="notif_berbahaya">Kandang dalam kondisi berbahaya karena memiliki kadar amoniak
+        di atas ... yang dapat mengakibatkan kematian ayam secara bertahap dengan cepat.</string>
+    <string name="notif_waspada">Peringatan, kandang dalam kondisi berbahaya karena memiliki
+        kadar amoniak di atas ... yang dapat mengakibatkan kematian ayam secara bertahap.</string>
+
+    <string name="laporan">Untuk melihat hasil laporan dari masing-masing kandang Anda dapat
+        mengunduh tabel laporan dalam format PDF atau CSV di bawah ini:</string>
+
+    <string name="panduan_aplikasi_keterangan">Berikut adalah keterangan singkat
+        tentang aplikasi BroMo</string>
+    <string name="tentang_bromo" formatted="true" translatable="true">   Broiler Monitoring adalah sebuah aplikasi mobile yang
+        dirancang untuk memberikan akses real-time kepada pemilik dan peternak kandang, sehingga
+        mereka dapat dengan mudah memantau dan menyimpan data tentang kondisi kandang dengan lebih
+        efisien.
+            Aplikasi ini juga menyediakan sarana yang nyaman bagi anak kandang untuk membuat
+        laporan, sementara pemilik dapat dengan cepat mengakses semua laporan yang mereka butuhkan.
+        Aplikasi ini juga nantinya memiliki fitur peramalan dengan machine learning yang dapat
+        memprediksi jumlah ayam yang mati pada esok hari.</string>
+    <string name="tim_pengembang">BroMo dikembangkan oleh 12 Mahasiswa Teknik Rekayasa Perangkat
+        Lunak Sekolah Vokasi Universitas Gadjah Mada.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="app_welcome1">Selamat Datang !</string>
     <string name="app_welcome2">Tekan untuk berganti role</string>
     <string name="job_button1">Peternak</string>
@@ -12,10 +46,13 @@
     <string name="reg_fail1">Pendaftaran Gagal!</string>
     <string name="reg_fail2">Mohon periksa ulang data anda.</string>
     <string name="login_fail1">Login Gagal!</string>
-    <array name="kandang">
-        <item>Kandang 1</item>
-        <item>Kandang 2</item>
+
+    <array name="waktu">
+        <item>06.00-07.00</item>
+        <item>07.00-08.00</item>
+        <item>08.00-09.00</item>
     </array>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tentangBromo">Broiler Monitoring adalah sebuah aplikasi mobile yang dirancang untuk memberikan akses real-time kepada pemilik dan peternak kandang, sehingga mereka dapat dengan mudah memantau dan menyimpan data tentang kondisi kandang dengan lebih efisien. Aplikasi ini juga menyediakan sarana yang nyaman bagi anak kandang untuk membuat laporan, sementara pemilik dapat dengan cepat mengakses semua laporan yang mereka butuhkan. Aplikasi ini juga nantinya memiliki fitur peramalan dengan machine learning yang dapat memprediksi jumlah ayam yang mati pada esok hari.</string>
+    <string name="timPengembang">BroMo dikembangkan oleh 12 Mahasiswa Teknik Rekayasa Perangkat Lunak Sekolah Vokasi Universitas Gadjah Mada.</string>
 </resources>
