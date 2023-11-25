@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DaftarPeternak"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="#DEF8EF">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="320dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/daftar_peternak1" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Daftar Peternak"
+            android:textSize="23dp"
+            android:fontFamily="@font/montserrat"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:gravity="center"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="100dp"
+            android:background="@drawable/underline1"/>
+        <View
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/logo_tanpa_nama"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="310dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/background_peternak">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/foto_peternak"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="240dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_icon"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginRight="20dp"/>
+        <TextView
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:text="Nama : Valentino
+                                No. hp : 000-000-000
+                          Email : valentino123@gmail.com
+                          Penempatan : Kandang 1"
+            android:textSize="12dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="160dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/background_peternak">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/foto_peternak"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="240dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_icon"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginRight="20dp"/>
+        <TextView
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:text="Nama : Valentino
+                                No. hp : 000-000-000
+                          Email : valentino123@gmail.com
+                          Penempatan : Kandang 1"
+            android:textSize="12dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="160dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/background_peternak">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/foto_peternak"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="240dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_icon"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginRight="20dp"/>
+        <TextView
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:text="Nama : Valentino
+                                No. hp : 000-000-000
+                          Email : valentino123@gmail.com
+                          Penempatan : Kandang 1"
+            android:textSize="12dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="160dp"/>
+    </RelativeLayout>
+</LinearLayout>

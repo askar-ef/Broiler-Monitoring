@@ -16,6 +16,7 @@ class LoginSuccess : AppCompatActivity() {
             loginButton.setOnClickListener {
                 val intent=Intent(this@LoginSuccess,MainPeternak::class.java)
                 startActivity(intent)
+                finish()
             }
         }
     }

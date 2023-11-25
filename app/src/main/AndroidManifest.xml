@@ -9,7 +9,7 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/logo_bromo"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -18,14 +18,45 @@
         <activity
             android:name=".MainPeternak"
             android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
         </activity>
         <activity
             android:name=".LoginFail"
+            android:exported="false" />
+        <activity
+            android:name=".TambahKandang"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterPage"
+            android:exported="false" />
+        <activity
+            android:name=".PanduanAplikasi"
+            android:exported="false" />
+        <activity
+            android:name=".Laporan"
+            android:exported="false" />
+        <activity
+            android:name=".Notifikasi"
+            android:exported="false" />
+        <activity
+            android:name=".Forecasting"
+            android:exported="false" />
+        <activity
+            android:name=".HistoryPanen"
+            android:exported="false" />
+        <activity
+            android:name=".Klasifikasi"
+            android:exported="false" />
+        <activity
+            android:name=".Password"
+            android:exported="false" />
+        <activity
+            android:name=".Akun"
+            android:exported="false" />
+        <activity
+            android:name=".Pengaturan"
+            android:exported="false" />
+        <activity
+            android:name=".DaftarPeternak"
             android:exported="false" />
         <activity
             android:name=".RegisterFail"
@@ -37,39 +68,27 @@
             android:name=".LoginSuccess"
             android:exported="false" />
         <activity
-            android:name=".RegisterPage"
-            android:exported="true">
-<!--             <intent-filter>-->
-<!--             <action android:name="android.intent.action.MAIN" />-->
-
-
-<!--             <category android:name="android.intent.category.LAUNCHER" />-->
-<!--             </intent-filter>-->
-        </activity>
-        <activity
             android:name=".StartingPage"
-            android:exported="true" />
+            android:exported="false" />
+        <activity
+            android:name=".Dashboard"
+            android:exported="false" />
         <activity
             android:name=".LoginPage"
-            android:exported="true">
-
-<!--             <intent-filter>-->
-<!--             <action android:name="android.intent.action.MAIN" />-->
-
-
-<!--             <category android:name="android.intent.category.LAUNCHER" />-->
-<!--             </intent-filter>-->
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".JobSelect"
             android:exported="true">
              <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
+                 <action android:name="android.intent.action.MAIN" />
 
-             <category android:name="android.intent.category.LAUNCHER" />
+                 <category android:name="android.intent.category.LAUNCHER" />
              </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
-

@@ -45,6 +45,7 @@ class LoginPage : AppCompatActivity() {
                             val intent = Intent(this@LoginPage, LoginSuccess::class.java)
 //                            Toast.makeText(this@LoginPage,Penyimpan.getToken().toString(),Toast.LENGTH_LONG).show()
                             startActivity(intent)
+                            finish()
                         } else {
                             Log.e("RegisterPage", "Gagal menerima respons: ${response.code()}")
                             Toast.makeText(
@@ -54,6 +55,7 @@ class LoginPage : AppCompatActivity() {
                             ).show()
                             val intent = Intent(this@LoginPage, LoginFail::class.java)
                             startActivity(intent)
+                            finish()
                         }
                     }
 
@@ -64,7 +66,6 @@ class LoginPage : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                         Log.e("RegisterPage", "Terjadi kesalahan: ${t.message}")
-
                     }
                 })
 
@@ -74,7 +75,6 @@ class LoginPage : AppCompatActivity() {
             btnRegister.setOnClickListener{
                 val intent = Intent(this@LoginPage, RegisterPage::class.java)
                 startActivity(intent)
-
             }
         }
     }

@@ -6,18 +6,27 @@ import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
-interface AnakKandangInterface {
+interface RegisterInterface {
 
 //    @Headers("Content-type:aplication-json")
     @FormUrlEncoded
     @POST("api/register-anak-kandang")
+    fun registerAnakKandang(
+        @Field("nama_lengkap") nama_lengkap:String,
+        @Field("username") username:String,
+        @Field("email") email:String,
+        @Field("password") password:String,
+        @Field("no_telepon") no_telepon:String,
+    ): Call<AnakKandangResponse>
+
+    @FormUrlEncoded
+    @POST("api/register-owner")
     fun registerOwner(
         @Field("nama_lengkap") nama_lengkap:String,
         @Field("username") username:String,
         @Field("email") email:String,
         @Field("password") password:String,
-        @Field("status") status:String,
         @Field("no_telepon") no_telepon:String,
     ): Call<AnakKandangResponse>
-    //
+
 }
