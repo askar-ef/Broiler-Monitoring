@@ -1,26 +1,17 @@
-package com.example.broilermonitoring
+package com.example.broilermonitoring.Pemilik
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-//import com.example.broilermonitoring.LoginPage.Companion.EXTRA_NAME
-//import com.example.broilermonitoring.LoginPage.Companion.EXTRA_PASS
-//import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_EMAIL
-//import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_PASS1
-//import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_PHONE
-//import com.example.broilermonitoring.RegisterPage.Companion.EXTRA_USERNAME
-import android.content.Intent
+import androidx.fragment.app.Fragment
+import com.example.broilermonitoring.Klasifikasi
+import com.example.broilermonitoring.Notifikasi
+import com.example.broilermonitoring.R
 import com.example.broilermonitoring.databinding.FragmentHomePemilikBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -36,8 +27,6 @@ class HomePemilik : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
         }
 
         binding = FragmentHomePemilikBinding.inflate(layoutInflater)
@@ -51,7 +40,8 @@ class HomePemilik : Fragment() {
 //        val handphone = arguments?.getString(EXTRA_PHONE)
 //        val bottomNav = view.findViewById<BottomNavigationView>(R.id.bottom_menu)
         val spinner = view.findViewById<Spinner>(R.id.kandang)
-        val customAdapter = ArrayAdapter.createFromResource(requireContext(),
+        val customAdapter = ArrayAdapter.createFromResource(
+            requireContext(),
             R.array.kandang, android.R.layout.simple_spinner_item
         )
 
@@ -90,26 +80,5 @@ class HomePemilik : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return binding.root
-    }
-
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SettingFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomePemilik().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }

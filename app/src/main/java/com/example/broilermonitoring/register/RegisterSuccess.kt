@@ -1,8 +1,9 @@
-package com.example.broilermonitoring
+package com.example.broilermonitoring.register
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.broilermonitoring.login.LoginPage
 import com.example.broilermonitoring.databinding.ActivityRegisterSuccessBinding
 
 class RegisterSuccess : AppCompatActivity() {
@@ -14,7 +15,7 @@ class RegisterSuccess : AppCompatActivity() {
 
         with(binding){
             nextButton.setOnClickListener {
-                val intent= Intent(this@RegisterSuccess,LoginPage::class.java)
+                val intent= Intent(this@RegisterSuccess, LoginPage::class.java)
                 startActivity(intent)
                 finish()
             }

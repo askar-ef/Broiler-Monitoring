@@ -1,4 +1,4 @@
-package com.example.broilermonitoring
+package com.example.broilermonitoring.Peternak
 
 import android.os.Bundle
 import android.util.Log
@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.core.view.get
+import com.example.broilermonitoring.R
 import com.example.broilermonitoring.databinding.FragmentInputHarianBinding
 import com.example.broilermonitoring.model.Helper
 import com.example.broilermonitoring.model.Post.DataKandangResponse

@@ -1,8 +1,9 @@
-package com.example.broilermonitoring
+package com.example.broilermonitoring.Pemilik
 
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.broilermonitoring.R
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
@@ -12,7 +13,7 @@ import com.github.mikephil.charting.data.BarEntry
 class Forecasting : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.forecasting)
+        setContentView(R.layout.pemilik_forecasting)
         val barChart: BarChart = findViewById(R.id.barChart)
 
         // Sample data

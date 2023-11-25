@@ -1,7 +1,10 @@
-package com.example.broilermonitoring
+package com.example.broilermonitoring.Peternak
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.broilermonitoring.Dashboard
+import com.example.broilermonitoring.Pengaturan
+import com.example.broilermonitoring.R
 
 import com.example.broilermonitoring.databinding.ActivityMainPeternakBinding
 
@@ -12,13 +15,13 @@ class MainPeternak : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainPeternakBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        replaceFragment(Home())
+        replaceFragment(HomePeternak())
 
         binding.bottomNavView.setItemSelected(R.id.nav_home)
 
         binding.bottomNavView.setOnItemSelectedListener {
             when(it){
-                R.id.nav_home -> replaceFragment(Home())
+                R.id.nav_home -> replaceFragment(HomePeternak())
                 R.id.nav_dashboard -> replaceFragment(Dashboard())
                 R.id.nav_reports -> replaceFragment(InputHarian())
                 R.id.nav_settings -> replaceFragment(Pengaturan())

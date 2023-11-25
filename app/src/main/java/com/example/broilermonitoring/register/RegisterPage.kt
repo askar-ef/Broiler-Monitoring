@@ -1,4 +1,4 @@
-package com.example.broilermonitoring
+package com.example.broilermonitoring.register
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -46,18 +46,18 @@ class RegisterPage : AppCompatActivity() {
                                 val registrationResponse = response.body()
                                 val statusResponse = registrationResponse?.status
                                 if (statusResponse.equals("Success")){
-                                    val inten= Intent(this@RegisterPage,RegisterSuccess::class.java)
+                                    val inten= Intent(this@RegisterPage, RegisterSuccess::class.java)
                                     startActivity(inten)
                                     finish()
                                 }else{
-                                    val inten=Intent(this@RegisterPage,RegisterFail::class.java)
+                                    val inten=Intent(this@RegisterPage, RegisterFail::class.java)
                                     startActivity(inten)
                                     finish()
                                 }
                             } else {
                                 Log.e("RegisterPage", "Gagal menerima respons: ${response.code()}")
                                 Toast.makeText(this@RegisterPage, "Terjadi kesalahan dalam proses pendaftaran", Toast.LENGTH_SHORT).show()
-                                val inten=Intent(this@RegisterPage,RegisterFail::class.java)
+                                val inten=Intent(this@RegisterPage, RegisterFail::class.java)
                                 startActivity(inten)
                                 finish()
                             }
@@ -66,7 +66,7 @@ class RegisterPage : AppCompatActivity() {
                         override fun onFailure(call: Call<AnakKandangResponse>, t: Throwable) {
                             Toast.makeText(this@RegisterPage, "Terjadi Kesalahan: ${t.message}", Toast.LENGTH_SHORT).show()
                             Log.e("RegisterPage", "Terjadi kesalahan: ${t.message}")
-                            val inten=Intent(this@RegisterPage,RegisterFail::class.java)
+                            val inten=Intent(this@RegisterPage, RegisterFail::class.java)
                             startActivity(inten)
                             finish()
                         }
@@ -81,18 +81,18 @@ class RegisterPage : AppCompatActivity() {
                                 val statusResponse=registrationResponse?.status
     //                            Toast.makeText(this@RegisterPage, status.toString(), Toast.LENGTH_SHORT).show()
                                 if (statusResponse.equals("Success")){
-                                    val inten= Intent(this@RegisterPage,RegisterSuccess::class.java)
+                                    val inten= Intent(this@RegisterPage, RegisterSuccess::class.java)
                                     startActivity(inten)
                                     finish()
                                 }else{
-                                    val inten=Intent(this@RegisterPage,RegisterFail::class.java)
+                                    val inten=Intent(this@RegisterPage, RegisterFail::class.java)
                                     startActivity(inten)
                                     finish()
                                 }
                             } else {
                                 Log.e("RegisterPage", "Gagal menerima respons: ${response.code()}")
                                 Toast.makeText(this@RegisterPage, "Terjadi kesalahan dalam proses pendaftaran", Toast.LENGTH_SHORT).show()
-                                val inten=Intent(this@RegisterPage,RegisterFail::class.java)
+                                val inten=Intent(this@RegisterPage, RegisterFail::class.java)
                                 startActivity(inten)
                                 finish()
                             }
@@ -101,7 +101,7 @@ class RegisterPage : AppCompatActivity() {
                         override fun onFailure(call: Call<AnakKandangResponse>, t: Throwable) {
                             Toast.makeText(this@RegisterPage, "Terjadi Kesalahan: ${t.message}", Toast.LENGTH_SHORT).show()
                             Log.e("RegisterPage", "Terjadi kesalahan: ${t.message}")
-                            val inten=Intent(this@RegisterPage,RegisterFail::class.java)
+                            val inten=Intent(this@RegisterPage, RegisterFail::class.java)
                             startActivity(inten)
                             finish()
                         }

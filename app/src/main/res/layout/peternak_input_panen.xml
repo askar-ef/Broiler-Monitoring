@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".InputPanen">
+    tools:context=".Peternak.InputPanen">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
