@@ -14,7 +14,7 @@ class LoginSuccess : AppCompatActivity() {
 
         with(binding){
             loginButton.setOnClickListener {
-                val intent=Intent(this@LoginSuccess,MainActivity::class.java)
+                val intent=Intent(this@LoginSuccess,MainPeternak::class.java)
                 startActivity(intent)
             }
         }

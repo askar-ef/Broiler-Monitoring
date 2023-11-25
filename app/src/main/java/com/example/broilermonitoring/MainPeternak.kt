@@ -2,14 +2,15 @@ package com.example.broilermonitoring
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.broilermonitoring.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+import com.example.broilermonitoring.databinding.ActivityMainPeternakBinding
 
-    lateinit var binding: ActivityMainBinding
+class MainPeternak : AppCompatActivity() {
+
+    lateinit var binding: ActivityMainPeternakBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainPeternakBinding.inflate(layoutInflater)
         setContentView(binding.root)
         replaceFragment(Home())
 
