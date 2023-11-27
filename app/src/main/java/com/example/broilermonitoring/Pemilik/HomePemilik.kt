@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import com.example.broilermonitoring.Klasifikasi
 import com.example.broilermonitoring.Notifikasi
 import com.example.broilermonitoring.R
-import com.example.broilermonitoring.databinding.FragmentHomePemilikBinding
+import com.example.broilermonitoring.databinding.PemilikHomeBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -23,13 +23,13 @@ class HomePemilik : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var binding: FragmentHomePemilikBinding
+    private lateinit var binding: PemilikHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
         }
 
-        binding = FragmentHomePemilikBinding.inflate(layoutInflater)
+        binding = PemilikHomeBinding.inflate(layoutInflater)
         val view = binding.root
 
 //        val name = arguments?.getString(EXTRA_NAME)
