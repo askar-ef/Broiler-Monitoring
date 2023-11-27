@@ -1,8 +1,9 @@
-package com.example.broilermonitoring
+package com.example.broilermonitoring.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.broilermonitoring.Peternak.MainPeternak
 import com.example.broilermonitoring.databinding.ActivityLoginSuccessBinding
 
 class LoginSuccess : AppCompatActivity() {
@@ -14,7 +15,7 @@ class LoginSuccess : AppCompatActivity() {
 
         with(binding){
             loginButton.setOnClickListener {
-                val intent=Intent(this@LoginSuccess,MainActivity::class.java)
+                val intent=Intent(this@LoginSuccess,MainPeternak::class.java)
                 startActivity(intent)
             }
         }

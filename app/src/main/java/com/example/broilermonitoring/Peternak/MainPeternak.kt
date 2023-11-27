@@ -1,17 +1,22 @@
-package com.example.broilermonitoring
+package com.example.broilermonitoring.Peternak
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.broilermonitoring.databinding.ActivityMainBinding
+import com.example.broilermonitoring.Dashboard
+import com.example.broilermonitoring.Pemilik.Laporan
+import com.example.broilermonitoring.Pemilik.HomePemilik
+import com.example.broilermonitoring.Pengaturan
+import com.example.broilermonitoring.R
+import com.example.broilermonitoring.databinding.PeternakMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainPeternak : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: PeternakMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = PeternakMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         replaceFragment(HomePemilik())
 
@@ -26,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavView.setOnItemSelectedListener {
             when(it){
-                0 -> replaceFragment(HomePemilik())
+                0 -> replaceFragment(HomePeternak())
                 1 -> replaceFragment(Dashboard())
                 2 -> replaceFragment(Laporan())
                 3 -> replaceFragment(Pengaturan())

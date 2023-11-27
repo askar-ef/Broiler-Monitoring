@@ -6,6 +6,6 @@ import android.os.Bundle
 class HistoryPanen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.history_panen)
+        setContentView(R.layout.pemilik_history_panen)
     }
 }

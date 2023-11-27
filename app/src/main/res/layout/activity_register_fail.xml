@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/failPage"
-    tools:context=".RegisterFail">
+    tools:context=".register.RegisterFail">
 
     <TextView
         android:id="@+id/RegFail"
@@ -50,7 +50,7 @@
 
     </RelativeLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/nextButton"
         android:layout_width="277dp"
         android:layout_height="60dp"

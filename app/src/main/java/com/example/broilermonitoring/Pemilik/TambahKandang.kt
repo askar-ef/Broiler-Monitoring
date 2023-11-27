@@ -1,10 +1,11 @@
-package com.example.broilermonitoring
+package com.example.broilermonitoring.Pemilik
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import com.example.broilermonitoring.R
 import com.example.broilermonitoring.databinding.TambahKandangBinding
 import com.google.android.material.textfield.TextInputEditText
 
