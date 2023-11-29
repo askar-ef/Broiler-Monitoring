@@ -2,6 +2,8 @@ package com.example.broilermonitoring.Peternak
 
 import android.R
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +14,7 @@ import androidx.fragment.app.Fragment
 import com.example.broilermonitoring.FetchDataCoroutine
 import com.example.broilermonitoring.Klasifikasi
 import com.example.broilermonitoring.Notifikasi
-import com.example.broilermonitoring.databinding.FragmentHomePeternakBinding
+import com.example.broilermonitoring.databinding.PeternakHomeBinding
 import com.example.broilermonitoring.model.DataItem
 import com.example.broilermonitoring.model.Helper
 import com.example.broilermonitoring.model.ResponseKandang
@@ -31,10 +33,18 @@ class HomePeternak : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var binding: FragmentHomePeternakBinding
+    private lateinit var binding: PeternakHomeBinding
     private lateinit var DataList:ArrayList<DataItem>
     private lateinit var KandangList:ArrayList<String>
     private lateinit var FetchData: FetchDataCoroutine
+    private val refreshInterval = 10000 // 10 seconds
+    private val handler = Handler(Looper.getMainLooper())
+    private val refreshRunnable = object : Runnable {
+        override fun run() {
+            fetchData()
+            handler.postDelayed(this, refreshInterval.toLong())
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +57,7 @@ class HomePeternak : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding= FragmentHomePeternakBinding.inflate(inflater, container, false)
+        binding= PeternakHomeBinding.inflate(inflater, container, false)
         val view=binding.root
 
         DataList = arrayListOf<DataItem>()
@@ -126,7 +136,7 @@ class HomePeternak : Fragment() {
             ) {
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                binding.kandang.setSelection(0)
+                binding.kandang.setSelection(1)
             }
         }
         return view
@@ -134,25 +144,55 @@ class HomePeternak : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        val token="Bearer "+ Helper(requireContext()).getToken()
-        val id_kandang= Helper(requireContext()).getIdKandang()
-
-        FetchData= FetchDataCoroutine(token, id_kandang)
-        FetchData.startFetching()
+        startAutoRefresh()
     }
 
     override fun onResume() {
         super.onResume()
-        with(binding){
-            statAmonia.setText(FetchData.getAmoniak())
-            statKelembaban.setText(FetchData.getKelembaban())
-            statSuhu.setText(FetchData.getSuhu())
-        }
+//        with(binding){
+//            statAmonia.setText(FetchData.getAmoniakv().toString())
+//            statKelembaban.setText(FetchData.getKelembabanv().toString())
+//            statSuhu.setText(FetchData.getSuhuv().toString())
+//
+//            Log.e("suhu",FetchData.getSuhuv().toString())
+//        }
     }
+
 
     override fun onStop() {
         super.onStop()
+        stopAutoRefresh()
+    }
+
+    private fun startAutoRefresh() {
+        val token = "Bearer " + Helper(requireContext()).getToken()
+        val idKandang = 1 // Change this to your actual logic for getting the ID
+        FetchData = FetchDataCoroutine(token, idKandang)
+        FetchData.startFetching()
+        handler.postDelayed(refreshRunnable, refreshInterval.toLong())
+    }
+
+    private fun stopAutoRefresh() {
+        handler.removeCallbacks(refreshRunnable)
         FetchData.stop()
+    }
+
+    private fun fetchData() {
+        // Implement your data fetching logic here
+        // Update UI with the fetched data
+        // For example:
+        with(binding) {
+            statAmonia.text = FetchData.getAmoniakv().toString() + "%"
+            if (FetchData.getAmoniakv() >= 25 && FetchData.getAmoniakv()<27){
+
+                statAmonia.setTextColor(resources.getColor(com.example.broilermonitoring.R.color.waspada))
+            }else if (FetchData.getAmoniakv()>=27)
+                statAmonia.setTextColor(resources.getColor(com.example.broilermonitoring.R.color.bahaya))
+
+            statKelembaban.text = FetchData.getKelembabanv().toString() + "%"
+
+            statSuhu.text = FetchData.getSuhuv().toString() + "°"
+        }
     }
 
 }

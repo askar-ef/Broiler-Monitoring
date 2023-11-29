@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.example.broilermonitoring.R
-import com.example.broilermonitoring.databinding.FragmentInputHarianBinding
+import com.example.broilermonitoring.databinding.PeternakInputHarianBinding
 import com.example.broilermonitoring.model.Helper
 import com.example.broilermonitoring.model.Post.DataKandangResponse
 import com.example.broilermonitoring.model.Post.DataKematianResponse
@@ -35,7 +35,7 @@ class InputHarian : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var binding: FragmentInputHarianBinding
+    private lateinit var binding: PeternakInputHarianBinding
     private var jamKematian =0
     private var jumlahKematian = 0
 
@@ -52,7 +52,7 @@ class InputHarian : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding= FragmentInputHarianBinding.inflate(layoutInflater,container,false)
+        binding= PeternakInputHarianBinding.inflate(layoutInflater,container,false)
 //        binding = FragmentInputHarianBinding.inflate(inflater, container, false)
         val view=binding.root
         return view
