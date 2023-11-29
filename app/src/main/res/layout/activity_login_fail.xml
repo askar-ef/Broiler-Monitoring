@@ -50,7 +50,7 @@
 
     </RelativeLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/nextButton"
         android:layout_width="277dp"
         android:layout_height="60dp"

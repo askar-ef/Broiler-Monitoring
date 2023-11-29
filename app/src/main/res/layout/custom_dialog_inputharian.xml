@@ -42,7 +42,7 @@
         android:orientation="horizontal"
         android:weightSum="2">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnCancel"
             android:layout_marginHorizontal="2dp"
             android:layout_width="0dp"
@@ -55,7 +55,7 @@
             android:background="@drawable/button_yellow"
             android:text="Batal" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSend"
             android:layout_marginHorizontal="2dp"
             android:layout_width="0dp"
