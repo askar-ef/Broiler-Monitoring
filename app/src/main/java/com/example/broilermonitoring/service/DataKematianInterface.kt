@@ -11,7 +11,7 @@ import retrofit2.http.POST
 
 interface DataKematianInterface {
     @FormUrlEncoded
-    @POST("api/anak-kandang/data-kematian")
+    @POST("anak-kandang/data-kematian")
     @Headers("Accept: application/json")
     fun postDataKematian(
         @Header("Authorization")Token:String,

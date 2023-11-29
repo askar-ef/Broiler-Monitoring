@@ -6,14 +6,14 @@ import com.example.broilermonitoring.Dashboard
 import com.example.broilermonitoring.Pengaturan
 import com.example.broilermonitoring.R
 
-import com.example.broilermonitoring.databinding.ActivityMainPeternakBinding
+import com.example.broilermonitoring.databinding.PeternakMainBinding
 
 class MainPeternak : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainPeternakBinding
+    lateinit var binding: PeternakMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainPeternakBinding.inflate(layoutInflater)
+        binding = PeternakMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         replaceFragment(HomePeternak())
 

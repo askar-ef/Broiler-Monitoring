@@ -33,7 +33,7 @@ class FetchDataCoroutine(private var token:String,private var path:Int) {
                     val data=responseData?.data
                     amoniak=data?.amoniak!!
                     suhu=data?.suhu!!
-                    Kelembaban =data?.kelembaban!!
+                    kelembaban =data?.kelembaban!!
                 }
             }
 
@@ -47,16 +47,15 @@ class FetchDataCoroutine(private var token:String,private var path:Int) {
         coroutineScope.cancel()
     }
 
-        var Kelembaban=0
+        var kelembaban=0
         var amoniak=0
         var suhu=0
-    fun getSuhu():Int{
-        return suhu
-    }    fun getAmoniak():Int{
-        return amoniak
-    }    fun getKelembaban():Int{
-        return Kelembaban
-    }
 
+    val getSuhu: Int
+        get() = suhu
+    val getAmoniak: Int
+        get() = amoniak
+    val getKelembaban: Int
+        get() = kelembaban
 
 }

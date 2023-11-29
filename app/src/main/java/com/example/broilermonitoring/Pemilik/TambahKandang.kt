@@ -5,20 +5,29 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Toast
 import com.example.broilermonitoring.R
 import com.example.broilermonitoring.databinding.TambahKandangBinding
+import com.example.broilermonitoring.model.Helper
+import com.example.broilermonitoring.model.Owner.AnakKandang
+import com.example.broilermonitoring.model.Owner.AnakKandangResponse
+import com.example.broilermonitoring.model.ResponseKandang
+import com.example.broilermonitoring.service.ApiService
+import com.example.broilermonitoring.service.KandangInterface
+import com.example.broilermonitoring.service.UserInterface
 import com.google.android.material.textfield.TextInputEditText
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.lang.Integer.parseInt
+import kotlin.properties.Delegates
 
 class TambahKandang : AppCompatActivity() {
     private lateinit var binding: TambahKandangBinding
+    private lateinit var listNamaAnakKandang: ArrayList<String>
+    private lateinit var listAnakKandang: ArrayList<AnakKandang>
+    private var idAnakKandang by Delegates.notNull<Int>()
 
-    companion object {
-        const val EXTRA_NAME = "extra_name"
-        const val EXTRA_ADDRESS = "extra_address"
-        const val EXTRA_LUAS = "extra_luas"
-        const val EXTRA_POPULASI = "extra_populasi"
-        const val EXTRA_ANAK = "extra_anak"
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = TambahKandangBinding.inflate(layoutInflater)
@@ -28,30 +37,72 @@ class TambahKandang : AppCompatActivity() {
             onBackPressed()
         }
 
-        val autoCompleteTextView: AutoCompleteTextView = findViewById(R.id.anak_kandang)
-        val namaKandang = findViewById<TextInputEditText>(R.id.nama_kandang)
-        val alamatKandang = findViewById<TextInputEditText>(R.id.alamat_kandang)
-        val luasKandang = findViewById<TextInputEditText>(R.id.luas_kandang)
-        val populasiAyam = findViewById<TextInputEditText>(R.id.populasi_ayam)
+        //Ambil data nama tiap anak kandang
+        val helper = Helper(this@TambahKandang)
+        val token = "Bearer " + helper.getToken().toString()
 
-        val items = arrayOf("Item 1", "Item 2", "Item 3", "Item 4", "Item 5")
+        val Api = ApiService().getInstance()
+        val anakKandangApi = Api.create(UserInterface::class.java)
+        val data = anakKandangApi.getAnakKandang(token)
 
-        val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, items)
+        listNamaAnakKandang = ArrayList<String>()
+        listAnakKandang = ArrayList<AnakKandang>()
 
-        autoCompleteTextView.setAdapter(adapter)
+        data.enqueue(object : Callback<AnakKandangResponse> {
+            override fun onResponse(
+                call: Call<AnakKandangResponse>,
+                response: Response<AnakKandangResponse>
+            ) {
+                val responseData = response.body()
+                val datas = responseData?.data
 
-        autoCompleteTextView.setOnItemClickListener { _, _, position, _ ->
+                if(datas != null) {
+                    for(data in datas) {
+                        listNamaAnakKandang.add(data?.namaLengkap.toString())
+                        listAnakKandang.add(data)
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<AnakKandangResponse>, t: Throwable) {
+                Toast.makeText(this@TambahKandang, "Error Fetching Anak Kandang", Toast.LENGTH_SHORT).show()
+            }
+
+        })
+        //Adapter Spinner Anak Kandang
+        val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, listNamaAnakKandang)
+        binding.anakKandang.setAdapter(adapter)
+        binding.anakKandang.setOnItemClickListener { _, _, position, _ ->
             val selectedItem = adapter.getItem(position)
-            // Handle the selected item
+            idAnakKandang = listAnakKandang[position].id!!
         }
 
         binding.button.setOnClickListener{
+            val namaKandang = binding.namaKandang.text.toString()
+            val alamatKandang = binding.alamatKandang.text.toString()
+            val luasKandang = parseInt(binding.luasKandang.text.toString())
+            val populasiAyam = parseInt(binding.populasiAyam.text.toString())
+
+            val kandangApi = Api.create(KandangInterface::class.java)
+            kandangApi.postKandang(token, namaKandang,idAnakKandang,luasKandang,alamatKandang)
+                .enqueue(object : Callback<ResponseKandang> {
+                    override fun onResponse(
+                        call: Call<ResponseKandang>,
+                        response: Response<ResponseKandang>
+                    ) {
+                        if(response.isSuccessful){
+                            finish()
+                        }else{
+                            Toast.makeText(this@TambahKandang, response.message(), Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<ResponseKandang>, t: Throwable) {
+                        Toast.makeText(this@TambahKandang, t.toString(), Toast.LENGTH_SHORT).show()
+                    }
+
+                })
             val intent = Intent(this, HomePemilik::class.java)
-            intent.putExtra(EXTRA_NAME, namaKandang.text.toString())
-            intent.putExtra(EXTRA_ADDRESS, alamatKandang.text.toString())
-            intent.putExtra(EXTRA_LUAS, luasKandang.text.toString())
-            intent.putExtra(EXTRA_POPULASI, populasiAyam.text.toString())
-            intent.putExtra(EXTRA_ANAK, autoCompleteTextView.text.toString())
             startActivity(intent)
         }
     }

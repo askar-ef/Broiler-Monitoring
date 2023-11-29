@@ -10,7 +10,7 @@ interface RegisterInterface {
 
 //    @Headers("Content-type:aplication-json")
     @FormUrlEncoded
-    @POST("api/register-anak-kandang")
+    @POST("register-anak-kandang")
     fun registerAnakKandang(
         @Field("nama_lengkap") nama_lengkap:String,
         @Field("username") username:String,
@@ -20,7 +20,7 @@ interface RegisterInterface {
     ): Call<AnakKandangResponse>
 
     @FormUrlEncoded
-    @POST("api/register-owner")
+    @POST("register-owner")
     fun registerOwner(
         @Field("nama_lengkap") nama_lengkap:String,
         @Field("username") username:String,

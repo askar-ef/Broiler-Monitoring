@@ -10,7 +10,7 @@ import retrofit2.http.POST
 
 interface DataKandangInterface {
     @FormUrlEncoded
-    @POST("api/anak-kandang/data-kandang")
+    @POST("anak-kandang/data-kandang")
     @Headers("Accept: application/json")
     fun postData(
         @Header("Authorization")Token:String,

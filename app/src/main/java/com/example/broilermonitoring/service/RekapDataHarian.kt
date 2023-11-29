@@ -9,7 +9,7 @@ import retrofit2.http.Headers
 import retrofit2.http.Path
 
 interface RekapDataHarian {
-    @GET("api/rekap-data-harian/{id_kandang}")
+    @GET("rekap-data-harian/{id_kandang}")
     @Headers("Accept: application/json")
     fun getRekap(@Header("Authorization")auth:String,@Path("id_kandang")id_kandang:Int): Call<RekapDataResponse>
 }

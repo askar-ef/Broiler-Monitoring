@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import com.example.broilermonitoring.FetchDataCoroutine
 import com.example.broilermonitoring.Klasifikasi
 import com.example.broilermonitoring.Notifikasi
-import com.example.broilermonitoring.databinding.FragmentHomePeternakBinding
+import com.example.broilermonitoring.databinding.PeternakHomeBinding
 import com.example.broilermonitoring.model.DataItem
 import com.example.broilermonitoring.model.Helper
 import com.example.broilermonitoring.model.ResponseKandang
@@ -31,7 +31,7 @@ class HomePeternak : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var binding: FragmentHomePeternakBinding
+    private lateinit var binding: PeternakHomeBinding
     private lateinit var DataList:ArrayList<DataItem>
     private lateinit var KandangList:ArrayList<String>
     private lateinit var FetchData: FetchDataCoroutine
@@ -47,7 +47,7 @@ class HomePeternak : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding= FragmentHomePeternakBinding.inflate(inflater, container, false)
+        binding= PeternakHomeBinding.inflate(inflater, container, false)
         val view=binding.root
 
         DataList = arrayListOf<DataItem>()
@@ -144,9 +144,9 @@ class HomePeternak : Fragment() {
     override fun onResume() {
         super.onResume()
         with(binding){
-            statAmonia.setText(FetchData.getAmoniak())
-            statKelembaban.setText(FetchData.getKelembaban())
-            statSuhu.setText(FetchData.getSuhu())
+            statAmonia.setText(FetchData.getAmoniak)
+            statKelembaban.setText(FetchData.getKelembaban)
+            statSuhu.setText(FetchData.getSuhu)
         }
     }
 
