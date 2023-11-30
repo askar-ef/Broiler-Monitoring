@@ -125,11 +125,12 @@
 
                             <Spinner
                                 android:id="@+id/kandang"
-                                android:layout_width="120dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/dropdown_kandang"
                                 android:layout_alignParentRight="true"
-                                android:entries="@array/kandang"/>
+                                android:entries="@array/kandang"
+                                />
 
                         </RelativeLayout>
 
