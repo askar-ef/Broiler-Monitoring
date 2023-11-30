@@ -14,9 +14,8 @@ class MainPeternak : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = PeternakMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        replaceFragment(Pengaturan())
-
-        binding.bottomNavView.setItemSelected(R.id.nav_settings)
+        replaceFragment(HomePeternak())
+        binding.bottomNavView.setItemSelected(R.id.nav_home)
 
         binding.bottomNavView.setOnItemSelectedListener {
             when(it){
