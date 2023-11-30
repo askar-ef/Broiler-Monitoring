@@ -33,6 +33,7 @@ class HomePemilik : Fragment() {
     private lateinit var binding: PemilikHomeBinding
     private lateinit var dataList: ArrayList<DataItem>
     private lateinit var namaKandang: ArrayList<String>
+    private lateinit var helperToken: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -41,20 +42,8 @@ class HomePemilik : Fragment() {
         binding = PemilikHomeBinding.inflate(layoutInflater)
         val view = binding.root
 
-//        val name = arguments?.getString(EXTRA_NAME)
-//        val passwordlog = arguments?.getString(EXTRA_PASS)
-//        val username = arguments?.getString(EXTRA_USERNAME)
-//        val password = arguments?.getString(EXTRA_PASS1)
-//        val email = arguments?.getString(EXTRA_EMAIL)
-//        val handphone = arguments?.getString(EXTRA_PHONE)
-//        val bottomNav = view.findViewById<BottomNavigationView>(R.id.bottom_menu)
         val helper = Helper(requireContext())
-        val helperToken = helper.getToken().toString()
-
-        val token = "Bearer " + helperToken
-        val kandang = ApiService().getInstance()
-        val kandangApi = kandang.create(KandangInterface::class.java)
-        val data = kandangApi.getKandang(token)
+        helperToken = helper.getToken().toString()
 
         val user = helper.getUser()
         val username = user?.username
@@ -62,38 +51,15 @@ class HomePemilik : Fragment() {
         dataList = ArrayList<DataItem>()
         namaKandang = ArrayList<String>()
 
-        data.enqueue(object : Callback<ResponseKandang> {
-            override fun onResponse(
-                call: Call<ResponseKandang>,
-                response: Response<ResponseKandang>
-            ) {
-                val ResponseData = response.body()
-                val datas = ResponseData?.data
-
-                if(datas != null) {
-                    for (data in datas) {
-                        dataList.add(data)
-                        namaKandang.add(data.namaKandang.toString())
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<ResponseKandang>, t: Throwable) {
-                Log.e("FETCH ERROR", "Error when Fetching Data", )
-            }
-
-        })
-
         //Data Nama Kandang untuk Spinner
         val customAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, namaKandang)
-
         customAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.kandang.adapter = customAdapter
-
         binding.kandang.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?, view: View?, position: Int, id: Long
             ) {
+                //
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 binding.kandang.setSelection(0)
@@ -138,5 +104,42 @@ class HomePemilik : Fragment() {
     override fun onStart() {
         super.onStart()
         binding.kandang.setSelection(0)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fetchKandang(dataList, namaKandang, helperToken)
+    }
+
+    fun fetchKandang(dataList: ArrayList<DataItem>, namaKandang: ArrayList<String>, helperToken: String) {
+        dataList.clear()
+        namaKandang.clear()
+
+        val token = "Bearer " + helperToken
+        val kandang = ApiService().getInstance()
+        val kandangApi = kandang.create(KandangInterface::class.java)
+        val data = kandangApi.getKandang(token)
+
+        data.enqueue(object : Callback<ResponseKandang> {
+            override fun onResponse(
+                call: Call<ResponseKandang>,
+                response: Response<ResponseKandang>
+            ) {
+                val ResponseData = response.body()
+                val datas = ResponseData?.data
+
+                if(datas != null) {
+                    for (data in datas) {
+                        dataList.add(data)
+                        namaKandang.add(data.namaKandang.toString())
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseKandang>, t: Throwable) {
+                Log.e("FETCH ERROR", "Error when Fetching Data", )
+            }
+
+        })
     }
 }

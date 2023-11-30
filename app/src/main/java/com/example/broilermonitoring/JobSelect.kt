@@ -3,6 +3,8 @@ package com.example.broilermonitoring
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import com.example.broilermonitoring.Pemilik.MainPemilik
 import com.example.broilermonitoring.databinding.ActivityJobSelectBinding
 import com.example.broilermonitoring.login.LoginPage
 import com.example.broilermonitoring.model.Helper
@@ -18,6 +20,13 @@ class JobSelect : AppCompatActivity() {
         with(binding){
             nextButton.setOnClickListener {
                 val checkedButton = toggle.checkedRadioButtonId
+
+                val helper = Helper(this@JobSelect)
+                val token = helper.getToken()
+
+                if(token?.length!! > 1) {
+                    startActivity(Intent(this@JobSelect, MainPemilik::class.java))
+                }
 
                 //ID Owner 2131362242
                 if (checkedButton == 2131362242){

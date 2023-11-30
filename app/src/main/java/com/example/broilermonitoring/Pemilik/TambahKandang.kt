@@ -81,7 +81,6 @@ class TambahKandang : AppCompatActivity() {
             val namaKandang = binding.namaKandang.text.toString()
             val alamatKandang = binding.alamatKandang.text.toString()
             val luasKandang = parseInt(binding.luasKandang.text.toString())
-            val populasiAyam = parseInt(binding.populasiAyam.text.toString())
 
             val kandangApi = Api.create(KandangInterface::class.java)
             kandangApi.postKandang(token, namaKandang,idAnakKandang,luasKandang,alamatKandang)
@@ -90,20 +89,19 @@ class TambahKandang : AppCompatActivity() {
                         call: Call<ResponseKandang>,
                         response: Response<ResponseKandang>
                     ) {
-                        if(response.isSuccessful){
+                        val responseData = response.body()
+                        val responseStatus = responseData?.data
+
+                        if(responseStatus != null){
                             finish()
-                        }else{
-                            Toast.makeText(this@TambahKandang, response.message(), Toast.LENGTH_SHORT).show()
                         }
                     }
 
                     override fun onFailure(call: Call<ResponseKandang>, t: Throwable) {
-                        Toast.makeText(this@TambahKandang, t.toString(), Toast.LENGTH_SHORT).show()
+                        finish()
                     }
 
                 })
-            val intent = Intent(this, HomePemilik::class.java)
-            startActivity(intent)
         }
     }
 }

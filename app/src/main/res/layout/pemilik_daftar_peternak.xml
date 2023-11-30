@@ -137,7 +137,7 @@
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:text="Nama : Valentino
-                                No. hp : 000-000-000
+                          No. hp : 000-000-000
                           Email : valentino123@gmail.com
                           Penempatan : Kandang 1"
             android:textSize="12dp"
