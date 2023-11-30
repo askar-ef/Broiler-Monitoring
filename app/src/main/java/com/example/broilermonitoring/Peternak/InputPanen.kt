@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.broilermonitoring.R
+import com.example.broilermonitoring.databinding.PeternakInputPanenBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +22,7 @@ class InputPanen : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var binding: PeternakInputPanenBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +37,20 @@ class InputPanen : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.peternak_input_panen, container, false)
+        binding = PeternakInputPanenBinding.inflate(layoutInflater, container, false)
+        val view = binding.root
+
+        with(binding){
+            panenBackbutton.setOnClickListener {
+                // Handle the fragment transaction to change to HomePeternak
+                val homeFragment = HomePeternak()  // Replace with the actual fragment class
+                val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+                fragmentTransaction.replace(R.id.nav_host_frag, homeFragment)
+                fragmentTransaction.addToBackStack(null)
+                fragmentTransaction.commit()
+            }
+        }
+        return view
     }
 
     companion object {

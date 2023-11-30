@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.broilermonitoring.databinding.FragmentAkunBinding
+import com.example.broilermonitoring.databinding.FragmentPasswordBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +22,7 @@ class Akun : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var binding: FragmentAkunBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +37,20 @@ class Akun : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_akun, container, false)
+        binding = FragmentAkunBinding.inflate(inflater, container, false)
+        val view = binding.root
+
+        with(binding){
+            akunBackbutton.setOnClickListener {
+                // Handle the fragment transaction to change to Pengaturan
+                val pengaturanFragment = Pengaturan()  // Replace with the actual fragment class
+                val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+                fragmentTransaction.replace(R.id.nav_host_frag, pengaturanFragment)
+                fragmentTransaction.addToBackStack(null)
+                fragmentTransaction.commit()
+            }
+        }
+        return view
     }
 
     companion object {
