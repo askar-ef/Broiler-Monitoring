@@ -15,8 +15,7 @@
             android:layout_height="30dp"
             android:layout_marginBottom="10dp"
             android:layout_marginRight="60dp"
-            android:background="@drawable/klasifikasi"
-            android:backgroundTint="@color/black"
+            android:background="@drawable/klasifikasi_icon"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/text_klasifikasi"/>
