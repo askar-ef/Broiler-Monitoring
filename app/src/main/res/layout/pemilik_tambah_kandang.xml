@@ -83,67 +83,79 @@
                 android:textSize="18dp"
                 android:layout_marginVertical="30dp"/>
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:id="@+id/nama_kandang_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
-                android:hint="Nama Kandang">
+                android:hint="Nama Kandang"
+                android:textColorHint="@color/black">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/nama_kandang"
+                    android:id="@+id/nama_kandang_input"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:id="@+id/alamat_kandang_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginVertical="20dp"
-                android:hint="Alamat Kandang">
+                android:hint="Alamat Kandang"
+                android:textColorHint="@color/black">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/alamat_kandang"
+                    android:id="@+id/alamat_kandang_input"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout"
+                android:id="@+id/luas_kandang_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
-                android:hint="Luas Kandang                                          m2">
-
+                android:hint="Luas"
+                android:textColorHint="@color/black">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/luas_kandang"
+                    android:id="@+id/luas_kandang_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="m2"
+                    android:textColorHint="@color/black"
+                    android:textAlignment="textEnd"
                     android:inputType="numberDecimal"/>
-                </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/populasi_ayam_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginVertical="20dp"
-                android:hint="Populasi Ayam                                      ekor">
+                android:hint="Populasi Ayam"
+                android:textColorHint="@color/black">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/populasi_ayam"
+                    android:id="@+id/populasi_ayam_input"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:hint="ekor"
+                    android:textAlignment="textEnd"
+                    android:textColorHint="@color/black"/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/anak_kandang_layout"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginHorizontal="30dp"
                 android:hint="Anak Kandang"
+                android:textColorHint="@color/black"
                 app:endIconMode="dropdown_menu">
                 <AutoCompleteTextView
-                    android:id="@+id/anak_kandang"
+                    android:id="@+id/anak_kandang_input"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:paddingHorizontal="15dp"
                     android:inputType="none"/>
             </com.google.android.material.textfield.TextInputLayout>
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button"
+                android:id="@+id/button_simpan"
                 android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"

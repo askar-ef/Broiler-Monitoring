@@ -12,11 +12,22 @@
         android:layout_marginTop="20dp"
         android:background="#DEF8EF">
         <View
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:id="@+id/arrow_back"
+            android:layout_width="30dp"
+            android:layout_height="15dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/arrow_dropdown"
+            android:rotation="90"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/image_history_panen"/>
+        <View
+            android:id="@+id/image_history_panen"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginBottom="10dp"
             android:layout_marginRight="30dp"
-            android:background="@drawable/history"
+            android:background="@drawable/history_vector"
             android:backgroundTint="@color/black"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

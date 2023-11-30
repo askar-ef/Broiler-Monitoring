@@ -18,7 +18,6 @@
         android:src="@drawable/logo_text" />
 
     <ImageView
-
         android:id="@+id/logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
