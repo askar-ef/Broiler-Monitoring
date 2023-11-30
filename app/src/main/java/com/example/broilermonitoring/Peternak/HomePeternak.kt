@@ -13,7 +13,7 @@ import com.example.broilermonitoring.FetchDataCoroutine
 import com.example.broilermonitoring.Klasifikasi
 import com.example.broilermonitoring.Notifikasi
 import com.example.broilermonitoring.databinding.PeternakHomeBinding
-import com.example.broilermonitoring.model.DataItem
+import com.example.broilermonitoring.model.Kandang
 import com.example.broilermonitoring.model.Helper
 import com.example.broilermonitoring.model.ResponseKandang
 import com.example.broilermonitoring.service.ApiService
@@ -32,7 +32,7 @@ class HomePeternak : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var binding: PeternakHomeBinding
-    private lateinit var DataList:ArrayList<DataItem>
+    private lateinit var DataList:ArrayList<Kandang>
     private lateinit var KandangList:ArrayList<String>
     private lateinit var FetchData: FetchDataCoroutine
 
@@ -50,7 +50,7 @@ class HomePeternak : Fragment() {
         binding= PeternakHomeBinding.inflate(inflater, container, false)
         val view=binding.root
 
-        DataList = arrayListOf<DataItem>()
+        DataList = arrayListOf<Kandang>()
         KandangList = arrayListOf<String>()
 
 //        getKandang()

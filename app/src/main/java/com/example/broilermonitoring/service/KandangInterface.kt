@@ -1,6 +1,7 @@
 package com.example.broilermonitoring.service
 
 
+import com.example.broilermonitoring.model.Kandang
 import com.example.broilermonitoring.model.ResponseKandang
 import retrofit2.Call
 import retrofit2.http.Field
@@ -28,6 +29,6 @@ interface KandangInterface {
         @Field("id_user")id_user: Int,
         @Field("luas_kandang")luas_kandang: Int,
         @Field("alamat_kandang")alamat_kandang: String
-        ): Call<ResponseKandang>
+        ): Call<Kandang>
 
 }

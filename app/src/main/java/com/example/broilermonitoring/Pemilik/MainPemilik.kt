@@ -8,22 +8,21 @@ import com.example.broilermonitoring.R
 import com.example.broilermonitoring.databinding.PemilikMainBinding
 
 class MainPemilik : AppCompatActivity() {
-    private lateinit var binding:PemilikMainBinding
-
+    private lateinit var binding: PemilikMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= PemilikMainBinding.inflate(layoutInflater)
+        binding = PemilikMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         replaceFragment(HomePemilik())
 
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        binding.bottomNavView.setItemSelected(R.id.navigation_home)
 
         binding.bottomNavView.setOnItemSelectedListener {
             when(it){
-                0 -> replaceFragment(HomePemilik())
-                1 -> replaceFragment(Dashboard())
-                2 -> replaceFragment(Laporan())
-                3 -> replaceFragment(Pengaturan())
+                R.id.navigation_home -> replaceFragment(HomePemilik())
+                R.id.navigation_dashboard -> replaceFragment(Dashboard())
+                R.id.navigation_laporan -> replaceFragment(Laporan())
+                R.id.navigation_setting -> replaceFragment(Pengaturan())
             }
             true
         }

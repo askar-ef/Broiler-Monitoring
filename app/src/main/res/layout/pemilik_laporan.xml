@@ -12,12 +12,22 @@
         android:layout_marginTop="20dp"
         android:background="#DEF8EF">
         <View
+            android:id="@+id/arrow_back"
+            android:layout_width="30dp"
+            android:layout_height="15dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/arrow_dropdown"
+            android:rotation="90"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/image_laporan"/>
+        <View
+            android:id="@+id/image_laporan"
             android:layout_width="22dp"
             android:layout_height="28dp"
             android:layout_marginBottom="10dp"
             android:layout_marginRight="70dp"
-            android:background="@drawable/laporan"
-            android:backgroundTint="@color/black"
+            android:background="@drawable/laporan_vector"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/text_laporan"/>
@@ -54,6 +64,7 @@
             app:layout_constraintStart_toEndOf="@id/text_laporan"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <TextView
+        android:id="@+id/tv_laporan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
@@ -61,19 +72,21 @@
         android:layout_marginVertical="40dp"
         android:text="@string/laporan"/>
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/pdf_cardview"
         android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_marginHorizontal="50dp"
         app:cardBackgroundColor="@color/background">
         <ImageView
-            android:id="@+id/pdf"
+            android:id="@+id/pdf_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/pdf"/>
     </com.google.android.material.card.MaterialCardView>
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/csv_cardview"
         android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="160dp"
@@ -81,7 +94,7 @@
         android:layout_marginTop="30dp"
         app:cardBackgroundColor="@color/background">
         <ImageView
-            android:id="@+id/csv"
+            android:id="@+id/csv_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

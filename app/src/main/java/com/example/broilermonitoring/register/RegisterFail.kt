@@ -14,7 +14,7 @@ class RegisterFail : AppCompatActivity() {
         setContentView(binding.root)
         with(binding){
             nextButton.setOnClickListener {
-                val intent= Intent(this@RegisterFail, LoginPage::class.java)
+                val intent= Intent(this@RegisterFail, RegisterPage::class.java)
                 startActivity(intent)
                 finish()
             }

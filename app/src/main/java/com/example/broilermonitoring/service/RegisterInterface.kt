@@ -8,7 +8,7 @@ import retrofit2.http.POST
 
 interface RegisterInterface {
 
-//    @Headers("Content-type:aplication-json")
+    //    @Headers("Content-type:aplication-json")
     @FormUrlEncoded
     @POST("register-anak-kandang")
     fun registerAnakKandang(

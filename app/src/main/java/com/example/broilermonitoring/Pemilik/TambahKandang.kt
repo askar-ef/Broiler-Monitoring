@@ -3,12 +3,14 @@ package com.example.broilermonitoring.Pemilik
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import com.example.broilermonitoring.R
-import com.example.broilermonitoring.databinding.TambahKandangBinding
+import com.example.broilermonitoring.databinding.PemilikTambahKandangBinding
 import com.example.broilermonitoring.model.Helper
+import com.example.broilermonitoring.model.Kandang
 import com.example.broilermonitoring.model.Owner.AnakKandang
 import com.example.broilermonitoring.model.Owner.AnakKandangResponse
 import com.example.broilermonitoring.model.ResponseKandang
@@ -23,14 +25,14 @@ import java.lang.Integer.parseInt
 import kotlin.properties.Delegates
 
 class TambahKandang : AppCompatActivity() {
-    private lateinit var binding: TambahKandangBinding
+    private lateinit var binding: PemilikTambahKandangBinding
     private lateinit var listNamaAnakKandang: ArrayList<String>
     private lateinit var listAnakKandang: ArrayList<AnakKandang>
     private var idAnakKandang by Delegates.notNull<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = TambahKandangBinding.inflate(layoutInflater)
+        binding = PemilikTambahKandangBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.arrowBack.setOnClickListener {
@@ -71,34 +73,32 @@ class TambahKandang : AppCompatActivity() {
         })
         //Adapter Spinner Anak Kandang
         val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, listNamaAnakKandang)
-        binding.anakKandang.setAdapter(adapter)
-        binding.anakKandang.setOnItemClickListener { _, _, position, _ ->
+        binding.anakKandangInput.setAdapter(adapter)
+        binding.anakKandangInput.setOnItemClickListener { _, _, position, _ ->
             val selectedItem = adapter.getItem(position)
             idAnakKandang = listAnakKandang[position].id!!
         }
 
-        binding.button.setOnClickListener{
-            val namaKandang = binding.namaKandang.text.toString()
-            val alamatKandang = binding.alamatKandang.text.toString()
-            val luasKandang = parseInt(binding.luasKandang.text.toString())
+        binding.buttonSimpan.setOnClickListener{
+            val namaKandang = binding.namaKandangInput.text.toString()
+            val alamatKandang = binding.alamatKandangInput.text.toString()
+            val luasKandang = parseInt(binding.luasKandangInput.text.toString())
 
             val kandangApi = Api.create(KandangInterface::class.java)
             kandangApi.postKandang(token, namaKandang,idAnakKandang,luasKandang,alamatKandang)
-                .enqueue(object : Callback<ResponseKandang> {
+                .enqueue(object : Callback<Kandang> {
                     override fun onResponse(
-                        call: Call<ResponseKandang>,
-                        response: Response<ResponseKandang>
+                        call: Call<Kandang>,
+                        response: Response<Kandang>
                     ) {
-                        val responseData = response.body()
-                        val responseStatus = responseData?.data
-
-                        if(responseStatus != null){
+                        if(response.isSuccessful) {
+                            Toast.makeText(this@TambahKandang, "kandang berhasil dibuat", Toast.LENGTH_LONG).show()
                             finish()
                         }
                     }
 
-                    override fun onFailure(call: Call<ResponseKandang>, t: Throwable) {
-                        finish()
+                    override fun onFailure(call: Call<Kandang>, t: Throwable) {
+                        Log.e("kontol", "onFailure: ${t.message}", )
                     }
 
                 })

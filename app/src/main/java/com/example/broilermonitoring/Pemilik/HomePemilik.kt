@@ -8,13 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import com.example.broilermonitoring.Klasifikasi
 import com.example.broilermonitoring.Notifikasi
-import com.example.broilermonitoring.R
 import com.example.broilermonitoring.databinding.PemilikHomeBinding
-import com.example.broilermonitoring.model.DataItem
+import com.example.broilermonitoring.model.Kandang
 import com.example.broilermonitoring.model.Helper
 import com.example.broilermonitoring.model.ResponseKandang
 import com.example.broilermonitoring.service.ApiService
@@ -31,7 +29,7 @@ import retrofit2.Response
 
 class HomePemilik : Fragment() {
     private lateinit var binding: PemilikHomeBinding
-    private lateinit var dataList: ArrayList<DataItem>
+    private lateinit var dataList: ArrayList<Kandang>
     private lateinit var namaKandang: ArrayList<String>
     private lateinit var helperToken: String
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +46,7 @@ class HomePemilik : Fragment() {
         val user = helper.getUser()
         val username = user?.username
 
-        dataList = ArrayList<DataItem>()
+        dataList = ArrayList<Kandang>()
         namaKandang = ArrayList<String>()
 
         //Data Nama Kandang untuk Spinner
@@ -76,8 +74,12 @@ class HomePemilik : Fragment() {
             startActivity(intent)
         }
         binding.klasifikasi.setOnClickListener {
-            val intent = Intent(requireContext(), Klasifikasi::class.java)
-            startActivity(intent)
+            // Handle the fragment transaction to change to InputPanen
+            val klasifikasiFragment = Klasifikasi()  // Replace with the actual fragment class
+            val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+            fragmentTransaction.replace(com.example.broilermonitoring.R.id.nav_host_frag, klasifikasiFragment)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
         }
         binding.forcasting.setOnClickListener {
             val intent = Intent(requireContext(), Forecasting::class.java)
@@ -88,8 +90,12 @@ class HomePemilik : Fragment() {
             startActivity(intent)
         }
         binding.notifikasi.setOnClickListener {
-            val intent = Intent(requireContext(), Notifikasi::class.java)
-            startActivity(intent)
+            // Handle the fragment transaction to change to InputPanen
+            val notifikasiFragment = Notifikasi()  // Replace with the actual fragment class
+            val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+            fragmentTransaction.replace(com.example.broilermonitoring.R.id.nav_host_frag, notifikasiFragment)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
         }
         binding.usernameUser.setText(username)
     }
@@ -111,7 +117,7 @@ class HomePemilik : Fragment() {
         fetchKandang(dataList, namaKandang, helperToken)
     }
 
-    fun fetchKandang(dataList: ArrayList<DataItem>, namaKandang: ArrayList<String>, helperToken: String) {
+    fun fetchKandang(dataList: ArrayList<Kandang>, namaKandang: ArrayList<String>, helperToken: String) {
         dataList.clear()
         namaKandang.clear()
 
