@@ -120,7 +120,7 @@
                     android:layout_height="wrap_content"
                     android:hint="m2"
                     android:textColorHint="@color/black"
-                    android:textAlignment="textEnd"
+                    android:textAlignment="viewEnd"
                     android:inputType="numberDecimal"/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout

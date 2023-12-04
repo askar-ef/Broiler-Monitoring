@@ -7,6 +7,7 @@
     tools:context=".Pemilik.Forecasting"
     android:orientation="vertical">
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_forcasting"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginTop="20dp">
@@ -45,6 +46,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
         <View
+            android:id="@+id/underline_forcasting"
             android:layout_width="260dp"
             android:layout_height="8dp"
             android:layout_marginTop="35dp"
@@ -55,6 +57,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
         <View
+            android:id="@+id/logo"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@drawable/logo_tanpa_nama"
@@ -64,22 +67,26 @@
             app:layout_constraintStart_toEndOf="@id/text_forcasting"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <LinearLayout
+        android:id="@+id/main_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="30dp"
         android:orientation="vertical">
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_total_forcasting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="5dp"
             app:cardBackgroundColor="@color/background">
             <LinearLayout
+                android:id="@+id/layout_total_forcasting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:orientation="vertical">
                 <TextView
+                    android:id="@+id/title_jumlah"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="20dp"
@@ -89,11 +96,13 @@
                     android:textColor="@color/black"
                     android:textSize="20dp"/>
                 <RelativeLayout
+                    android:id="@+id/layout_ayam_mati"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="5dp"
                     android:paddingHorizontal="20dp">
                     <TextView
+                        android:id="@+id/txt_ayam_mati"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ayam Mati"
@@ -111,12 +120,13 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_grafik_forcasting"
             android:layout_width="match_parent"
             android:layout_height="400dp"
             android:layout_marginTop="10dp"
             app:cardBackgroundColor="@color/background">
             <com.github.mikephil.charting.charts.BarChart
-                android:id="@+id/barChart"
+                android:id="@+id/grafik_forcasting"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </com.google.android.material.card.MaterialCardView>

@@ -29,12 +29,6 @@ class Helper(context: Context) {
         editor.apply()
     }
 
-    fun saveStatus(status: String) {
-        val editor = sharedPreferences.edit()
-        editor.putString("status", status)
-        editor.apply()
-    }
-
     fun getToken(): String? {
         return sharedPreferences.getString("token", null)
     }
@@ -44,10 +38,6 @@ class Helper(context: Context) {
     }
     fun getIdKandang():Int{
         return sharedPreferences.getInt("IdKandang", 0)
-    }
-
-    fun getStatus(): String? {
-        return sharedPreferences.getString("status", null)
     }
 
     fun getStatus(): String? {

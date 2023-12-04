@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import com.example.broilermonitoring.R
-import com.example.broilermonitoring.databinding.TambahKandangBinding
+import com.example.broilermonitoring.databinding.PemilikTambahKandangBinding
 import com.google.android.material.textfield.TextInputEditText
 
 class TambahKandang : AppCompatActivity() {
-    private lateinit var binding: TambahKandangBinding
+    private lateinit var binding: PemilikTambahKandangBinding
 
     companion object {
         const val EXTRA_NAME = "extra_name"
@@ -21,18 +21,18 @@ class TambahKandang : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = TambahKandangBinding.inflate(layoutInflater)
+        binding = PemilikTambahKandangBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.arrowBack.setOnClickListener {
             onBackPressed()
         }
 
-        val autoCompleteTextView: AutoCompleteTextView = findViewById(R.id.anak_kandang)
-        val namaKandang = findViewById<TextInputEditText>(R.id.nama_kandang)
-        val alamatKandang = findViewById<TextInputEditText>(R.id.alamat_kandang)
-        val luasKandang = findViewById<TextInputEditText>(R.id.luas_kandang)
-        val populasiAyam = findViewById<TextInputEditText>(R.id.populasi_ayam)
+        val autoCompleteTextView: AutoCompleteTextView = findViewById(R.id.anak_kandang_input)
+        val namaKandang = findViewById<TextInputEditText>(R.id.nama_kandang_input)
+        val alamatKandang = findViewById<TextInputEditText>(R.id.alamat_kandang_input)
+        val luasKandang = findViewById<TextInputEditText>(R.id.luas_kandang_input)
+        val populasiAyam = findViewById<TextInputEditText>(R.id.populasi_ayam_input)
 
         val items = arrayOf("Item 1", "Item 2", "Item 3", "Item 4", "Item 5")
 
@@ -45,7 +45,7 @@ class TambahKandang : AppCompatActivity() {
             // Handle the selected item
         }
 
-        binding.button.setOnClickListener{
+        binding.buttonSimpan.setOnClickListener{
             val intent = Intent(this, HomePemilik::class.java)
             intent.putExtra(EXTRA_NAME, namaKandang.text.toString())
             intent.putExtra(EXTRA_ADDRESS, alamatKandang.text.toString())
