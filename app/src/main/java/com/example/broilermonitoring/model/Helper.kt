@@ -10,7 +10,7 @@ class Helper(context: Context) {
     fun saveUser(user: Profile) {
         val editor = sharedPreferences.edit()
         editor.putString("user_namaLengkap", user.namaLengkap)
-        editor.putString("user_userndsssssssssssssssame", user.username)
+        editor.putString("user_username", user.username)
         editor.putString("user_status", user.status)
         editor.apply()
     }

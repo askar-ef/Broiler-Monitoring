@@ -5,6 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.broilermonitoring.databinding.FragmentAkunBinding
+import com.example.broilermonitoring.model.Helper
+import com.example.broilermonitoring.model.Profile
+import com.example.broilermonitoring.model.ProfileResponse
+import com.example.broilermonitoring.service.ApiService
+import com.example.broilermonitoring.service.UserInterface
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,15 +26,23 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class Akun : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
+    private lateinit var binding: FragmentAkunBinding
+    private lateinit var token: String
+    private lateinit var user: Profile
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+        }
+
+        binding = FragmentAkunBinding.inflate(layoutInflater)
+        val view = binding
+
+        val helper = Helper(requireContext())
+        token = "Bearer " + helper.getToken().toString()
+
+        fetchData()
+        with(binding) {
+
         }
     }
 
@@ -35,6 +52,30 @@ class Akun : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_akun, container, false)
+    }
+
+    private fun fetchData() {
+        val apiService = ApiService().getInstance()
+        val profileApi = apiService.create(UserInterface::class.java)
+
+        val data = profileApi.profile(token)
+
+        data.enqueue(object : Callback<ProfileResponse> {
+            override fun onResponse(
+                call: Call<ProfileResponse>,
+                response: Response<ProfileResponse>
+            ) {
+                val responseData = response.body()
+                val result = responseData?.data
+
+                user = result!!
+            }
+
+            override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
 
     companion object {
