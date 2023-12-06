@@ -55,7 +55,6 @@ class InputHarian : Fragment() {
         binding= PeternakInputHarianBinding.inflate(layoutInflater,container,false)
 //        binding = FragmentInputHarianBinding.inflate(inflater, container, false)
         val view=binding.root
-        return view
 
 
         with(binding){
@@ -85,14 +84,13 @@ class InputHarian : Fragment() {
                         }
 
                     }
-
                     override fun onFailure(call: Call<DataKandangResponse>, t: Throwable) {
                         Log.e("Failure",t.message.toString()+t.cause)
                     }
                 })
 
             }
-            inputJumlahKematian.setText(0)
+            inputJumlahKematian.setText("0")
             val waktu=resources.getStringArray(R.array.jam)
             val waktuAdapter=ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item,waktu)
             waktuAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)

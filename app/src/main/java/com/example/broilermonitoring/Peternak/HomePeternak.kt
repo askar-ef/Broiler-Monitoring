@@ -186,12 +186,29 @@ class HomePeternak : Fragment() {
             if (FetchData.getAmoniakv() >= 25 && FetchData.getAmoniakv()<27){
 
                 statAmonia.setTextColor(resources.getColor(com.example.broilermonitoring.R.color.waspada))
-            }else if (FetchData.getAmoniakv()>=27)
+            }else if (FetchData.getAmoniakv()>=27) {
                 statAmonia.setTextColor(resources.getColor(com.example.broilermonitoring.R.color.bahaya))
-
+            }else{
+                statAmonia.setTextColor(resources.getColor(com.example.broilermonitoring.R.color.aman))
+            }
             statKelembaban.text = FetchData.getKelembabanv().toString() + "%"
+            if (FetchData.getKelembabanv() >= 25 && FetchData.getAmoniakv()<27){
 
+                statKelembaban.setTextColor(resources.getColor(com.example.broilermonitoring.R.color.waspada))
+            }else if (FetchData.getKelembabanv()>=27) {
+                statKelembaban.setTextColor(resources.getColor(com.example.broilermonitoring.R.color.bahaya))
+            }else{
+                statKelembaban.setTextColor(resources.getColor(com.example.broilermonitoring.R.color.aman))
+            }
             statSuhu.text = FetchData.getSuhuv().toString() + "°"
+            if (FetchData.getSuhuv() >= 25 && FetchData.getAmoniakv()<27){
+
+                statSuhu.setTextColor(resources.getColor(com.example.broilermonitoring.R.color.waspada))
+            }else if (FetchData.getSuhuv()>=27) {
+                statSuhu.setTextColor(resources.getColor(com.example.broilermonitoring.R.color.bahaya))
+            }else{
+                statSuhu.setTextColor(resources.getColor(com.example.broilermonitoring.R.color.aman))
+            }
         }
     }
 
