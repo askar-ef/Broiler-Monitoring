@@ -37,7 +37,7 @@ class HomePeternak : Fragment() {
     private lateinit var DataList:ArrayList<DataItem>
     private lateinit var KandangList:ArrayList<String>
     private lateinit var FetchData: FetchDataCoroutine
-    private val refreshInterval = 10000 // 10 seconds
+    private val refreshInterval = 1000 // 1 seconds
     private val handler = Handler(Looper.getMainLooper())
     private val refreshRunnable = object : Runnable {
         override fun run() {
