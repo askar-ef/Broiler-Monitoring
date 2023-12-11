@@ -20,7 +20,7 @@ class FetchDataCoroutine(private var token:String,private var path:Int) {
             }
         }
     }
-    private suspend fun fetchData(){
+    private fun fetchData(){
         val api=ApiService().getInstance()
         val DataSensor=api.create(RekapDataHarian::class.java).getRekap(token,path)
         DataSensor.enqueue(object :Callback<RekapDataResponse>{
@@ -34,7 +34,11 @@ class FetchDataCoroutine(private var token:String,private var path:Int) {
                     amoniak=data?.amoniak!!
                     suhu=data?.suhu!!
                     Kelembaban =data?.kelembaban!!
+                    Log.i("success",token)
                 }
+                Log.e("Failure", path.toString())
+                Log.e("Failure", token.toString())
+                Log.e("kelembaban",Kelembaban.toString())
             }
 
             override fun onFailure(call: Call<RekapDataResponse>, t: Throwable) {
@@ -50,11 +54,13 @@ class FetchDataCoroutine(private var token:String,private var path:Int) {
         var Kelembaban=0
         var amoniak=0
         var suhu=0
-    fun getSuhu():Int{
+    public fun getSuhuv():Int{
         return suhu
-    }    fun getAmoniak():Int{
+    }
+    public fun getAmoniakv():Int{
         return amoniak
-    }    fun getKelembaban():Int{
+    }
+    public fun getKelembabanv():Int{
         return Kelembaban
     }
 

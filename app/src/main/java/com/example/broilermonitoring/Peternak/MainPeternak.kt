@@ -9,7 +9,8 @@ import com.example.broilermonitoring.databinding.PeternakMainBinding
 
 class MainPeternak : AppCompatActivity() {
 
-    lateinit var binding: PeternakMainBinding
+    lateinit var binding:PeternakMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = PeternakMainBinding.inflate(layoutInflater)
