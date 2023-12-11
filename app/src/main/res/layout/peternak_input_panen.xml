@@ -12,15 +12,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="20dp"
         android:background="@color/background"
         android:gravity="center"
         android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/panen_backbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_button"
+            android:layout_marginRight="30dp"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="54dp"
             android:layout_marginVertical="10dp"
+            android:layout_marginRight="15dp"
             android:orientation="vertical"
             android:gravity="center">
 
@@ -52,7 +60,6 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:src="@drawable/line3"/>
 
         </LinearLayout>
@@ -72,56 +79,132 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingHorizontal="40dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="80dp"
+                android:paddingHorizontal="40dp"
                 android:layout_marginTop="26dp"
                 android:text="Mohon lengkapi data di bawah ini untuk membuat laporan hasil panen"
                 android:textColor="@color/black"
                 android:textAlignment="center"/>
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:orientation="vertical"
-                android:layout_marginHorizontal="40dp">
-
-                <androidx.appcompat.widget.AppCompatEditText
+                android:layout_height="wrap_content">
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="46dp"
-                    android:layout_marginTop="26dp"
-                    android:paddingHorizontal="10dp"
-                    android:background="@drawable/txt_input_shape"
-                    android:hint="Jumlah Panen"
-                    />
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="vertical">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="46dp"
-                    android:layout_marginVertical="31dp"
-                    android:paddingHorizontal="10dp"
-                    android:background="@drawable/txt_input_shape"
-                    android:hint="Bobot Total"
-                    />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="24dp"
+                        app:boxCornerRadiusTopEnd="10dp"
+                        app:boxCornerRadiusTopStart="10dp"
+                        app:boxCornerRadiusBottomStart="10dp"
+                        app:boxCornerRadiusBottomEnd="10dp"
+                        android:hint="Jumlah Panen">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/input_jumlahPanen"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textColorHint="@color/black"
+                            android:hint="KG"
+                            android:textAlignment="textEnd"/>
 
-                <Button
-                    android:id="@+id/loginButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_below="@id/inputSection2"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/button_shape"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:textSize="16sp"
-                    android:textAllCaps="false"
-                    android:text="Laporkan"/>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-            </LinearLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="27dp"
+                        android:layout_marginBottom="30dp"
+                        app:boxCornerRadiusTopEnd="10dp"
+                        app:boxCornerRadiusTopStart="10dp"
+                        app:boxCornerRadiusBottomStart="10dp"
+                        app:boxCornerRadiusBottomEnd="10dp"
+                        android:hint="Bobot Total">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/input_bobotTotal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/laporkanButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_below="@id/inputSection2"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/button_shape"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:textSize="16sp"
+                        android:textAllCaps="false"
+                        android:text="Laporkan"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="24dp"
+                        android:src="@drawable/line5"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Inputan Khusus"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="24sp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:textColor="@color/black"
+                        android:text="Mohon masukkan jumlah populasi baru setelah panen dilakukan"
+                        android:textAlignment="center"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="30dp"
+                        app:boxCornerRadiusTopEnd="10dp"
+                        app:boxCornerRadiusTopStart="10dp"
+                        app:boxCornerRadiusBottomStart="10dp"
+                        app:boxCornerRadiusBottomEnd="10dp"
+                        android:hint="Populasi Baru">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/input_populasiBaru"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/simpanButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_below="@id/inputSection2"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/button_shape"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:textSize="16sp"
+                        android:textAllCaps="false"
+                        android:text="Simpan"/>
+
+                </LinearLayout>
+
+            </ScrollView>
 
         </LinearLayout>
 

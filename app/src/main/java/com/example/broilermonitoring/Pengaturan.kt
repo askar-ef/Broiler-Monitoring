@@ -41,7 +41,7 @@ class Pengaturan : Fragment() {
 
         with(binding){
             akun.setOnClickListener {
-                // Handle the fragment transaction to change to InputPanen
+                // Handle the fragment transaction to change to Akun
                 val akunFragment = Akun()  // Replace with the actual fragment class
                 val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
                 fragmentTransaction.replace(R.id.nav_host_frag, akunFragment)
@@ -49,7 +49,7 @@ class Pengaturan : Fragment() {
                 fragmentTransaction.commit()
             }
             password.setOnClickListener {
-                // Handle the fragment transaction to change to InputPanen
+                // Handle the fragment transaction to change to Password
                 val passwordFragment = Password()  // Replace with the actual fragment class
                 val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
                 fragmentTransaction.replace(R.id.nav_host_frag, passwordFragment)
@@ -57,7 +57,7 @@ class Pengaturan : Fragment() {
                 fragmentTransaction.commit()
             }
             panduan.setOnClickListener {
-                // Handle the fragment transaction to change to InputPanen
+                // Handle the fragment transaction to change to Panduan
                 val panduanFragment = PanduanAplikasi()  // Replace with the actual fragment class
                 val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
                 fragmentTransaction.replace(R.id.nav_host_frag, panduanFragment)
