@@ -1,12 +1,20 @@
 package com.example.broilermonitoring.Peternak
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.broilermonitoring.R
 import com.example.broilermonitoring.databinding.PeternakInputPanenBinding
+import com.example.broilermonitoring.model.Helper
+import com.example.broilermonitoring.model.Post.PopulationResponse
+import com.example.broilermonitoring.service.ApiService
+import com.example.broilermonitoring.service.PopulationInterface
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -40,6 +48,11 @@ class InputPanen : Fragment() {
         binding = PeternakInputPanenBinding.inflate(layoutInflater, container, false)
         val view = binding.root
 
+        val token="Bearer "+Helper(requireContext()).getToken()
+        val id_kandang=Helper(requireContext()).getIdKandang()
+        val Api=ApiService().getInstance().create(PopulationInterface::class.java)
+
+
         with(binding){
             panenBackbutton.setOnClickListener {
                 // Handle the fragment transaction to change to HomePeternak
@@ -49,6 +62,23 @@ class InputPanen : Fragment() {
                 fragmentTransaction.addToBackStack(null)
                 fragmentTransaction.commit()
             }
+            simpanButton.setOnClickListener {
+                Api.PostPopulation(token,id_kandang,inputPopulasiBaru.text.toString().toInt()).enqueue(object :Callback<PopulationResponse>{
+                    override fun onResponse(
+                        call: Call<PopulationResponse>,
+                        response: Response<PopulationResponse>
+                    ) {
+                        Log.d("done",response.message())
+                    }
+                    override fun onFailure(call: Call<PopulationResponse>, t: Throwable) {
+                        Log.e("fail",t.message.toString())
+                        Log.e("token",token)
+                        Log.e("id_kandang",id_kandang.toString())
+                    }
+
+                })
+            }
+
         }
         return view
     }
