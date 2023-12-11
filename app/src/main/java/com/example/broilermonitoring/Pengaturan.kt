@@ -1,11 +1,13 @@
 package com.example.broilermonitoring
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.broilermonitoring.databinding.FragmentPengaturanBinding
+import com.example.broilermonitoring.login.LoginPage
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -63,6 +65,11 @@ class Pengaturan : Fragment() {
                 fragmentTransaction.replace(R.id.nav_host_frag, panduanFragment)
                 fragmentTransaction.addToBackStack(null)
                 fragmentTransaction.commit()
+            }
+            keluar.setOnClickListener {
+                // Handle the fragment transaction to change to InputPanen
+                val intent = Intent(requireContext(), LoginPage::class.java)
+                startActivity(intent)
             }
 
         }

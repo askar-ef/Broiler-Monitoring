@@ -38,6 +38,7 @@
                     android:src="@drawable/klasifikasi_icon"/>
 
                 <TextView
+                    android:id="@+id/txt_klasifikasi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
@@ -59,6 +60,7 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/logo"
             android:layout_width="52dp"
             android:layout_height="54dp"
             android:src="@drawable/logo_without_text"/>
@@ -66,17 +68,20 @@
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cv_main_section"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardCornerRadius="30dp"
         android:layout_marginBottom="-30dp">
         <LinearLayout
+            android:id="@+id/main_section"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingHorizontal="30dp"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/title_keadaan_kandang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -87,6 +92,7 @@
                 android:textAlignment="center"/>
 
             <TextView
+                android:id="@+id/nama_kandang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"

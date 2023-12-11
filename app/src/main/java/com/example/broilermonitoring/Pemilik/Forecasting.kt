@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.broilermonitoring.R
+import com.example.broilermonitoring.databinding.PemilikForecastingBinding
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
@@ -11,10 +12,12 @@ import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 
 class Forecasting : AppCompatActivity() {
+    private lateinit var binding: PemilikForecastingBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.pemilik_forecasting)
-        val barChart: BarChart = findViewById(R.id.barChart)
+        binding = PemilikForecastingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        val barChart: BarChart = binding.grafikForcasting
 
         // Sample data
         val entries = ArrayList<BarEntry>()
