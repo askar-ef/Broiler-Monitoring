@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.example.broilermonitoring.R
 import com.example.broilermonitoring.databinding.PeternakInputHarianBinding
 import com.example.broilermonitoring.model.Helper
@@ -46,6 +47,13 @@ class InputHarian : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
+    private fun setEmptyField() {
+        with(binding) {
+            inputPakan.setText("")
+            inputMinum.setText("")
+            inputBobot.setText("")
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -77,6 +85,12 @@ class InputHarian : Fragment() {
                             val responseBody=response.body()
                             val responseData=responseBody?.message
                             Log.e("response",responseData.toString())
+
+                            //Toast Message
+                            Toast.makeText(requireContext(), "Data berhasil dikirim", Toast.LENGTH_SHORT).show()
+
+                            //Clear TextInput
+                            setEmptyField()
                         }
                         else{
                             Log.e("response",response.raw().message)
@@ -88,7 +102,6 @@ class InputHarian : Fragment() {
                         Log.e("Failure",t.message.toString()+t.cause)
                     }
                 })
-
             }
             inputJumlahKematian.setText("0")
             val waktu=resources.getStringArray(R.array.jam)
@@ -154,6 +167,13 @@ class InputHarian : Fragment() {
                                 if (response.isSuccessful){
                                     val responseData=response.body()
                                     Log.i("response",responseData?.message.toString())
+
+                                    //Toast Message
+                                    Toast.makeText(requireContext(), "Data berhasil dikirim", Toast.LENGTH_SHORT).show()
+
+                                    //Set counter jumlah kematian to 0
+                                    inputJumlahKematian.setText("0")
+
                                 }else{
                                     Log.e("response",response.message())
                                 }
