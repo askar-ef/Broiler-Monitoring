@@ -1,5 +1,6 @@
 package com.example.broilermonitoring.Peternak
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 import com.example.broilermonitoring.R
 import com.example.broilermonitoring.databinding.PeternakInputHarianBinding
 import com.example.broilermonitoring.model.Helper
@@ -55,6 +57,26 @@ class InputHarian : Fragment() {
         }
     }
 
+    private fun showConfirmationDialog(){
+        val dialogView = layoutInflater.inflate(R.layout.custom_dialog_inputharian, null)
+        val dialog = AlertDialog.Builder(requireContext())
+            .setView(dialogView)
+            .create()
+
+        val btnCancel = dialogView.findViewById<AppCompatButton>(R.id.btnCancel)
+        val btnSend = dialogView.findViewById<AppCompatButton>(R.id.btnSend)
+
+        btnCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        btnSend.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -67,41 +89,98 @@ class InputHarian : Fragment() {
 
         with(binding){
             btnLapor.setOnClickListener {
-                val pakan=inputPakan.text.toString().toInt()
-                val minum=inputMinum.text.toString().toInt()
-                val bobot=inputBobot.text.toString().toInt()
-//masih percobaan
-                val id_kandang=1
-                val api=ApiService().getInstance()
-                val apiInput=api.create(DataKandangInterface::class.java)
-                val token="Bearer " + Helper(requireContext()).getToken().toString()
-                val inputHarian=apiInput.postData(token,pakan,id_kandang,minum,bobot)
-                inputHarian.enqueue(object :Callback<DataKandangResponse>{
-                    override fun onResponse(
-                        call: Call<DataKandangResponse>,
-                        response: Response<DataKandangResponse>
-                    ) {
-                        if (response.isSuccessful){
-                            val responseBody=response.body()
-                            val responseData=responseBody?.message
-                            Log.e("response",responseData.toString())
 
-                            //Toast Message
-                            Toast.makeText(requireContext(), "Data berhasil dikirim", Toast.LENGTH_SHORT).show()
+                //Inisiasi Dialog
+                val dialogView = layoutInflater.inflate(R.layout.custom_dialog_inputharian, null)
+                val dialog = AlertDialog.Builder(requireContext())
+                    .setView(dialogView)
+                    .create()
 
-                            //Clear TextInput
-                            setEmptyField()
+                val btnCancel = dialogView.findViewById<AppCompatButton>(R.id.btnCancel)
+                val btnSend = dialogView.findViewById<AppCompatButton>(R.id.btnSend)
+
+                btnCancel.setOnClickListener {
+                    dialog.dismiss()
+                }
+
+                btnSend.setOnClickListener {
+                    val pakan=inputPakan.text.toString().toInt()
+                    val minum=inputMinum.text.toString().toInt()
+                    val bobot=inputBobot.text.toString().toInt()
+
+            //masih percobaan
+                    val id_kandang=1
+                    val api=ApiService().getInstance()
+                    val apiInput=api.create(DataKandangInterface::class.java)
+                    val token="Bearer " + Helper(requireContext()).getToken().toString()
+                    val inputHarian=apiInput.postData(token,pakan,id_kandang,minum,bobot)
+                    inputHarian.enqueue(object :Callback<DataKandangResponse>{
+                        override fun onResponse(
+                            call: Call<DataKandangResponse>,
+                            response: Response<DataKandangResponse>
+                        ) {
+                            if (response.isSuccessful){
+                                val responseBody=response.body()
+                                val responseData=responseBody?.message
+                                Log.e("response",responseData.toString())
+
+                                //Toast Message
+                                Toast.makeText(requireContext(), "Data berhasil dikirim", Toast.LENGTH_SHORT).show()
+
+                                //Clear TextInput
+                                setEmptyField()
+                            }
+                            else{
+                                Log.e("response",response.raw().message)
+                                Log.e("token", token)
+                            }
+
                         }
-                        else{
-                            Log.e("response",response.raw().message)
-                            Log.e("token", token)
+                        override fun onFailure(call: Call<DataKandangResponse>, t: Throwable) {
+                            Log.e("Failure",t.message.toString()+t.cause)
                         }
+                    })
+                    dialog.dismiss()
+                }
+                dialog.show()
 
-                    }
-                    override fun onFailure(call: Call<DataKandangResponse>, t: Throwable) {
-                        Log.e("Failure",t.message.toString()+t.cause)
-                    }
-                })
+            //Kode sebelum ada dialog
+
+//                val pakan=inputPakan.text.toString().toInt()
+//                val minum=inputMinum.text.toString().toInt()
+//                val bobot=inputBobot.text.toString().toInt()
+////masih percobaan
+//                val id_kandang=1
+//                val api=ApiService().getInstance()
+//                val apiInput=api.create(DataKandangInterface::class.java)
+//                val token="Bearer " + Helper(requireContext()).getToken().toString()
+//                val inputHarian=apiInput.postData(token,pakan,id_kandang,minum,bobot)
+//                inputHarian.enqueue(object :Callback<DataKandangResponse>{
+//                    override fun onResponse(
+//                        call: Call<DataKandangResponse>,
+//                        response: Response<DataKandangResponse>
+//                    ) {
+//                        if (response.isSuccessful){
+//                            val responseBody=response.body()
+//                            val responseData=responseBody?.message
+//                            Log.e("response",responseData.toString())
+//
+//                            //Toast Message
+//                            Toast.makeText(requireContext(), "Data berhasil dikirim", Toast.LENGTH_SHORT).show()
+//
+//                            //Clear TextInput
+//                            setEmptyField()
+//                        }
+//                        else{
+//                            Log.e("response",response.raw().message)
+//                            Log.e("token", token)
+//                        }
+//
+//                    }
+//                    override fun onFailure(call: Call<DataKandangResponse>, t: Throwable) {
+//                        Log.e("Failure",t.message.toString()+t.cause)
+//                    }
+//                })
             }
             inputJumlahKematian.setText("0")
             val waktu=resources.getStringArray(R.array.jam)
@@ -146,43 +225,100 @@ class InputHarian : Fragment() {
             val apiKematian=api.create(DataKematianInterface::class.java)
 
             btnLaporkanKematian.setOnClickListener {
-                var jamKematianData = binding.spinnerWaktu.selectedItem.toString()
-                jamKematianData = jamKematianData.substring(0, 2)
+                val dialogView = layoutInflater.inflate(R.layout.custom_dialog_inputharian, null)
+                val dialog = AlertDialog.Builder(requireContext())
+                    .setView(dialogView)
+                    .create()
 
-                jumlahKematian = inputJumlahKematian.text.toString().toInt()
-                if(jamKematianData[0] == '0') {
-                    jamKematianData = jamKematianData[1].toString()
-                    jamKematian = Integer.parseInt(jamKematianData)
-                } else{
-                    jamKematian = Integer.parseInt(jamKematianData)
+                val btnCancel = dialogView.findViewById<AppCompatButton>(R.id.btnCancel)
+                val btnSend = dialogView.findViewById<AppCompatButton>(R.id.btnSend)
+
+                btnCancel.setOnClickListener {
+                    dialog.dismiss()
                 }
 
-                if (jamKematian <=23 && jamKematian>=0){
-                    apiKematian.postDataKematian(token,jamKematian,1, jumlahKematian)
-                        .enqueue(object :Callback<DataKematianResponse>{
-                            override fun onResponse(
-                                call: Call<DataKematianResponse>,
-                                response: Response<DataKematianResponse>
-                            ) {
-                                if (response.isSuccessful){
-                                    val responseData=response.body()
-                                    Log.i("response",responseData?.message.toString())
+                btnSend.setOnClickListener {
+                    var jamKematianData = binding.spinnerWaktu.selectedItem.toString()
+                    jamKematianData = jamKematianData.substring(0, 2)
 
-                                    //Toast Message
-                                    Toast.makeText(requireContext(), "Data berhasil dikirim", Toast.LENGTH_SHORT).show()
+                    jumlahKematian = inputJumlahKematian.text.toString().toInt()
+                    if(jamKematianData[0] == '0') {
+                        jamKematianData = jamKematianData[1].toString()
+                        jamKematian = Integer.parseInt(jamKematianData)
+                    } else{
+                        jamKematian = Integer.parseInt(jamKematianData)
+                    }
 
-                                    //Set counter jumlah kematian to 0
-                                    inputJumlahKematian.setText("0")
+                    if (jamKematian <=23 && jamKematian>=0){
+                        apiKematian.postDataKematian(token,jamKematian,1, jumlahKematian)
+                            .enqueue(object :Callback<DataKematianResponse>{
+                                override fun onResponse(
+                                    call: Call<DataKematianResponse>,
+                                    response: Response<DataKematianResponse>
+                                ) {
+                                    if (response.isSuccessful){
+                                        val responseData=response.body()
+                                        Log.i("response",responseData?.message.toString())
 
-                                }else{
-                                    Log.e("response",response.message())
+                                        //Toast Message
+                                        Toast.makeText(requireContext(), "Data berhasil dikirim", Toast.LENGTH_SHORT).show()
+
+                                        //Set counter jumlah kematian to 0
+                                        inputJumlahKematian.setText("0")
+
+                                    }else{
+                                        Log.e("response",response.message())
+                                    }
                                 }
-                            }
-                            override fun onFailure(call: Call<DataKematianResponse>, t: Throwable) {
-                                Log.e("Failure",t.message.toString())
-                            }
-                        })
+                                override fun onFailure(call: Call<DataKematianResponse>, t: Throwable) {
+                                    Log.e("Failure",t.message.toString())
+                                }
+                            })
+                    }
+                    dialog.dismiss()
                 }
+
+                dialog.show()
+
+                //Kode sebelum ada dialog
+
+//                var jamKematianData = binding.spinnerWaktu.selectedItem.toString()
+//                jamKematianData = jamKematianData.substring(0, 2)
+//
+//                jumlahKematian = inputJumlahKematian.text.toString().toInt()
+//                if(jamKematianData[0] == '0') {
+//                    jamKematianData = jamKematianData[1].toString()
+//                    jamKematian = Integer.parseInt(jamKematianData)
+//                } else{
+//                    jamKematian = Integer.parseInt(jamKematianData)
+//                }
+//
+//                if (jamKematian <=23 && jamKematian>=0){
+//                    apiKematian.postDataKematian(token,jamKematian,1, jumlahKematian)
+//                        .enqueue(object :Callback<DataKematianResponse>{
+//                            override fun onResponse(
+//                                call: Call<DataKematianResponse>,
+//                                response: Response<DataKematianResponse>
+//                            ) {
+//                                if (response.isSuccessful){
+//                                    val responseData=response.body()
+//                                    Log.i("response",responseData?.message.toString())
+//
+//                                    //Toast Message
+//                                    Toast.makeText(requireContext(), "Data berhasil dikirim", Toast.LENGTH_SHORT).show()
+//
+//                                    //Set counter jumlah kematian to 0
+//                                    inputJumlahKematian.setText("0")
+//
+//                                }else{
+//                                    Log.e("response",response.message())
+//                                }
+//                            }
+//                            override fun onFailure(call: Call<DataKematianResponse>, t: Throwable) {
+//                                Log.e("Failure",t.message.toString())
+//                            }
+//                        })
+//                }
             }
         }
     }
