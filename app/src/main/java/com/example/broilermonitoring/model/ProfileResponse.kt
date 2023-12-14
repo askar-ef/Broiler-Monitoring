@@ -3,7 +3,6 @@ package com.example.broilermonitoring.model
 import com.google.gson.annotations.SerializedName
 
 data class ProfileResponse(
-
 	@field:SerializedName("data")
 	val data: Profile? = null
 )

@@ -13,7 +13,6 @@ class JobSelect : AppCompatActivity() {
     private lateinit var binding: ActivityJobSelectBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val helper = Helper(this@JobSelect)
         binding= ActivityJobSelectBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -22,11 +21,6 @@ class JobSelect : AppCompatActivity() {
                 val checkedButton = toggle.checkedRadioButtonId
 
                 val helper = Helper(this@JobSelect)
-                val token = helper.getToken()
-
-                if(token?.length!! > 1) {
-                    startActivity(Intent(this@JobSelect, MainPemilik::class.java))
-                }
 
                 //ID Owner 2131362242
                 if (checkedButton == 2131362242){

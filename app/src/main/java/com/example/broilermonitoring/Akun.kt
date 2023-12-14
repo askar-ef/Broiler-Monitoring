@@ -1,6 +1,7 @@
 package com.example.broilermonitoring
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,30 +29,31 @@ private const val ARG_PARAM2 = "param2"
 class Akun : Fragment() {
     private lateinit var binding: FragmentAkunBinding
     private lateinit var token: String
-    private lateinit var user: Profile
+    private var user: Profile = Profile()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
         }
 
         binding = FragmentAkunBinding.inflate(layoutInflater)
-        val view = binding
+        val view = binding.root
 
         val helper = Helper(requireContext())
         token = "Bearer " + helper.getToken().toString()
 
-        fetchData()
-        with(binding) {
-
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentAkunBinding.inflate(inflater)
+
+        //Fetch data
+        fetchData()
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_akun, container, false)
+        return binding.root
     }
 
     private fun fetchData() {
@@ -68,11 +70,19 @@ class Akun : Fragment() {
                 val responseData = response.body()
                 val result = responseData?.data
 
-                user = result!!
+                if(result != null) {
+                    user = result
+
+                    //Tampilin data
+                    binding.fullName.text = user.namaLengkap
+                    binding.name.text = user.namaLengkap
+                    binding.txtPhoneNumber.text = user.noTelepon
+                    binding.txtRole.text = user.status
+                    binding.txtEmail.text = user.email
+                }
             }
 
             override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
-                TODO("Not yet implemented")
             }
 
         })
